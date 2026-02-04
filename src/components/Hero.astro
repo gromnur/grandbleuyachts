@@ -1,0 +1,140 @@
+---
+interface Props {
+  backgroundImage?: string;
+}
+
+const services = [
+  { label: "Management", href: "/management" },
+  { label: "Delivery", href: "/delivery" },
+  { label: "Charter", href: "/charter" },
+];
+---
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1>Experience the Sea</h1>
+        <p>Premium yacht services in the Bahamas and East Coast</p>
+      </div>
+
+      <div class="services-bar">
+        {
+          services.map((service) => (
+            <a href={service.href} class="service-btn">
+              {service.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    width: 100%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl);
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-2xl);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .services-bar {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .service-btn {
+    padding: var(--spacing-md) var(--spacing-2xl);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+  }
+
+  .service-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-text p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      padding: var(--spacing-lg);
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .services-bar {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      width: 100%;
+    }
+
+    .service-btn {
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: 0.875rem;
+      text-align: center;
+    }
+  }
+</style>

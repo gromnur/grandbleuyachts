@@ -1,0 +1,235 @@
+---
+const menuItems = [
+  {
+    label: "Instagram",
+    href: "https://instagram.com/capt.olivier",
+    icon: "instagram",
+  },
+  { label: "Call", href: "tel:+13478138426", icon: "phone" },
+  { label: "Email", href: "mailto:contact@grandbleuyachts.com", icon: "email" },
+];
+---
+
+<header class="header" transition:persist>
+  <nav class="header-nav">
+    <a href="mailto:contact@grandbleuyachts.com" class="header-contact">
+      Contact
+    </a>
+
+    <a href="/" class="header-logo">
+      <img src="/images/logo.png" alt="Grand Bleu Yachts" class="logo-image" />
+    </a>
+
+    <div class="header-menu">
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-icon"></span>
+      </button>
+      <div class="menu-dropdown">
+        {
+          menuItems.map((item) => (
+            <a
+              href={item.href}
+              class="menu-item"
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+            >
+              <span class="menu-item-icon" data-icon={item.icon} />
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    z-index: 100;
+    background: white;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    height: var(--header-height);
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 var(--spacing-xl);
+  }
+
+  .header-contact {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .header-contact:hover {
+    color: var(--color-primary);
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    overflow: hidden;
+    height: 80px;
+  }
+
+  .logo-image {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(1.5);
+  }
+
+  .header-menu {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text-primary);
+    transition: background var(--transition-fast);
+  }
+
+  .menu-icon::before,
+  .menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text-primary);
+    transition: transform var(--transition-fast);
+  }
+
+  .menu-icon::before {
+    top: -7px;
+  }
+
+  .menu-icon::after {
+    top: 7px;
+  }
+
+  .menu-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-normal);
+  }
+
+  .header-menu:hover .menu-dropdown,
+  .menu-toggle[aria-expanded="true"] + .menu-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    transition: background var(--transition-fast);
+  }
+
+  .menu-item:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .menu-item:last-child {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+
+  .menu-item:hover {
+    background: var(--color-bg-primary);
+    color: var(--color-primary);
+  }
+
+  .menu-item-icon {
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .menu-item-icon[data-icon="instagram"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'/%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'/%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'/%3E%3C/svg%3E");
+  }
+
+  .menu-item-icon[data-icon="phone"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  }
+
+  .menu-item-icon[data-icon="email"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpolyline points='22,6 12,13 2,6'/%3E%3C/svg%3E");
+  }
+
+  @media (max-width: 768px) {
+    .header-nav {
+      padding: 0 var(--spacing-md);
+    }
+
+    .header-contact {
+      font-size: 0.75rem;
+    }
+
+    .header-logo {
+      height: 60px;
+    }
+
+    .logo-image {
+      height: 100px;
+      width: auto;
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const menuDropdown = document.querySelector(".menu-dropdown");
+
+  menuToggle?.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      !menuToggle?.contains(e.target as Node) &&
+      !menuDropdown?.contains(e.target as Node)
+    ) {
+      menuToggle?.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>

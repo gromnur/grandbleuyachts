@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout
+  title="Yacht Delivery"
+  description="Professional yacht delivery services across the East Coast and Bahamas with experienced captains."
+  backgroundImage="/images/delivery-bg.jpg"
+  hideFooter={false}
+>
+  <Card
+    title="Yacht Delivery"
+    showBackButton={true}
+    showContactButton={true}
+  >
+    <p>
+      Trust your yacht to experienced hands for safe and efficient delivery.
+      Our seasoned captains navigate the waters of the Bahamas and East Coast with expertise and care.
+    </p>
+
+    <ul>
+      <li>Professional captain and crew services</li>
+      <li>East Coast deliveries from Florida to New England</li>
+      <li>Bahamas crossings and inter-island transfers</li>
+      <li>Detailed voyage planning and weather routing</li>
+      <li>Pre-departure inspection and preparation</li>
+      <li>Real-time tracking and communication</li>
+    </ul>
+
+    <p>
+      Whether you need your yacht relocated for the season or delivered to a new destination,
+      we ensure a smooth journey from departure to arrival.
+    </p>
+  </Card>
+</Layout>

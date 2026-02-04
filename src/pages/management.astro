@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout
+  title="Yacht Management"
+  description="Professional yacht management services for owners seeking peace of mind and exceptional care for their vessels."
+  backgroundImage="/images/management-bg.jpg"
+  hideFooter={false}
+>
+  <Card
+    title="Yacht Management"
+    showBackButton={true}
+    showContactButton={true}
+  >
+    <p>
+      Let us handle every aspect of your yacht ownership while you enjoy the pleasures of the sea.
+      Our comprehensive management services ensure your vessel is always ready for your next adventure.
+    </p>
+
+    <ul>
+      <li>Full operational management and crew coordination</li>
+      <li>Maintenance scheduling and oversight</li>
+      <li>Financial management and reporting</li>
+      <li>Regulatory compliance and documentation</li>
+      <li>Insurance coordination</li>
+      <li>Provisioning and concierge services</li>
+    </ul>
+
+    <p>
+      Based in the Bahamas with extensive experience along the East Coast,
+      we provide personalized attention to every yacht under our care.
+    </p>
+  </Card>
+</Layout>

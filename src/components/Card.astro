@@ -1,0 +1,160 @@
+---
+import BackButton from "./BackButton.astro";
+import ContactButton from "./ContactButton.astro";
+
+interface Props {
+  title?: string;
+  showTitle?: boolean;
+  showBackButton?: boolean;
+  backButtonHref?: string;
+  showContactButton?: boolean;
+  maxWidth?: string;
+  padding?: string;
+  blurAmount?: string;
+  backgroundColor?: string;
+  borderRadius?: string;
+  textColor?: string;
+  textAlign?: "left" | "center" | "right";
+}
+
+const {
+  title,
+  showTitle = true,
+  showBackButton = false,
+  backButtonHref = "/",
+  showContactButton = false,
+  maxWidth = "800px",
+  padding = "var(--spacing-md)",
+  blurAmount = "10px",
+  backgroundColor = "rgba(255, 255, 255, 0.15)",
+  borderRadius = "var(--radius-lg)",
+  textColor = "var(--color-text-light)",
+  textAlign = "center",
+} = Astro.props;
+---
+
+<div class="card-wrapper">
+  <div
+    class="card"
+    style={`
+      --card-max-width: ${maxWidth};
+      --card-padding: ${padding};
+      --card-blur: ${blurAmount};
+      --card-bg: ${backgroundColor};
+      --card-radius: ${borderRadius};
+      --card-color: ${textColor};
+      --card-align: ${textAlign};
+    `}
+  >
+    {showBackButton && (
+      <div class="card-back-button">
+        <BackButton href={backButtonHref} />
+      </div>
+    )}
+    {showTitle && title && <h1>{title}</h1>}
+    <slot />
+    {showContactButton && <ContactButton />}
+  </div>
+</div>
+
+<style>
+  .card-wrapper {
+    position: relative;
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: var(--card-align);
+    color: var(--card-color);
+    max-width: var(--card-max-width);
+    width: 100%;
+    padding: var(--card-padding);
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--card-blur));
+    border-radius: var(--card-radius);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .card-back-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .card h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .card :global(p) {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .card :global(ul) {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .card :global(li) {
+    font-size: 1.125rem;
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .card :global(li)::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+
+  @media (max-width: 768px) {
+    .card-wrapper {
+      padding: var(--spacing-md);
+    }
+
+    .card {
+      padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    .card h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .card :global(p) {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .card :global(li) {
+      font-size: 1rem;
+    }
+
+    .card-back-button :global(.back-button) {
+      font-size: 0.8rem;
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .card-back-button :global(.back-icon) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,136 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  hideFooter?: boolean;
+  backgroundImage?: string;
+}
+
+const {
+  title,
+  description = "Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast.",
+  hideFooter = true,
+  backgroundImage = "/images/hero-yacht.jpg",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grand Bleu Yachts" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <ViewTransitions />
+
+    <title>{title} | Grand Bleu Yachts</title>
+  </head>
+  <body>
+    <Header />
+    <main style={`--bg-image: url(${backgroundImage})`}>
+      <slot />
+    </main>
+    {!hideFooter && <Footer />}
+  </body>
+
+  <style is:global>
+    :root {
+      --header-height: 90px;
+      --footer-height: 90px;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --header-height: 70px;
+        --footer-height: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --header-height: 60px;
+        --footer-height: 60px;
+      }
+    }
+
+    /* View Transitions Customization */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.3s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @media (prefers-reduced-motion) {
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none !important;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    html::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      height: var(--header-height);
+    }
+
+    main {
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center bottom;
+      background-attachment: fixed;
+    }
+
+    footer {
+      min-height: var(--footer-height);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</html>

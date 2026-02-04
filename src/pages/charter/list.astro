@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<Layout
+  title="List Your Yacht"
+  description="Generate income from your yacht by listing it in our charter fleet."
+  backgroundImage="/images/list-bg.png"
+  hideFooter={false}
+>
+  <Card
+    title="List Your Yacht"
+    showBackButton={true}
+    showContactButton={true}
+  >
+    <p>
+      Turn your yacht into a revenue-generating asset. Our charter management program
+      takes care of everything while you benefit from the returns.
+    </p>
+
+    <ul>
+      <li>Professional marketing and booking management</li>
+      <li>Experienced crew placement and training</li>
+      <li>Comprehensive maintenance oversight</li>
+      <li>Guest vetting and quality assurance</li>
+      <li>Transparent financial reporting</li>
+      <li>Flexible owner usage scheduling</li>
+    </ul>
+
+    <p>
+      Join our growing fleet and let us maximize your yacht's potential
+      while maintaining the highest standards of care and service.
+    </p>
+  </Card>
+</Layout>

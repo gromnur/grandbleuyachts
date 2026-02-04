@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<Layout
+  title="Rent a Yacht"
+  description="Charter a luxury yacht for your next adventure in the Bahamas or along the East Coast."
+  backgroundImage="/images/rent-bg.jpg"
+  hideFooter={false}
+>
+  <Card
+    title="Rent a Yacht"
+    showBackButton={true}
+    showContactButton={true}
+  >
+    <p>
+      Embark on an unforgettable journey aboard one of our carefully selected yachts.
+      Whether you're planning a day trip or an extended voyage, we have the perfect vessel for your needs.
+    </p>
+
+    <ul>
+      <li>Day charters and multi-day voyages</li>
+      <li>Crewed or bareboat options available</li>
+      <li>Bahamas island hopping experiences</li>
+      <li>East Coast coastal cruises</li>
+      <li>Custom itinerary planning</li>
+      <li>All-inclusive packages available</li>
+    </ul>
+
+    <p>
+      Our experienced team will help you find the ideal yacht and create
+      a bespoke charter experience tailored to your preferences.
+    </p>
+  </Card>
+</Layout>
