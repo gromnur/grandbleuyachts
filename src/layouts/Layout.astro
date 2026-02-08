@@ -3,14 +3,15 @@ import { ViewTransitions } from "astro:transitions";
 import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Carousel from "../components/Carousel.astro";
 import "../styles/global.css";
-import defaultBg from "../assets/images/hero-yacht.jpg";
+import defaultBg from "../assets/images/front page.JPG";
 
 interface Props {
   title: string;
   description?: string;
   hideFooter?: boolean;
-  backgroundImage?: ImageMetadata;
+  backgroundImage?: ImageMetadata | ImageMetadata[];
 }
 
 const {
@@ -19,6 +20,9 @@ const {
   hideFooter = true,
   backgroundImage = defaultBg,
 } = Astro.props;
+
+const isCarousel = Array.isArray(backgroundImage);
+const images = isCarousel ? backgroundImage : [backgroundImage];
 ---
 
 <!doctype html>
@@ -53,13 +57,19 @@ const {
   <body>
     <Header />
     <main>
-      <Image
-        src={backgroundImage}
-        alt="Background"
-        class="main-bg"
-        loading="eager"
-        quality={80}
-      />
+      {isCarousel ? (
+        <div class="main-bg-carousel">
+          <Carousel images={images} autoplayInterval={5000} />
+        </div>
+      ) : (
+        <Image
+          src={backgroundImage as ImageMetadata}
+          alt="Background"
+          class="main-bg"
+          loading="eager"
+          quality={80}
+        />
+      )}
       <div class="main-content">
         <slot />
       </div>
@@ -143,8 +153,34 @@ const {
       width: 100%;
       height: calc(100vh - var(--header-height));
       object-fit: cover;
-      object-position: center bottom;
+      object-position: center center;
       z-index: -1;
+    }
+
+    .main-bg-carousel {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      height: calc(100vh - var(--header-height));
+      z-index: -1;
+    }
+
+    .main-bg-carousel :global(.carousel) {
+      height: 100%;
+      max-width: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .main-bg-carousel :global(.carousel-container) {
+      height: 100%;
+      aspect-ratio: auto;
+    }
+
+    .main-bg-carousel :global(.carousel-image) {
+      object-position: center center;
     }
 
     .main-content {

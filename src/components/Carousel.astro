@@ -1,0 +1,234 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  images: ImageMetadata[];
+  autoplayInterval?: number;
+}
+
+const { images, autoplayInterval = 5000 } = Astro.props;
+---
+
+<div class="carousel">
+  <div class="carousel-container">
+    {images.map((image, index) => (
+      <div class="carousel-slide" data-active={index === 0}>
+        <Image
+          src={image}
+          alt={`Slide ${index + 1}`}
+          class="carousel-image"
+          quality={90}
+        />
+      </div>
+    ))}
+  </div>
+
+  <button class="carousel-btn carousel-prev" aria-label="Previous slide">
+    <span class="arrow-icon">‹</span>
+  </button>
+
+  <button class="carousel-btn carousel-next" aria-label="Next slide">
+    <span class="arrow-icon">›</span>
+  </button>
+
+  <div class="carousel-dots">
+    {images.map((_, index) => (
+      <button
+        class="carousel-dot"
+        data-active={index === 0}
+        aria-label={`Go to slide ${index + 1}`}
+        data-index={index}
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: var(--spacing-xl) auto;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+  }
+
+  .carousel-slide[data-active="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-primary);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-prev {
+    left: var(--spacing-md);
+  }
+
+  .carousel-next {
+    right: var(--spacing-md);
+  }
+
+  .arrow-icon {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-sm);
+    z-index: 10;
+  }
+
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .carousel-dot[data-active="true"],
+  .carousel-dot:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .arrow-icon {
+      font-size: 1.5rem;
+    }
+
+    .carousel-prev {
+      left: var(--spacing-sm);
+    }
+
+    .carousel-next {
+      right: var(--spacing-sm);
+    }
+  }
+</style>
+
+<script define:vars={{ autoplayInterval }}>
+  const carousel = document.querySelector('.carousel');
+  if (!carousel) throw new Error('Carousel not found');
+
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  const prevBtn = carousel.querySelector('.carousel-prev');
+  const nextBtn = carousel.querySelector('.carousel-next');
+
+  let currentIndex = 0;
+  let autoplayTimer;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.setAttribute('data-active', i === index ? 'true' : 'false');
+    });
+    dots.forEach((dot, i) => {
+      dot.setAttribute('data-active', i === index ? 'true' : 'false');
+    });
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    const newIndex = (currentIndex + 1) % slides.length;
+    showSlide(newIndex);
+  }
+
+  function prevSlide() {
+    const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(newIndex);
+  }
+
+  function startAutoplay() {
+    autoplayTimer = setInterval(nextSlide, autoplayInterval);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayTimer);
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    prevSlide();
+    stopAutoplay();
+    startAutoplay();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    nextSlide();
+    stopAutoplay();
+    startAutoplay();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+
+  // Start autoplay
+  startAutoplay();
+
+  // Pause autoplay when user hovers over carousel
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+</script>

@@ -1,13 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import managementBg from '../assets/images/management-bg.jpg';
+import managementImg1 from '../assets/images/management rotation.png';
+import managementImg2 from '../assets/images/management rotation 2.png';
+import managementImg3 from '../assets/images/management rotation 3.JPG';
+import managementImg4 from '../assets/images/managemnt rotation 4.JPG';
+
+const managementImages = [managementImg1, managementImg2, managementImg3, managementImg4];
 ---
 
 <Layout
   title="Yacht Management"
   description="Professional yacht management services for owners seeking peace of mind and exceptional care for their vessels."
-  backgroundImage={managementBg}
+  backgroundImage={managementImages}
   hideFooter={false}
 >
   <Card
