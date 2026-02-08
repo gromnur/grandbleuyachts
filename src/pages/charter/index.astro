@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
+import charterBg from '../../assets/images/charter-bg.jpg';
 
 const options = [
   {
@@ -19,7 +20,7 @@ const options = [
 <Layout
   title="Charter"
   description="Charter services - rent a yacht for your next adventure or list your yacht for charter."
-  backgroundImage="/images/charter-bg.jpg"
+  backgroundImage={charterBg}
   hideFooter={false}
 >
   <Card
@@ -78,7 +79,7 @@ const options = [
 
   .charter-option h2 {
     font-size: 1.5rem;
-    color: var(--color-primary-dark);
+    color: var(--color-text-primary);
     margin-bottom: var(--spacing-sm);
   }
 

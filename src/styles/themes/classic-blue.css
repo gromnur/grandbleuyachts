@@ -1,7 +1,7 @@
 /* Grand Bleu Yachts - Classic Blue Theme */
 :root {
   /* Primary Colors */
-  --color-primary: #0077b6;
+  --color-primary: #74b9df;
   --color-primary-dark: #023e8a;
 
   /* Background Colors */
@@ -9,9 +9,9 @@
   --color-bg-secondary: #ffffff;
 
   /* Text Colors */
-  --color-text-primary: #03045e;
+  --color-text-primary: #74b9df;
   --color-text-light: #ffffff;
-  --color-text-muted: #6c757d;
+  --color-text-muted: #74b9df;
 
   /* Accent Colors */
   --color-accent: #00b4d8;
@@ -22,11 +22,11 @@
 
   /* Buttons */
   --color-btn-primary-bg: #0077b6;
-  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-text: #74b9df;
   --color-btn-primary-hover: #023e8a;
   --color-btn-secondary-bg: transparent;
-  --color-btn-secondary-text: #0077b6;
-  --color-btn-secondary-border: #0077b6;
+  --color-btn-secondary-text: #74b9df;
+  --color-btn-secondary-border: #74b9df;
   --color-btn-secondary-hover: #0077b6;
 
   /* Borders */

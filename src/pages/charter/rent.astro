@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
+import rentBg from '../../assets/images/rent-bg.jpg';
 ---
 
 <Layout
   title="Rent a Yacht"
   description="Charter a luxury yacht for your next adventure in the Bahamas or along the East Coast."
-  backgroundImage="/images/rent-bg.jpg"
+  backgroundImage={rentBg}
   hideFooter={false}
 >
   <Card

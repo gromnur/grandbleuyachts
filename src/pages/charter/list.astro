@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
+import listBg from '../../assets/images/list-bg.png';
 ---
 
 <Layout
   title="List Your Yacht"
   description="Generate income from your yacht by listing it in our charter fleet."
-  backgroundImage="/images/list-bg.png"
+  backgroundImage={listBg}
   hideFooter={false}
 >
   <Card

@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import managementBg from '../assets/images/management-bg.jpg';
 ---
 
 <Layout
   title="Yacht Management"
   description="Professional yacht management services for owners seeking peace of mind and exceptional care for their vessels."
-  backgroundImage="/images/management-bg.jpg"
+  backgroundImage={managementBg}
   hideFooter={false}
 >
   <Card

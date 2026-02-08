@@ -1,21 +1,23 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import defaultBg from "../assets/images/hero-yacht.jpg";
 
 interface Props {
   title: string;
   description?: string;
   hideFooter?: boolean;
-  backgroundImage?: string;
+  backgroundImage?: ImageMetadata;
 }
 
 const {
   title,
   description = "Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast.",
   hideFooter = true,
-  backgroundImage = "/images/hero-yacht.jpg",
+  backgroundImage = defaultBg,
 } = Astro.props;
 ---
 
@@ -50,8 +52,17 @@ const {
   </head>
   <body>
     <Header />
-    <main style={`--bg-image: url(${backgroundImage})`}>
-      <slot />
+    <main>
+      <Image
+        src={backgroundImage}
+        alt="Background"
+        class="main-bg"
+        loading="eager"
+        quality={80}
+      />
+      <div class="main-content">
+        <slot />
+      </div>
     </main>
     {!hideFooter && <Footer />}
   </body>
@@ -117,14 +128,31 @@ const {
     }
 
     main {
+      position: relative;
       min-height: calc(100vh - var(--header-height));
       display: flex;
       flex-direction: column;
       flex: 1;
-      background-image: var(--bg-image);
-      background-size: cover;
-      background-position: center bottom;
-      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .main-bg {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      height: calc(100vh - var(--header-height));
+      object-fit: cover;
+      object-position: center bottom;
+      z-index: -1;
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     footer {
