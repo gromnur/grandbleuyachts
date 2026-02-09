@@ -12,12 +12,13 @@ const { images, autoplayInterval = 5000 } = Astro.props;
 <div class="carousel">
   <div class="carousel-container">
     {images.map((image, index) => (
-      <div class="carousel-slide" data-active={index === 0}>
+      <div class="slide" data-index={index}>
         <Image
           src={image}
           alt={`Slide ${index + 1}`}
-          class="carousel-image"
+          loading={index === 0 ? 'eager' : 'lazy'}
           quality={90}
+          class="slide-image"
         />
       </div>
     ))}
@@ -35,13 +36,97 @@ const { images, autoplayInterval = 5000 } = Astro.props;
     {images.map((_, index) => (
       <button
         class="carousel-dot"
-        data-active={index === 0}
         aria-label={`Go to slide ${index + 1}`}
         data-index={index}
       />
     ))}
   </div>
 </div>
+
+<script define:vars={{ autoplayInterval }}>
+  class Carousel {
+    constructor() {
+      this.slides = document.querySelectorAll('.slide');
+      this.dots = document.querySelectorAll('.carousel-dot');
+      this.prevBtn = document.querySelector('.carousel-prev');
+      this.nextBtn = document.querySelector('.carousel-next');
+      this.currentIndex = 0;
+      this.autoplayTimer = null;
+
+      this.init();
+    }
+
+    init() {
+      if (this.slides.length === 0) return;
+
+      this.showSlide(0);
+      this.startAutoplay();
+
+      this.prevBtn?.addEventListener('click', () => {
+        this.prevSlide();
+        this.resetAutoplay();
+      });
+
+      this.nextBtn?.addEventListener('click', () => {
+        this.nextSlide();
+        this.resetAutoplay();
+      });
+
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          this.showSlide(index);
+          this.resetAutoplay();
+        });
+      });
+    }
+
+    showSlide(index) {
+      this.slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+
+      this.dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      this.currentIndex = index;
+    }
+
+    nextSlide() {
+      const next = (this.currentIndex + 1) % this.slides.length;
+      this.showSlide(next);
+    }
+
+    prevSlide() {
+      const prev = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+      this.showSlide(prev);
+    }
+
+    startAutoplay() {
+      this.stopAutoplay();
+      this.autoplayTimer = setInterval(() => this.nextSlide(), autoplayInterval);
+    }
+
+    stopAutoplay() {
+      if (this.autoplayTimer) {
+        clearInterval(this.autoplayTimer);
+        this.autoplayTimer = null;
+      }
+    }
+
+    resetAutoplay() {
+      this.stopAutoplay();
+      this.startAutoplay();
+    }
+  }
+
+  // Initialize carousel when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new Carousel());
+  } else {
+    new Carousel();
+  }
+</script>
 
 <style>
   .carousel {
@@ -60,23 +145,25 @@ const { images, autoplayInterval = 5000 } = Astro.props;
     aspect-ratio: 16 / 9;
   }
 
-  .carousel-slide {
+  .slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    pointer-events: none;
+    transition: opacity 1.5s ease-in-out;
   }
 
-  .carousel-slide[data-active="true"] {
+  .slide:first-child {
     opacity: 1;
-    pointer-events: auto;
   }
 
-  .carousel-image {
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide :global(.slide-image) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -139,7 +226,7 @@ const { images, autoplayInterval = 5000 } = Astro.props;
     transition: all var(--transition-fast);
   }
 
-  .carousel-dot[data-active="true"],
+  .carousel-dot.active,
   .carousel-dot:hover {
     background: rgba(255, 255, 255, 1);
     transform: scale(1.2);
@@ -164,71 +251,3 @@ const { images, autoplayInterval = 5000 } = Astro.props;
     }
   }
 </style>
-
-<script define:vars={{ autoplayInterval }}>
-  const carousel = document.querySelector('.carousel');
-  if (!carousel) throw new Error('Carousel not found');
-
-  const slides = carousel.querySelectorAll('.carousel-slide');
-  const dots = carousel.querySelectorAll('.carousel-dot');
-  const prevBtn = carousel.querySelector('.carousel-prev');
-  const nextBtn = carousel.querySelector('.carousel-next');
-
-  let currentIndex = 0;
-  let autoplayTimer;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.setAttribute('data-active', i === index ? 'true' : 'false');
-    });
-    dots.forEach((dot, i) => {
-      dot.setAttribute('data-active', i === index ? 'true' : 'false');
-    });
-    currentIndex = index;
-  }
-
-  function nextSlide() {
-    const newIndex = (currentIndex + 1) % slides.length;
-    showSlide(newIndex);
-  }
-
-  function prevSlide() {
-    const newIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(newIndex);
-  }
-
-  function startAutoplay() {
-    autoplayTimer = setInterval(nextSlide, autoplayInterval);
-  }
-
-  function stopAutoplay() {
-    clearInterval(autoplayTimer);
-  }
-
-  prevBtn?.addEventListener('click', () => {
-    prevSlide();
-    stopAutoplay();
-    startAutoplay();
-  });
-
-  nextBtn?.addEventListener('click', () => {
-    nextSlide();
-    stopAutoplay();
-    startAutoplay();
-  });
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showSlide(index);
-      stopAutoplay();
-      startAutoplay();
-    });
-  });
-
-  // Start autoplay
-  startAutoplay();
-
-  // Pause autoplay when user hovers over carousel
-  carousel.addEventListener('mouseenter', stopAutoplay);
-  carousel.addEventListener('mouseleave', startAutoplay);
-</script>

@@ -24,10 +24,10 @@ const {
   backButtonHref = "/",
   showContactButton = false,
   maxWidth = "800px",
-  padding = "var(--spacing-md)",
-  blurAmount = "10px",
-  backgroundColor = "rgba(255, 255, 255, 0.15)",
-  borderRadius = "var(--radius-lg)",
+  padding = "0",
+  blurAmount = "0",
+  backgroundColor = "transparent",
+  borderRadius = "0",
   textColor = "var(--color-text-light)",
   textAlign = "center",
 } = Astro.props;
@@ -79,9 +79,7 @@ const {
     width: 100%;
     padding: var(--card-padding);
     background: var(--card-bg);
-    backdrop-filter: blur(var(--card-blur));
     border-radius: var(--card-radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .card-back-button {

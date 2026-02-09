@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/images/logo.png";
-
 const menuItems = [
   {
     label: "Instagram",
@@ -20,13 +17,10 @@ const menuItems = [
     </a>
 
     <a href="/" class="header-logo">
-      <Image
-        src={logo}
+      <img
+        src="/src/assets/images/logo.png"
         alt="Grand Bleu Yachts"
         class="logo-image"
-        width={150}
-        height={150}
-        quality={90}
       />
     </a>
 
