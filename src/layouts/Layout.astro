@@ -16,7 +16,7 @@ interface Props {
 const {
   title,
   description = "Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast.",
-  hideFooter = true,
+  hideFooter = false,
   backgroundImage = defaultBg,
 } = Astro.props;
 ---
@@ -122,6 +122,11 @@ const {
     }
 
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
       display: flex;
       flex-direction: column;
       height: var(--header-height);
@@ -129,11 +134,9 @@ const {
 
     main {
       position: relative;
-      min-height: calc(100vh - var(--header-height));
       display: flex;
       flex-direction: column;
       flex: 1;
-      overflow: hidden;
     }
 
     .main-bg {
@@ -153,9 +156,15 @@ const {
       flex: 1;
       display: flex;
       flex-direction: column;
+      padding-bottom: var(--footer-height);
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
       min-height: var(--footer-height);
       display: flex;
       flex-direction: column;
