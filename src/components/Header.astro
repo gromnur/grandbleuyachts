@@ -54,7 +54,10 @@ const menuItems = [
 
 <style>
   .header {
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
     background: white;
     backdrop-filter: blur(10px);
@@ -207,20 +210,25 @@ const menuItems = [
 
   @media (max-width: 768px) {
     .header-nav {
-      padding: 0 var(--spacing-md);
+      padding: 0 var(--spacing-sm);
     }
 
     .header-contact {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
     }
 
     .header-logo {
-      height: 60px;
+      height: 50px;
     }
 
     .logo-image {
-      height: 100px;
+      height: 80px;
       width: auto;
+    }
+
+    .menu-dropdown {
+      right: 0;
+      min-width: 160px;
     }
   }
 </style>
