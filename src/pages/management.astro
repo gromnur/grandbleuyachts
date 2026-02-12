@@ -80,13 +80,14 @@ import managementImg1 from '../assets/images/management rotation.png';
   }
 
   .management-box {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg) var(--spacing-xl);
     text-align: left;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .intro-box {
@@ -96,14 +97,16 @@ import managementImg1 from '../assets/images/management rotation.png';
   .intro-box p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #2c3e50;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     margin: 0;
   }
 
   .management-box h3 {
     font-size: 1.4rem;
     margin-bottom: var(--spacing-md);
-    color: #1a3a5c;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .management-box ul {
@@ -117,7 +120,8 @@ import managementImg1 from '../assets/images/management rotation.png';
     padding: var(--spacing-xs) 0;
     padding-left: var(--spacing-lg);
     position: relative;
-    color: #2c3e50;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     line-height: 1.6;
   }
 
@@ -125,7 +129,7 @@ import managementImg1 from '../assets/images/management rotation.png';
     content: "→";
     position: absolute;
     left: 0;
-    color: #1a3a5c;
+    color: white;
   }
 
   @media (max-width: 768px) {
@@ -145,6 +149,12 @@ import managementImg1 from '../assets/images/management rotation.png';
 
 <style is:global>
   .main-bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
     object-fit: cover !important;
     object-position: center center !important;
   }
