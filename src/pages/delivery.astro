@@ -1,46 +1,170 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import BackButton from '../components/BackButton.astro';
+import ContactButton from '../components/ContactButton.astro';
 import deliveryImage from '../assets/images/d.png';
 ---
 
 <Layout
   title="Yacht Delivery"
   description="Professional yacht delivery services across the East Coast and Bahamas with experienced captains."
-  backgroundImage={deliveryImage}
   hideFooter={false}
 >
-  <Card
-    title="Yacht Delivery"
-    showBackButton={true}
-    showContactButton={true}
-    textColor="#000000"
-  >
-    <p>
-      Trust your yacht to experienced hands for safe and efficient delivery.
-      Our seasoned captains navigate the waters of the Bahamas and East Coast with expertise and care.
-    </p>
+  <div class="delivery-page">
+    <div class="delivery-top">
+      <BackButton href="/" />
+    </div>
 
-    <ul>
-      <li>Professional captain and crew services</li>
-      <li>East Coast deliveries from Florida to New England</li>
-      <li>Bahamas crossings and inter-island transfers</li>
-      <li>Detailed voyage planning and weather routing</li>
-      <li>Pre-departure inspection and preparation</li>
-      <li>Real-time tracking and communication</li>
-    </ul>
+    <h1>Yacht Delivery</h1>
 
-    <p>
+    <div class="delivery-layout">
+      <div class="delivery-col">
+        <h3>Our Services</h3>
+        <ul>
+          <li>Professional captain and crew</li>
+          <li>East Coast deliveries — Florida to New England</li>
+          <li>Bahamas crossings and inter-island transfers</li>
+        </ul>
+      </div>
+
+      <div class="delivery-image">
+        <img src={deliveryImage.src} alt="Beautiful sea view" />
+      </div>
+
+      <div class="delivery-col">
+        <h3>Why Choose Us</h3>
+        <ul>
+          <li>Detailed voyage planning and weather routing</li>
+          <li>Pre-departure inspection and preparation</li>
+          <li>Real-time tracking and communication</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="delivery-tagline">
       Whether you need your yacht relocated for the season or delivered to a new destination,
       we ensure a smooth journey from departure to arrival.
     </p>
-  </Card>
+
+    <ContactButton />
+  </div>
 </Layout>
+
+<style>
+  .delivery-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-light);
+    padding: var(--spacing-xl);
+    min-height: 100%;
+  }
+
+  .delivery-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .delivery-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .delivery-col {
+    flex: 1;
+    text-align: left;
+  }
+
+  .delivery-col h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-accent);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .delivery-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .delivery-col li {
+    font-size: 1.05rem;
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
+  }
+
+  .delivery-col li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .delivery-image {
+    flex: 0 0 auto;
+    max-width: 400px;
+  }
+
+  .delivery-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .delivery-tagline {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .delivery-page {
+      padding: var(--spacing-md);
+    }
+
+    .delivery-layout {
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .delivery-image {
+      max-width: 300px;
+      order: -1;
+    }
+
+    .delivery-col {
+      text-align: left;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+  }
+</style>
 
 <style is:global>
   .main-bg {
-    object-fit: contain !important;
-    object-position: center center !important;
     background-color: #0a1628;
   }
 </style>
