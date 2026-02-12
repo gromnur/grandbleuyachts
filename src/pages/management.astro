@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
+import { Image } from 'astro:assets';
 import managementImg1 from '../assets/images/management rotation.png';
+import managementImg2 from '../assets/images/management rotation 2.png';
+import managementImg3 from '../assets/images/management rotation 3.JPG';
 ---
 
 <Layout
@@ -46,7 +49,58 @@ import managementImg1 from '../assets/images/management rotation.png';
 
     <ContactButton />
   </div>
+
+  <!-- Extra slideshow images (hidden initially, layered behind content) -->
+  <Image
+    src={managementImg2}
+    alt="Yacht management"
+    class="main-bg slideshow-bg"
+    id="slide-2"
+    loading="eager"
+    quality={80}
+  />
+  <Image
+    src={managementImg3}
+    alt="Yacht management"
+    class="main-bg slideshow-bg"
+    id="slide-3"
+    loading="eager"
+    quality={80}
+  />
 </Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const allSlides: HTMLElement[] = [];
+
+    // The first slide is the default .main-bg from Layout (not a slideshow-bg)
+    const firstSlide = document.querySelector('.main-bg:not(.slideshow-bg)') as HTMLElement | null;
+    if (firstSlide) allSlides.push(firstSlide);
+
+    // Additional slides
+    const slide2 = document.getElementById('slide-2') as HTMLElement | null;
+    const slide3 = document.getElementById('slide-3') as HTMLElement | null;
+    if (slide2) allSlides.push(slide2);
+    if (slide3) allSlides.push(slide3);
+
+    if (allSlides.length <= 1) return;
+
+    let current = 0;
+
+    // Initialize: first slide visible, others hidden
+    allSlides.forEach((slide, i) => {
+      slide.style.transition = 'opacity 1.5s ease-in-out';
+      slide.style.opacity = i === 0 ? '1' : '0';
+    });
+
+    setInterval(() => {
+      const prev = current;
+      current = (current + 1) % allSlides.length;
+      allSlides[prev].style.opacity = '0';
+      allSlides[current].style.opacity = '1';
+    }, 5000);
+  });
+</script>
 
 <style>
   .management-page {
@@ -159,5 +213,19 @@ import managementImg1 from '../assets/images/management rotation.png';
     height: auto !important;
     object-fit: cover !important;
     object-position: center center !important;
+  }
+
+  .slideshow-bg {
+    position: fixed !important;
+    top: var(--header-height) !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - var(--header-height)) !important;
+    min-height: auto !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    z-index: -1 !important;
+    opacity: 0;
+    animation: float-vertical 8s ease-in-out infinite;
   }
 </style>
