@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
-import deliveryImage from '../assets/images/delivery cockpit.JPG';
+import deliveryImage from '../assets/images/d.png';
 ---
 
 <Layout
@@ -17,29 +17,6 @@ import deliveryImage from '../assets/images/delivery cockpit.JPG';
     </div>
 
     <h1>Yacht Delivery</h1>
-
-    <div class="delivery-boxes">
-      <div class="delivery-box">
-        <h3>Coverage Area</h3>
-        <ul>
-          <li>East Coast of USA</li>
-          <li>Gulf of Mexico</li>
-          <li>The Bahamas</li>
-          <li>Intracoastal Waterway</li>
-          <li>And more</li>
-        </ul>
-      </div>
-
-      <div class="delivery-box">
-        <h3>We Provide</h3>
-        <ul>
-          <li>Experienced captains and crew</li>
-          <li>Detailed voyage planning and weather routing</li>
-          <li>Pre-departure inspection and preparation</li>
-          <li>Real-time tracking and communication</li>
-        </ul>
-      </div>
-    </div>
 
     <ContactButton />
   </div>
@@ -69,55 +46,9 @@ import deliveryImage from '../assets/images/delivery cockpit.JPG';
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  .delivery-boxes {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .delivery-box {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg) var(--spacing-xl);
-    text-align: center;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .delivery-box h3 {
-    font-size: 1.4rem;
-    margin-bottom: var(--spacing-md);
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
-  .delivery-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .delivery-box li {
-    font-size: 1.05rem;
-    padding: var(--spacing-xs) 0;
-    color: var(--color-text-light);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    line-height: 1.6;
-  }
-
-
   @media (max-width: 768px) {
     .delivery-page {
       padding: var(--spacing-md);
-    }
-
-    .delivery-boxes {
-      max-width: 100%;
     }
 
     h1 {
@@ -128,13 +59,23 @@ import deliveryImage from '../assets/images/delivery cockpit.JPG';
 
 <style is:global>
   .main-bg {
-    position: absolute !important;
-    top: 0 !important;
+    position: fixed !important;
+    top: var(--header-height) !important;
     left: 0 !important;
     width: 100% !important;
-    min-height: 100% !important;
-    height: auto !important;
+    height: calc(100vh - var(--header-height)) !important;
     object-fit: cover !important;
-    object-position: center center !important;
+    object-position: center top !important;
+    z-index: -1 !important;
+    animation: pan-vertical 12s ease-in-out infinite !important;
+  }
+
+  @keyframes pan-vertical {
+    0%, 100% {
+      object-position: center top;
+    }
+    50% {
+      object-position: center bottom;
+    }
   }
 </style>
