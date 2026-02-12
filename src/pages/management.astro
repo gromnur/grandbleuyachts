@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import BackButton from '../components/BackButton.astro';
+import ContactButton from '../components/ContactButton.astro';
 import managementImg1 from '../assets/images/management rotation.png';
 ---
 
@@ -10,28 +11,141 @@ import managementImg1 from '../assets/images/management rotation.png';
   backgroundImage={managementImg1}
   hideFooter={false}
 >
-  <Card
-    title="Yacht Management"
-    showBackButton={true}
-    showContactButton={true}
-  >
-    <p>
-      Let us handle every aspect of your yacht ownership while you enjoy the pleasures of the sea.
-      Our comprehensive management services ensure your vessel is always ready for your next adventure.
-    </p>
+  <div class="management-page">
+    <div class="management-top">
+      <BackButton href="/" />
+    </div>
 
-    <ul>
-      <li>Full operational management and crew coordination</li>
-      <li>Maintenance scheduling and oversight</li>
-      <li>Financial management and reporting</li>
-      <li>Regulatory compliance and documentation</li>
-      <li>Insurance coordination</li>
-      <li>Provisioning and concierge services</li>
-    </ul>
+    <h1>Yacht Management</h1>
 
-    <p>
-      Based in the Bahamas with extensive experience along the East Coast,
-      we provide personalized attention to every yacht under our care.
-    </p>
-  </Card>
+    <div class="management-boxes">
+      <div class="management-box intro-box">
+        <p>
+          Grand Bleu Yachts provides a personalised comprehensive yacht management service
+          to keep your vessel in pristine condition and ready when you need it.
+        </p>
+      </div>
+
+      <div class="management-box">
+        <h3>Our Services</h3>
+        <ul>
+          <li>Regular yacht inspection</li>
+          <li>Engine and cooling monitoring</li>
+          <li>Chartplotter updates</li>
+          <li>Hull cleaning</li>
+          <li>Diver scheduling</li>
+          <li>Management of third party work</li>
+          <li>Delivery or private charter captain or crew</li>
+          <li>Party planning</li>
+          <li>Travel planning</li>
+        </ul>
+      </div>
+    </div>
+
+    <ContactButton />
+  </div>
 </Layout>
+
+<style>
+  .management-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-light);
+    padding: var(--spacing-xl);
+    min-height: 100%;
+  }
+
+  .management-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .management-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .management-box {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    text-align: left;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .intro-box {
+    text-align: center;
+  }
+
+  .intro-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  .management-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-md);
+    color: #1a3a5c;
+  }
+
+  .management-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .management-box li {
+    font-size: 1.05rem;
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+
+  .management-box li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #1a3a5c;
+  }
+
+  @media (max-width: 768px) {
+    .management-page {
+      padding: var(--spacing-md);
+    }
+
+    .management-boxes {
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+  }
+</style>
+
+<style is:global>
+  .main-bg {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+</style>
