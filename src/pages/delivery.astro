@@ -18,8 +18,8 @@ import deliveryImage from '../assets/images/d.png';
 
     <h1>Yacht Delivery</h1>
 
-    <div class="delivery-layout">
-      <div class="delivery-col">
+    <div class="delivery-boxes">
+      <div class="delivery-box">
         <h3>Coverage Area</h3>
         <ul>
           <li>East Coast of USA</li>
@@ -30,7 +30,7 @@ import deliveryImage from '../assets/images/d.png';
         </ul>
       </div>
 
-      <div class="delivery-col">
+      <div class="delivery-box">
         <h3>We Provide</h3>
         <ul>
           <li>Experienced captains and crew</li>
@@ -69,52 +69,51 @@ import deliveryImage from '../assets/images/d.png';
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  .delivery-layout {
+  .delivery-boxes {
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-xxl);
+    flex-direction: column;
+    gap: var(--spacing-lg);
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     margin-bottom: var(--spacing-xl);
   }
 
-  .delivery-col {
-    flex: 1;
-    text-align: left;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+  .delivery-box {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    text-align: left;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   }
 
-  .delivery-col h3 {
+  .delivery-box h3 {
     font-size: 1.4rem;
     margin-bottom: var(--spacing-md);
-    color: var(--color-accent);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: #1a3a5c;
   }
 
-  .delivery-col ul {
+  .delivery-box ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .delivery-col li {
+  .delivery-box li {
     font-size: 1.05rem;
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-xs) 0;
     padding-left: var(--spacing-lg);
     position: relative;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: #2c3e50;
     line-height: 1.6;
   }
 
-  .delivery-col li::before {
+  .delivery-box li::before {
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--color-accent);
+    color: #1a3a5c;
   }
 
   @media (max-width: 768px) {
@@ -122,9 +121,8 @@ import deliveryImage from '../assets/images/d.png';
       padding: var(--spacing-md);
     }
 
-    .delivery-layout {
-      flex-direction: column;
-      gap: var(--spacing-lg);
+    .delivery-boxes {
+      max-width: 100%;
     }
 
     h1 {
