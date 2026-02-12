@@ -14,6 +14,11 @@ const services = [
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
+    <div class="hero-text">
+      <h1>Grand Bleu Yachts</h1>
+      <p>Premium yacht management, delivery & charter services</p>
+    </div>
+
     <div class="hero-container">
       <div class="services-bar">
         {
@@ -32,6 +37,9 @@ const services = [
   .hero {
     position: relative;
     width: 100%;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-overlay {
@@ -43,6 +51,7 @@ const services = [
       rgba(0, 0, 0, 0.1) 50%,
       rgba(0, 0, 0, 0.4) 100%
     );
+    pointer-events: none;
   }
 
   .hero-content {
@@ -50,8 +59,46 @@ const services = [
     z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    flex: 1;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    flex: 1;
+    padding: var(--spacing-lg);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero-text p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.3s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-container {
