@@ -2,80 +2,75 @@
 import Layout from '../layouts/Layout.astro';
 import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
-import deliveryImage from '../assets/images/d.png';
+import { Image } from 'astro:assets';
+import deliveryMap from '../assets/images/d.png';
 ---
 
 <Layout
   title="Yacht Delivery"
   description="Professional yacht delivery services across the East Coast and Bahamas with experienced captains."
-  backgroundImage={deliveryImage}
-  hideFooter={false}
+  hideFooter={true}
 >
   <div class="delivery-page">
     <div class="delivery-top">
       <BackButton href="/" />
     </div>
 
-    <h1>Yacht Delivery</h1>
+    <div class="delivery-map-scroll">
+      <Image src={deliveryMap} alt="Yacht delivery route map" class="delivery-map-img" loading="eager" quality={90} />
+    </div>
 
-    <ContactButton />
+    <div class="delivery-contact-fixed">
+      <ContactButton />
+    </div>
   </div>
 </Layout>
 
 <style>
   .delivery-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: var(--color-text-light);
-    padding: var(--spacing-xl);
+    position: relative;
     min-height: 100%;
   }
 
   .delivery-top {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: var(--spacing-sm);
+    position: fixed;
+    top: calc(var(--header-height) + var(--spacing-md));
+    left: var(--spacing-md);
+    z-index: 10;
   }
 
-  h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: var(--spacing-xl);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  .delivery-map-scroll {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .delivery-map-img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .delivery-contact-fixed {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 10;
   }
 
   @media (max-width: 768px) {
-    .delivery-page {
-      padding: var(--spacing-md);
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+    .delivery-contact-fixed {
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
     }
   }
 </style>
 
 <style is:global>
+  /* Hide the layout default background image on delivery page */
   .main-bg {
-    position: fixed !important;
-    top: var(--header-height) !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: calc(100vh - var(--header-height)) !important;
-    object-fit: cover !important;
-    object-position: center top !important;
-    z-index: -1 !important;
-    animation: pan-vertical 12s ease-in-out infinite !important;
-  }
-
-  @keyframes pan-vertical {
-    0%, 100% {
-      object-position: center top;
-    }
-    50% {
-      object-position: center bottom;
-    }
+    display: none !important;
   }
 </style>
