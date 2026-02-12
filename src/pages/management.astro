@@ -14,6 +14,22 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
   backgroundImage={managementImg1}
   hideFooter={false}
 >
+  <!-- Side-by-side slideshow background -->
+  <div class="slideshow-container" id="slideshow">
+    <div class="slide active" id="slide-0">
+      <Image src={managementImg1} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+      <Image src={managementImg2} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+    </div>
+    <div class="slide" id="slide-1">
+      <Image src={managementImg2} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+      <Image src={managementImg3} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+    </div>
+    <div class="slide" id="slide-2">
+      <Image src={managementImg3} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+      <Image src={managementImg1} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+    </div>
+  </div>
+
   <div class="management-page">
     <div class="management-top">
       <BackButton href="/" />
@@ -49,55 +65,25 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
 
     <ContactButton />
   </div>
-
-  <!-- Extra slideshow images (hidden initially, layered behind content) -->
-  <Image
-    src={managementImg2}
-    alt="Yacht management"
-    class="main-bg slideshow-bg"
-    id="slide-2"
-    loading="eager"
-    quality={80}
-  />
-  <Image
-    src={managementImg3}
-    alt="Yacht management"
-    class="main-bg slideshow-bg"
-    id="slide-3"
-    loading="eager"
-    quality={80}
-  />
 </Layout>
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    const allSlides: HTMLElement[] = [];
-
-    // The first slide is the default .main-bg from Layout (not a slideshow-bg)
-    const firstSlide = document.querySelector('.main-bg:not(.slideshow-bg)') as HTMLElement | null;
-    if (firstSlide) allSlides.push(firstSlide);
-
-    // Additional slides
-    const slide2 = document.getElementById('slide-2') as HTMLElement | null;
-    const slide3 = document.getElementById('slide-3') as HTMLElement | null;
-    if (slide2) allSlides.push(slide2);
-    if (slide3) allSlides.push(slide3);
-
-    if (allSlides.length <= 1) return;
+    const slides = document.querySelectorAll<HTMLElement>('.slide');
+    if (slides.length <= 1) return;
 
     let current = 0;
 
-    // Initialize: first slide visible, others hidden
-    allSlides.forEach((slide, i) => {
+    slides.forEach((slide, i) => {
       slide.style.transition = 'opacity 1.5s ease-in-out';
       slide.style.opacity = i === 0 ? '1' : '0';
     });
 
     setInterval(() => {
       const prev = current;
-      current = (current + 1) % allSlides.length;
-      allSlides[prev].style.opacity = '0';
-      allSlides[current].style.opacity = '1';
+      current = (current + 1) % slides.length;
+      slides[prev].style.opacity = '0';
+      slides[current].style.opacity = '1';
     }, 5000);
   });
 </script>
@@ -204,28 +190,46 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
 </style>
 
 <style is:global>
+  /* Hide the default Layout background image on management page */
   .main-bg {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    min-height: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    object-position: center center !important;
+    display: none !important;
   }
 
-  .slideshow-bg {
-    position: fixed !important;
-    top: var(--header-height) !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: calc(100vh - var(--header-height)) !important;
-    min-height: auto !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-    z-index: -1 !important;
+  .slideshow-container {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 4px;
     opacity: 0;
-    animation: float-vertical 8s ease-in-out infinite;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide-img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (max-width: 768px) {
+    .slide {
+      gap: 2px;
+    }
   }
 </style>
