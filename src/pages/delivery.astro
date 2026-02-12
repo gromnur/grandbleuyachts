@@ -8,6 +8,7 @@ import deliveryImage from '../assets/images/d.png';
 <Layout
   title="Yacht Delivery"
   description="Professional yacht delivery services across the East Coast and Bahamas with experienced captains."
+  backgroundImage={deliveryImage}
   hideFooter={false}
 >
   <div class="delivery-page">
@@ -19,32 +20,26 @@ import deliveryImage from '../assets/images/d.png';
 
     <div class="delivery-layout">
       <div class="delivery-col">
-        <h3>Our Services</h3>
+        <h3>Coverage Area</h3>
         <ul>
-          <li>Professional captain and crew</li>
-          <li>East Coast deliveries — Florida to New England</li>
-          <li>Bahamas crossings and inter-island transfers</li>
+          <li>East Coast of USA</li>
+          <li>Gulf of Mexico</li>
+          <li>The Bahamas</li>
+          <li>Intracoastal Waterway</li>
+          <li>And more</li>
         </ul>
       </div>
 
-      <div class="delivery-image">
-        <img src={deliveryImage.src} alt="Beautiful sea view" />
-      </div>
-
       <div class="delivery-col">
-        <h3>Why Choose Us</h3>
+        <h3>We Provide</h3>
         <ul>
+          <li>Experienced captains and crew</li>
           <li>Detailed voyage planning and weather routing</li>
           <li>Pre-departure inspection and preparation</li>
           <li>Real-time tracking and communication</li>
         </ul>
       </div>
     </div>
-
-    <p class="delivery-tagline">
-      Whether you need your yacht relocated for the season or delivered to a new destination,
-      we ensure a smooth journey from departure to arrival.
-    </p>
 
     <ContactButton />
   </div>
@@ -76,17 +71,21 @@ import deliveryImage from '../assets/images/d.png';
 
   .delivery-layout {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-xxl);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-bottom: var(--spacing-xl);
   }
 
   .delivery-col {
     flex: 1;
     text-align: left;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
   }
 
   .delivery-col h3 {
@@ -118,26 +117,6 @@ import deliveryImage from '../assets/images/d.png';
     color: var(--color-accent);
   }
 
-  .delivery-image {
-    flex: 0 0 auto;
-    max-width: 400px;
-  }
-
-  .delivery-image img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  }
-
-  .delivery-tagline {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    max-width: 700px;
-    margin-bottom: var(--spacing-lg);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
   @media (max-width: 768px) {
     .delivery-page {
       padding: var(--spacing-md);
@@ -148,15 +127,6 @@ import deliveryImage from '../assets/images/d.png';
       gap: var(--spacing-lg);
     }
 
-    .delivery-image {
-      max-width: 300px;
-      order: -1;
-    }
-
-    .delivery-col {
-      text-align: left;
-    }
-
     h1 {
       font-size: clamp(2rem, 5vw, 3rem);
     }
@@ -165,6 +135,7 @@ import deliveryImage from '../assets/images/d.png';
 
 <style is:global>
   .main-bg {
-    background-color: #0a1628;
+    object-fit: cover !important;
+    object-position: center center !important;
   }
 </style>
