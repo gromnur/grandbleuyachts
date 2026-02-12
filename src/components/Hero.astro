@@ -106,7 +106,7 @@ const services = [
     flex-direction: column;
     align-items: center;
     background: var(--color-primary);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-lg);
     width: 100%;
   }
 
@@ -117,7 +117,7 @@ const services = [
   }
 
   .service-btn {
-    padding: var(--spacing-md) var(--spacing-2xl);
+    padding: var(--spacing-sm) var(--spacing-lg);
     background: #ffffff;
     color: var(--color-text-primary);
     font-weight: 600;
@@ -125,6 +125,7 @@ const services = [
     letter-spacing: 0.1em;
     border-radius: var(--radius-md);
     transition: all var(--transition-normal);
+    font-size: 0.85rem;
   }
 
   .service-btn:hover {
@@ -156,14 +157,15 @@ const services = [
 
   @media (max-width: 768px) {
     .services-bar {
-      flex-direction: column;
-      gap: var(--spacing-sm);
+      flex-direction: row;
+      gap: var(--spacing-xs);
       width: 100%;
+      justify-content: center;
     }
 
     .service-btn {
-      padding: var(--spacing-md) var(--spacing-lg);
-      font-size: 0.875rem;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: 0.75rem;
       text-align: center;
     }
   }
