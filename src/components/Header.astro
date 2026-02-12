@@ -207,25 +207,47 @@ const menuItems = [
 
   @media (max-width: 768px) {
     .header-nav {
-      padding: 0 var(--spacing-sm);
+      padding: 0 var(--spacing-xs);
     }
 
     .header-contact {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
     }
 
     .header-logo {
-      height: 50px;
+      height: 35px;
     }
 
     .logo-image {
-      height: 80px;
+      height: 55px;
       width: auto;
+    }
+
+    .menu-toggle {
+      width: 30px;
+      height: 30px;
+    }
+
+    .menu-icon {
+      width: 18px;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      width: 18px;
+    }
+
+    .menu-icon::before {
+      top: -5px;
+    }
+
+    .menu-icon::after {
+      top: 5px;
     }
 
     .menu-dropdown {
       right: 0;
-      min-width: 160px;
+      min-width: 150px;
     }
   }
 </style>
