@@ -43,6 +43,7 @@ const services = [
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
     display: flex;
     flex-direction: column;
+    padding-bottom: 60px;
   }
 
   .hero-content {
@@ -98,12 +99,16 @@ const services = [
   }
 
   .hero-container {
+    position: fixed;
+    bottom: var(--footer-height);
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: var(--color-primary);
     padding: var(--spacing-sm) var(--spacing-lg);
     width: 100%;
+    z-index: 99;
   }
 
   .services-bar {
