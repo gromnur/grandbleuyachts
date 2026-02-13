@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
 import { Image } from 'astro:assets';
-import deliveryCockpit from '../assets/images/delivery cockpit.JPG';
+import deliveryMap from '../assets/images/d.png';
 ---
 
 <Layout
@@ -17,7 +17,7 @@ import deliveryCockpit from '../assets/images/delivery cockpit.JPG';
     </div>
 
     <div class="delivery-img-scroll">
-      <Image src={deliveryCockpit} alt="Yacht cockpit navigation" class="delivery-bg-img" loading="eager" quality={90} />
+      <Image src={deliveryMap} alt="Yacht delivery route map" class="delivery-bg-img" loading="eager" quality={90} />
     </div>
 
     <div class="delivery-contact-fixed">
