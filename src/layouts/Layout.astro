@@ -137,6 +137,7 @@ const {
       display: flex;
       flex-direction: column;
       flex: 1;
+      margin-top: var(--header-height);
     }
 
     .main-bg {
@@ -149,6 +150,12 @@ const {
       object-position: center top;
       z-index: -1;
       animation: float-vertical 8s ease-in-out infinite;
+    }
+
+    @media (max-width: 768px) {
+      .main-bg {
+        animation: none;
+      }
     }
 
     @keyframes float-vertical {

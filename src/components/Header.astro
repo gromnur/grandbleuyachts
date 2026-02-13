@@ -220,20 +220,34 @@ const menuItems = [
 
     .header-contact {
       font-size: 0.8rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
 
     .header-logo {
-      height: 65px;
+      height: 60px;
     }
 
     .logo-image {
-      height: 120px;
+      height: 110px;
       width: auto;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
     }
 
     .menu-dropdown {
       right: 0;
       min-width: 170px;
+    }
+
+    .menu-item {
+      min-height: 48px;
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: 1rem;
     }
   }
 </style>

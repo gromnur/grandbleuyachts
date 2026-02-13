@@ -116,6 +116,29 @@ const options = [
       font-size: 0.8rem;
       margin-bottom: 0;
     }
+
+    .charter-option {
+      min-height: 44px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .charter-options {
+      gap: var(--spacing-sm);
+    }
+
+    .charter-option {
+      min-width: 120px;
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .charter-option h2 {
+      font-size: 1rem;
+    }
+
+    .charter-option p {
+      font-size: 0.75rem;
+    }
   }
 </style>
 
