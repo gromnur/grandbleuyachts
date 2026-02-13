@@ -20,6 +20,18 @@ import deliveryMap from '../assets/images/d.png';
       <Image src={deliveryMap} alt="Yacht delivery route map" class="delivery-bg-img" loading="eager" quality={90} />
     </div>
 
+    <div class="delivery-coverage">
+      <h2>Coverage Area</h2>
+      <ul>
+        <li>East Coast of USA</li>
+        <li>Gulf of Mexico</li>
+        <li>Bahamas</li>
+        <li>Intracoastal Waterway</li>
+        <li>Key West</li>
+        <li>And More</li>
+      </ul>
+    </div>
+
     <div class="delivery-contact-fixed">
       <ContactButton />
     </div>
@@ -60,6 +72,51 @@ import deliveryMap from '../assets/images/d.png';
     z-index: 10;
   }
 
+  .delivery-coverage {
+    position: fixed;
+    left: var(--spacing-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInLeft 1s ease-out;
+  }
+
+  .delivery-coverage h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.02em;
+  }
+
+  .delivery-coverage ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .delivery-coverage li {
+    font-family: var(--font-family-primary);
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateY(-50%) translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+
   .delivery-contact-fixed {
     position: fixed;
     bottom: var(--spacing-lg);
@@ -68,6 +125,34 @@ import deliveryMap from '../assets/images/d.png';
   }
 
   @media (max-width: 768px) {
+    .delivery-coverage {
+      left: var(--spacing-md);
+      top: auto;
+      bottom: 5rem;
+      transform: none;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .delivery-coverage h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .delivery-coverage li {
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .delivery-contact-fixed {
       bottom: var(--spacing-md);
       right: var(--spacing-md);
