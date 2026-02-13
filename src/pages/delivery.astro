@@ -4,6 +4,7 @@ import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
 import { Image } from 'astro:assets';
 import deliveryMap from '../assets/images/d.png';
+import deliveryMapMobile from '../assets/images/d-mobile.png';
 ---
 
 <Layout
@@ -17,7 +18,8 @@ import deliveryMap from '../assets/images/d.png';
     </div>
 
     <div class="delivery-img-scroll">
-      <Image src={deliveryMap} alt="Yacht delivery route map showing coverage area and services" class="delivery-bg-img" loading="eager" quality={90} />
+      <Image src={deliveryMap} alt="Yacht delivery route map showing coverage area and services" class="delivery-bg-img delivery-desktop" loading="eager" quality={90} />
+      <Image src={deliveryMapMobile} alt="Yacht delivery route map showing coverage area and services" class="delivery-bg-img delivery-mobile" loading="eager" quality={90} />
     </div>
 
     <div class="delivery-contact-fixed">
@@ -67,7 +69,17 @@ import deliveryMap from '../assets/images/d.png';
     z-index: 10;
   }
 
+  .delivery-mobile {
+    display: none;
+  }
+
   @media (max-width: 768px) {
+    .delivery-desktop {
+      display: none;
+    }
+    .delivery-mobile {
+      display: block;
+    }
     .delivery-contact-fixed {
       bottom: var(--spacing-md);
       right: var(--spacing-md);
