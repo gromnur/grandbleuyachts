@@ -1,0 +1,275 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BackButton from '../components/BackButton.astro';
+---
+
+<Layout
+  title="Contact Us"
+  description="Get in touch with Grand Bleu Yachts for yacht delivery, management, and charter services."
+  hideFooter={true}
+>
+  <div class="contact-page">
+    <div class="contact-top">
+      <BackButton />
+    </div>
+
+    <div class="form-container">
+      <h1 class="form-title">Get in Touch</h1>
+      <p class="form-subtitle">Tell us about your yacht needs and we'll get back to you shortly.</p>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="John" />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Doe" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+1 (347) 000-0000" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="boatMake">Boat Make</label>
+            <input type="text" id="boatMake" name="boatMake" placeholder="e.g. Azimut, Sunseeker" />
+          </div>
+          <div class="form-group">
+            <label for="boatLength">Boat Length</label>
+            <input type="text" id="boatLength" name="boatLength" placeholder="e.g. 50ft" />
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="description">Brief Description of Inquiry</label>
+          <textarea id="description" name="description" rows="4" required placeholder="Tell us how we can help you..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+
+      <div class="success-message" id="successMessage">
+        <div class="success-icon">&#10003;</div>
+        <h2>Thank You!</h2>
+        <p>Your inquiry has been sent. We'll get back to you shortly.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .contact-page {
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    padding-top: calc(var(--header-height) + var(--spacing-xl));
+  }
+
+  .contact-top {
+    position: fixed;
+    top: calc(var(--header-height) + var(--spacing-md));
+    left: var(--spacing-md);
+    z-index: 10;
+  }
+
+  .form-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    max-width: 640px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .form-title {
+    font-family: var(--font-family-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin: 0 0 var(--spacing-sm) 0;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 var(--spacing-xl) 0;
+    font-size: 0.95rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  input,
+  textarea {
+    padding: var(--spacing-md);
+    border: 1.5px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-primary);
+    font-size: 0.95rem;
+    color: #333;
+    background: #fff;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    outline: none;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #aaa;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .submit-btn {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-btn-primary-bg);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+
+  .submit-btn:hover {
+    background: var(--color-btn-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .success-message.visible {
+    display: block;
+  }
+
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .success-message h2 {
+    font-family: var(--font-family-heading);
+    color: var(--color-primary-dark);
+    margin: 0 0 var(--spacing-sm) 0;
+  }
+
+  .success-message p {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .form-container {
+      padding: var(--spacing-lg);
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+    }
+
+    .contact-page {
+      padding: var(--spacing-md);
+      padding-top: calc(var(--header-height) + var(--spacing-lg));
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const successMessage = document.getElementById('successMessage')!;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const boatMake = formData.get('boatMake') || 'N/A';
+    const boatLength = formData.get('boatLength') || 'N/A';
+    const description = formData.get('description');
+
+    const subject = encodeURIComponent(`Inquiry from ${firstName} ${lastName}`);
+    const body = encodeURIComponent(
+      `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nBoat Make: ${boatMake}\nBoat Length: ${boatLength}\n\nDescription:\n${description}`
+    );
+
+    window.location.href = `mailto:contact@grandbleuyachts.com?subject=${subject}&body=${body}`;
+
+    form.style.display = 'none';
+    successMessage.classList.add('visible');
+  });
+</script>

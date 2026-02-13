@@ -1,37 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import deliveryImage from '../assets/images/d.png';
+import BackButton from '../components/BackButton.astro';
+import ContactButton from '../components/ContactButton.astro';
+import { Image } from 'astro:assets';
+import deliveryMap from '../assets/images/d.png';
 ---
 
 <Layout
   title="Yacht Delivery"
   description="Professional yacht delivery services across the East Coast and Bahamas with experienced captains."
-  backgroundImage={deliveryImage}
-  hideFooter={false}
+  hideFooter={true}
 >
-  <Card
-    title="Yacht Delivery"
-    showBackButton={true}
-    showContactButton={true}
-  >
-    <p>
-      Trust your yacht to experienced hands for safe and efficient delivery.
-      Our seasoned captains navigate the waters of the Bahamas and East Coast with expertise and care.
-    </p>
+  <div class="delivery-page">
+    <div class="delivery-top">
+      <BackButton href="/" />
+    </div>
 
-    <ul>
-      <li>Professional captain and crew services</li>
-      <li>East Coast deliveries from Florida to New England</li>
-      <li>Bahamas crossings and inter-island transfers</li>
-      <li>Detailed voyage planning and weather routing</li>
-      <li>Pre-departure inspection and preparation</li>
-      <li>Real-time tracking and communication</li>
-    </ul>
+    <div class="delivery-img-scroll">
+      <Image src={deliveryMap} alt="Yacht delivery route map showing coverage area and services" class="delivery-bg-img" loading="eager" quality={90} />
+    </div>
 
-    <p>
-      Whether you need your yacht relocated for the season or delivered to a new destination,
-      we ensure a smooth journey from departure to arrival.
-    </p>
-  </Card>
+    <div class="delivery-contact-fixed">
+      <ContactButton />
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .delivery-page {
+    position: relative;
+    min-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .delivery-img-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .delivery-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    min-height: 100dvh;
+  }
+
+  .delivery-top {
+    position: fixed;
+    top: calc(var(--header-height) + var(--spacing-md));
+    left: var(--spacing-md);
+    z-index: 10;
+  }
+
+  .delivery-contact-fixed {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 10;
+  }
+
+  @media (max-width: 768px) {
+    .delivery-contact-fixed {
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
+    }
+  }
+</style>
+
+<style is:global>
+  /* Hide the layout default background image on delivery page */
+  .main-bg {
+    display: none !important;
+  }
+</style>
