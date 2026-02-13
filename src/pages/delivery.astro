@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
 import { Image } from 'astro:assets';
-import deliveryMap from '../assets/images/d.png';
+import deliveryCockpit from '../assets/images/delivery cockpit.JPG';
 ---
 
 <Layout
@@ -16,7 +16,9 @@ import deliveryMap from '../assets/images/d.png';
       <BackButton href="/" />
     </div>
 
-    <Image src={deliveryMap} alt="Yacht delivery route map" class="delivery-bg-img" loading="eager" quality={90} />
+    <div class="delivery-img-scroll">
+      <Image src={deliveryCockpit} alt="Yacht cockpit navigation" class="delivery-bg-img" loading="eager" quality={90} />
+    </div>
 
     <div class="delivery-contact-fixed">
       <ContactButton />
@@ -31,15 +33,24 @@ import deliveryMap from '../assets/images/d.png';
     overflow: hidden;
   }
 
-  .delivery-bg-img {
+  .delivery-img-scroll {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100dvh;
-    object-fit: cover;
-    object-position: center top;
+    overflow-y: auto;
+    overflow-x: hidden;
     z-index: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .delivery-bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    min-height: 100dvh;
   }
 
   .delivery-top {
