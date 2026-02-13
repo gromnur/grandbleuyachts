@@ -16,9 +16,7 @@ import deliveryMap from '../assets/images/d.png';
       <BackButton href="/" />
     </div>
 
-    <div class="delivery-map-scroll">
-      <Image src={deliveryMap} alt="Yacht delivery route map" class="delivery-map-img" loading="eager" quality={90} />
-    </div>
+    <Image src={deliveryMap} alt="Yacht delivery route map" class="delivery-bg-img" loading="eager" quality={90} />
 
     <div class="delivery-contact-fixed">
       <ContactButton />
@@ -29,7 +27,19 @@ import deliveryMap from '../assets/images/d.png';
 <style>
   .delivery-page {
     position: relative;
-    min-height: 100%;
+    min-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .delivery-bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
   }
 
   .delivery-top {
@@ -37,20 +47,6 @@ import deliveryMap from '../assets/images/d.png';
     top: calc(var(--header-height) + var(--spacing-md));
     left: var(--spacing-md);
     z-index: 10;
-  }
-
-  .delivery-map-scroll {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .delivery-map-img {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
   }
 
   .delivery-contact-fixed {
