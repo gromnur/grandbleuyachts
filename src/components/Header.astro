@@ -15,7 +15,7 @@ const menuItems = [
 
 <header class="header" transition:persist>
   <nav class="header-nav">
-    <a href="mailto:contact@grandbleuyachts.com" class="header-contact">
+    <a href="mailto:contact@grandbleuyachts.com" class="primary-btn header-contact">
       Contact
     </a>
 
@@ -56,7 +56,7 @@ const menuItems = [
   .header {
     position: sticky;
     z-index: 100;
-    background: white;
+    background: var(--white);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
     height: var(--header-height);
@@ -72,15 +72,7 @@ const menuItems = [
 
   .header-contact {
     font-size: 0.875rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-primary);
-    transition: color var(--transition-fast);
-  }
-
-  .header-contact:hover {
-    color: var(--color-primary);
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
   .header-logo {
@@ -147,7 +139,7 @@ const menuItems = [
     top: 100%;
     right: 0;
     min-width: 180px;
-    background: white;
+    background: var(--white);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     opacity: 0;
@@ -207,19 +199,13 @@ const menuItems = [
   }
 
   @media (max-width: 768px) {
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-    }
-
     .header-nav {
       padding: 0 var(--spacing-md);
     }
 
     .header-contact {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      padding: var(--spacing-xs) var(--spacing-sm);
     }
 
     .header-logo {

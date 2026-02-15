@@ -29,7 +29,8 @@ const contactInfo = {
   .footer {
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
-    padding: var(--spacing-xl) var(--spacing-md);
+    min-height: var(--footer-height);
+    padding: var(--spacing-sm) var(--spacing-md);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +43,7 @@ const contactInfo = {
     gap: var(--spacing-2xl);
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    width: 100%;
   }
 
   .footer-item {
@@ -53,6 +54,7 @@ const contactInfo = {
     font-size: 0.9rem;
     opacity: 0.9;
     transition: opacity var(--transition-fast);
+    white-space: nowrap;
   }
 
   .footer-item:hover {
@@ -62,6 +64,7 @@ const contactInfo = {
   .footer-icon {
     width: 20px;
     height: 20px;
+    flex-shrink: 0;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -81,9 +84,35 @@ const contactInfo = {
   }
 
   @media (max-width: 768px) {
+    .footer {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
     .footer-content {
-      flex-direction: column;
-      gap: var(--spacing-md);
+      gap: var(--spacing-lg);
+    }
+
+    .footer-item {
+      font-size: 0.75rem;
+    }
+
+    .footer-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-content {
+      gap: var(--spacing-sm);
+    }
+
+    .footer-item {
+      font-size: 0.7rem;
+    }
+
+    .footer-item span:not(.footer-icon) {
+      display: none;
     }
   }
 </style>

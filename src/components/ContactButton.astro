@@ -1,35 +1,12 @@
 ---
 ---
 
-<a href="/contact" class="contact-button">
+<a href="/contact" class="primary-btn">
   <span>Get in Touch</span>
   <span class="contact-icon"></span>
 </a>
 
 <style>
-  .contact-button {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-md);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--color-text-primary);
-    border: none;
-    text-decoration: none;
-  }
-
-  .contact-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
   .contact-icon {
     width: 18px;
     height: 18px;
@@ -39,7 +16,7 @@
     transition: transform var(--transition-fast);
   }
 
-  .contact-button:hover .contact-icon {
+  .primary-btn:hover .contact-icon {
     transform: translateX(3px);
   }
 </style>

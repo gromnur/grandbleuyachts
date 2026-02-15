@@ -11,6 +11,7 @@ interface Props {
   description?: string;
   hideFooter?: boolean;
   backgroundImage?: ImageMetadata;
+  centerImage?: boolean;
 }
 
 const {
@@ -18,6 +19,7 @@ const {
   description = "Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast.",
   hideFooter = false,
   backgroundImage = defaultBg,
+  centerImage = false,
 } = Astro.props;
 ---
 
@@ -56,7 +58,7 @@ const {
       <Image
         src={backgroundImage}
         alt="Background"
-        class="main-bg"
+        class={`main-bg ${centerImage ? 'centered' : ''}`}
         loading="eager"
         quality={80}
       />
@@ -101,7 +103,7 @@ const {
     }
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
       left: 0;
       width: 100%;
@@ -120,23 +122,63 @@ const {
 
     .main-bg {
       position: fixed;
-      top: var(--header-height);
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: calc(100vh - var(--header-height));
+      height: calc(100vh + 55px);
       object-fit: cover;
-      object-position: center top;
+      object-position: center bottom;
       z-index: -1;
-      animation: float-vertical 8s ease-in-out infinite;
+      animation: float-vertical 12s ease-in-out infinite;
     }
 
     @keyframes float-vertical {
       0%,
       100% {
-        transform: translateY(0) scale(1.05);
+        transform: translateY(0);
       }
       50% {
-        transform: translateY(-20px) scale(1.05);
+        transform: translateY(55px);
+      }
+    }
+
+    .main-bg.centered {
+      object-position: center center;
+    }
+
+    @media (max-width: 768px) {
+      .main-bg {
+        height: calc(100vh + 75px);
+      }
+
+      .main-bg.centered {
+        object-position: calc(50% - 150px) center;
+      }
+
+      @keyframes float-vertical {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(75px);
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-bg {
+        height: calc(100vh + 70px);
+      }
+
+      @keyframes float-vertical {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(70px);
+        }
       }
     }
 
@@ -146,13 +188,9 @@ const {
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding-bottom: var(--footer-height);
     }
 
     footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
       width: 100%;
       z-index: 100;
       min-height: var(--footer-height);
