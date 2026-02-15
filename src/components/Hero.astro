@@ -28,7 +28,7 @@ const services = [
       <div class="services-bar">
         {
           services.map((service) => (
-            <a href={service.href} class="service-btn">
+            <a href={service.href} class="primary-btn">
               {service.label}
             </a>
           ))
@@ -126,23 +126,6 @@ const services = [
     gap: var(--spacing-md);
   }
 
-  .service-btn {
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: #ffffff;
-    color: var(--color-text-primary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: var(--radius-md);
-    transition: all var(--transition-normal);
-    font-size: 1rem;
-  }
-
-  .service-btn:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
 
   .hero-text {
     display: flex;
@@ -174,7 +157,7 @@ const services = [
       justify-content: center;
     }
 
-    .service-btn {
+    .primary-btn {
       padding: var(--spacing-sm) var(--spacing-md);
       font-size: 0.85rem;
       text-align: center;

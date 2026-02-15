@@ -2,52 +2,78 @@
 
 /* Design Tokens */
 :root {
-  /* Layout Dimensions */
+  /* ========================================
+     BASE COLORS (Palette de base)
+     ======================================== */
+  --blue-light: #74b9df;
+  --blue-medium: #0077b6;
+  --blue-dark: #023e8a;
+  --blue-sky: #caf0f8;
+  --blue-accent: #00b4d8;
+  --white: #ffffff;
+
+  /* ========================================
+     LAYOUT DIMENSIONS
+     ======================================== */
   --header-height: 90px;
   --footer-height: 55px;
 
+  /* ========================================
+     SEMANTIC COLORS (Couleurs sémantiques)
+     ======================================== */
   /* Primary Colors */
-  --color-primary: #74b9df;
-  --color-primary-dark: #023e8a;
+  --color-primary: var(--blue-light);
+  --color-primary-dark: var(--blue-dark);
 
   /* Background Colors */
-  --color-bg-primary: #caf0f8;
-  --color-bg-secondary: #ffffff;
+  --color-bg-primary: var(--blue-sky);
+  --color-bg-secondary: var(--white);
 
   /* Text Colors */
-  --color-text-primary: #74b9df;
-  --color-text-light: #ffffff;
-  --color-text-muted: #74b9df;
+  --color-text-primary: var(--blue-light);
+  --color-text-light: var(--white);
+  --color-text-muted: var(--blue-light);
 
   /* Accent Colors */
-  --color-accent: #00b4d8;
+  --color-accent: var(--blue-accent);
 
-  /* Footer - Basé sur les couleurs du logo */
-  --color-footer-bg: #023e8a;
-  --color-footer-text: #ffffff;
+  /* Footer */
+  --color-footer-bg: var(--blue-dark);
+  --color-footer-text: var(--white);
 
   /* Buttons */
-  --color-btn-primary-bg: #0077b6;
-  --color-btn-primary-text: #74b9df;
-  --color-btn-primary-hover: #023e8a;
-  --color-btn-secondary-bg: transparent;
-  --color-btn-secondary-text: #74b9df;
-  --color-btn-secondary-border: #74b9df;
-  --color-btn-secondary-hover: #0077b6;
+  /* Primary - service-btn (white bg, blue text) */
+  --color-btn-primary-bg: var(--white);
+  --color-btn-primary-text: var(--blue-light);
+
+  /* Secondary - back-button (blue bg) */
+  --color-btn-secondary-bg: var(--blue-light);
+  --color-btn-secondary-text: var(--white);
+  --color-btn-secondary-border: rgba(255, 255, 255, 0.3);
+  --color-btn-secondary-hover: var(--blue-medium);
+
+  /* Action - submit-btn (blue bg, white text) */
+  --color-btn-action-bg: var(--blue-medium);
+  --color-btn-action-text: var(--white);
+  --color-btn-action-hover: var(--blue-dark);
 
   /* Borders */
-  --color-border-light: #caf0f8;
+  --color-border-light: var(--blue-sky);
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(3, 4, 94, 0.1);
   --shadow-md: 0 4px 6px rgba(3, 4, 94, 0.15);
   --shadow-lg: 0 10px 15px rgba(3, 4, 94, 0.2);
 
-  /* Typography */
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
   --font-family-primary: 'Inter', 'Helvetica Neue', sans-serif;
   --font-family-heading: 'Playfair Display', Georgia, serif;
 
-  /* Spacing */
+  /* ========================================
+     SPACING
+     ======================================== */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -55,13 +81,17 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
 
-  /* Border Radius */
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-full: 9999px;
 
-  /* Transitions */
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
   --transition-slow: 500ms ease;
@@ -153,49 +183,71 @@ ul, ol {
 }
 
 /* Button Styles */
-.btn {
+
+/* Primary buttons (white bg, blue text) */
+.primary-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.btn-primary {
   background-color: var(--color-btn-primary-bg);
   color: var(--color-btn-primary-text);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-normal);
 }
 
-.btn-primary:hover {
-  background-color: var(--color-btn-primary-hover);
+.primary-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.btn-secondary {
+/* Secondary buttons (blue bg) */
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--color-btn-secondary-bg);
   color: var(--color-btn-secondary-text);
+  font-size: 0.9rem;
+  font-weight: 600;
   border: 2px solid var(--color-btn-secondary-border);
+  transition: all var(--transition-fast);
 }
 
-.btn-secondary:hover {
+.secondary-btn:hover {
   background-color: var(--color-btn-secondary-hover);
-  color: var(--color-text-light);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-.btn-light {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: var(--color-primary);
+/* Action buttons (blue bg, white text) */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--color-btn-action-bg);
+  color: var(--color-btn-action-text);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-normal);
 }
 
-.btn-light:hover {
-  background-color: #ffffff;
+.action-btn:hover {
+  background-color: var(--color-btn-action-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }

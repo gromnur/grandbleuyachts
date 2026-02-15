@@ -6,31 +6,19 @@ interface Props {
 const { href = '/' } = Astro.props;
 ---
 
-<a href={href} class="back-button" aria-label="Go back">
+<a href={href} class="secondary-btn" aria-label="Go back">
   <span class="back-icon"></span>
   <span class="back-text">Back</span>
 </a>
 
 <style>
-  .back-button {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    background: var(--color-text-primary);
+  .secondary-btn {
     border-radius: var(--radius-full);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3);
-    transition: all var(--transition-fast);
   }
 
-  .back-button:hover {
-    background: var(--color-primary);
-    border-color: rgba(255, 255, 255, 0.5);
+  .secondary-btn:hover {
     box-shadow: 0 4px 12px rgba(0, 119, 182, 0.5);
     transform: translateX(-4px);
   }

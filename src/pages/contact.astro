@@ -56,7 +56,7 @@ import BackButton from '../components/BackButton.astro';
           <textarea id="description" name="description" rows="4" required placeholder="Tell us how we can help you..."></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">Send Inquiry</button>
+        <button type="submit" class="action-btn">Send Inquiry</button>
       </form>
 
       <div class="success-message" id="successMessage">
@@ -170,26 +170,8 @@ import BackButton from '../components/BackButton.astro';
     min-height: 100px;
   }
 
-  .submit-btn {
+  .action-btn {
     margin-top: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--color-btn-primary-bg);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-md);
-    font-family: var(--font-family-primary);
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-  }
-
-  .submit-btn:hover {
-    background: var(--color-btn-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
   }
 
   .success-message {
