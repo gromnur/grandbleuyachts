@@ -65,28 +65,7 @@ const {
       </div>
     </main>
     {!hideFooter && <Footer />}
-  </body>
-
-  <style is:global>
-    :root {
-      --header-height: 90px;
-      --footer-height: 90px;
-    }
-
-    @media (max-width: 768px) {
-      :root {
-        --header-height: 75px;
-        --footer-height: 80px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      :root {
-        --header-height: 70px;
-        --footer-height: 75px;
-      }
-    }
-
+  </body><style is:global>
     /* View Transitions Customization */
     ::view-transition-old(root),
     ::view-transition-new(root) {
@@ -152,7 +131,8 @@ const {
     }
 
     @keyframes float-vertical {
-      0%, 100% {
+      0%,
+      100% {
         transform: translateY(0) scale(1.05);
       }
       50% {
