@@ -30,54 +30,56 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
     </div>
   </div>
 
-  <div class="management-page">
-    <div class="management-top">
-      <BackButton href="/" />
+  <div class="management-wrapper">
+    <div class="management-page">
+      <div class="management-top">
+        <BackButton href="/" />
+      </div>
+
+      <h1>Yacht Management</h1>
+
+      <div class="management-boxes">
+        <div class="management-box intro-box">
+          <p>
+            At Grand Bleu Yachts, we offer a personalized and comprehensive yacht management service designed to keep your vessel in immaculate condition — ready to set sail whenever you are.
+          </p>
+          <p>
+            Our experienced team ensures every detail is handled with precision, care, and discretion, allowing you to simply enjoy the pleasures of yachting without the stress of maintenance or logistics.
+          </p>
+        </div>
+
+        <div class="management-box">
+          <h3>Our Services</h3>
+          <ul>
+            <li>Regular yacht inspections</li>
+            <li>Engine and cooling system monitoring</li>
+            <li>Chartplotter and navigation updates</li>
+            <li>Professional hull cleaning</li>
+            <li>Diver scheduling and coordination</li>
+            <li>Oversight of third-party maintenance and repairs</li>
+            <li>Captain and crew for delivery or private charters</li>
+            <li>Exclusive event and party planning</li>
+            <li>Bespoke travel itineraries</li>
+          </ul>
+        </div>
+
+        <div class="management-box">
+          <h3>Dock Side Care</h3>
+          <ul>
+            <li>Routine dock line and fender inspections</li>
+            <li>Shore power and battery monitoring</li>
+            <li>Bilge pump checks and water intrusion prevention</li>
+            <li>Air conditioning and dehumidifier management</li>
+            <li>Exterior wash-downs and teak maintenance</li>
+            <li>Canvas and upholstery care</li>
+            <li>Coordination with marina staff and dock masters</li>
+            <li>Storm preparation and post-weather assessments</li>
+          </ul>
+        </div>
+      </div>
+
+      <ContactButton />
     </div>
-
-    <h1>Yacht Management</h1>
-
-    <div class="management-boxes">
-      <div class="management-box intro-box">
-        <p>
-          At Grand Bleu Yachts, we offer a personalized and comprehensive yacht management service designed to keep your vessel in immaculate condition — ready to set sail whenever you are.
-        </p>
-        <p>
-          Our experienced team ensures every detail is handled with precision, care, and discretion, allowing you to simply enjoy the pleasures of yachting without the stress of maintenance or logistics.
-        </p>
-      </div>
-
-      <div class="management-box">
-        <h3>Our Services</h3>
-        <ul>
-          <li>Regular yacht inspections</li>
-          <li>Engine and cooling system monitoring</li>
-          <li>Chartplotter and navigation updates</li>
-          <li>Professional hull cleaning</li>
-          <li>Diver scheduling and coordination</li>
-          <li>Oversight of third-party maintenance and repairs</li>
-          <li>Captain and crew for delivery or private charters</li>
-          <li>Exclusive event and party planning</li>
-          <li>Bespoke travel itineraries</li>
-        </ul>
-      </div>
-
-      <div class="management-box">
-        <h3>Dock Side Care</h3>
-        <ul>
-          <li>Routine dock line and fender inspections</li>
-          <li>Shore power and battery monitoring</li>
-          <li>Bilge pump checks and water intrusion prevention</li>
-          <li>Air conditioning and dehumidifier management</li>
-          <li>Exterior wash-downs and teak maintenance</li>
-          <li>Canvas and upholstery care</li>
-          <li>Coordination with marina staff and dock masters</li>
-          <li>Storm preparation and post-weather assessments</li>
-        </ul>
-      </div>
-    </div>
-
-    <ContactButton />
   </div>
 </Layout>
 
@@ -103,6 +105,15 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
 </script>
 
 <style>
+  .management-wrapper {
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+  }
+
   .management-page {
     display: flex;
     flex-direction: column;
@@ -110,7 +121,8 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
     text-align: center;
     color: var(--color-text-light);
     padding: var(--spacing-xl);
-    min-height: 100%;
+    width: 100%;
+    max-width: 800px;
   }
 
   .management-top {
@@ -189,6 +201,10 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
   }
 
   @media (max-width: 768px) {
+    .management-wrapper {
+      padding: var(--spacing-md);
+    }
+
     .management-page {
       padding: var(--spacing-md);
     }

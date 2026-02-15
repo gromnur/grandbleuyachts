@@ -118,14 +118,15 @@ const {
       display: flex;
       flex-direction: column;
       flex: 1;
+      padding-bottom: var(--footer-height);
     }
 
     .main-bg {
       position: fixed;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
-      height: calc(100vh + 55px);
+      height: calc(100vh - var(--footer-height));
       object-fit: cover;
       object-position: center bottom;
       z-index: -1;
@@ -133,12 +134,11 @@ const {
     }
 
     @keyframes float-vertical {
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(0);
       }
       50% {
-        transform: translateY(55px);
+        transform: translateY(var(--footer-height));
       }
     }
 
@@ -147,38 +147,8 @@ const {
     }
 
     @media (max-width: 768px) {
-      .main-bg {
-        height: calc(100vh + 75px);
-      }
-
       .main-bg.centered {
         object-position: calc(50% - 150px) center;
-      }
-
-      @keyframes float-vertical {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(75px);
-        }
-      }
-    }
-
-    @media (max-width: 480px) {
-      .main-bg {
-        height: calc(100vh + 70px);
-      }
-
-      @keyframes float-vertical {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(70px);
-        }
       }
     }
 
@@ -191,9 +161,12 @@ const {
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
       width: 100%;
       z-index: 100;
-      min-height: var(--footer-height);
+      height: var(--footer-height);
       display: flex;
       flex-direction: column;
     }
