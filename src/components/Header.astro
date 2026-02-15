@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.png";
+
 const menuItems = [
   {
     label: "Instagram",
@@ -17,10 +20,13 @@ const menuItems = [
     </a>
 
     <a href="/" class="header-logo">
-      <img
-        src="/src/assets/images/logo.png"
+      <Image
+        src={logo}
         alt="Grand Bleu Yachts"
         class="logo-image"
+        quality={90}
+        widths={[150, 300]}
+        sizes="150px"
       />
     </a>
 
@@ -91,6 +97,7 @@ const menuItems = [
     width: auto;
     object-fit: contain;
     transform: scale(1.5);
+    filter: brightness(0.75) saturate(1.2);
   }
 
   .header-menu {
@@ -200,21 +207,33 @@ const menuItems = [
   }
 
   @media (max-width: 768px) {
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
     .header-nav {
       padding: 0 var(--spacing-md);
     }
 
     .header-contact {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
 
     .header-logo {
-      height: 60px;
+      height: 65px;
     }
 
     .logo-image {
-      height: 100px;
+      height: 120px;
       width: auto;
+    }
+
+    .menu-dropdown {
+      right: 0;
+      min-width: 170px;
     }
   }
 </style>

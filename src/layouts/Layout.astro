@@ -75,15 +75,15 @@ const {
 
     @media (max-width: 768px) {
       :root {
-        --header-height: 70px;
-        --footer-height: 70px;
+        --header-height: 75px;
+        --footer-height: 80px;
       }
     }
 
     @media (max-width: 480px) {
       :root {
-        --header-height: 60px;
-        --footer-height: 60px;
+        --header-height: 70px;
+        --footer-height: 75px;
       }
     }
 
@@ -146,8 +146,18 @@ const {
       width: 100%;
       height: calc(100vh - var(--header-height));
       object-fit: cover;
-      object-position: center center;
+      object-position: center top;
       z-index: -1;
+      animation: float-vertical 8s ease-in-out infinite;
+    }
+
+    @keyframes float-vertical {
+      0%, 100% {
+        transform: translateY(0) scale(1.05);
+      }
+      50% {
+        transform: translateY(-20px) scale(1.05);
+      }
     }
 
     .main-content {

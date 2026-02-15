@@ -137,3 +137,4 @@ grandbleuyachts/
 ## Version mobile
 
 Éléments réorganisés et réduits pour les petits écrans. Boutons de services défilables horizontalement, pied de page en colonne.
+

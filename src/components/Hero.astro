@@ -1,4 +1,6 @@
 ---
+import ContactButton from './ContactButton.astro';
+
 interface Props {
   backgroundImage?: string;
 }
@@ -14,6 +16,14 @@ const services = [
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
+    <div class="hero-text">
+      <h1>Yacht Ownership Made Easy</h1>
+      <p>Premium yacht management, delivery & charter services</p>
+      <div class="hero-contact">
+        <ContactButton />
+      </div>
+    </div>
+
     <div class="hero-container">
       <div class="services-bar">
         {
@@ -32,6 +42,9 @@ const services = [
   .hero {
     position: relative;
     width: 100%;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-overlay {
@@ -43,6 +56,7 @@ const services = [
       rgba(0, 0, 0, 0.1) 50%,
       rgba(0, 0, 0, 0.4) 100%
     );
+    pointer-events: none;
   }
 
   .hero-content {
@@ -50,8 +64,51 @@ const services = [
     z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    flex: 1;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    flex: 1;
+    padding: var(--spacing-lg);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero-text p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.3s both;
+  }
+
+  .hero-contact {
+    margin-top: var(--spacing-xl);
+    animation: fadeInUp 1s ease-out 0.6s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-container {
@@ -59,7 +116,7 @@ const services = [
     flex-direction: column;
     align-items: center;
     background: var(--color-primary);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-lg);
     width: 100%;
   }
 
@@ -70,7 +127,7 @@ const services = [
   }
 
   .service-btn {
-    padding: var(--spacing-md) var(--spacing-2xl);
+    padding: var(--spacing-md) var(--spacing-xl);
     background: #ffffff;
     color: var(--color-text-primary);
     font-weight: 600;
@@ -78,6 +135,7 @@ const services = [
     letter-spacing: 0.1em;
     border-radius: var(--radius-md);
     transition: all var(--transition-normal);
+    font-size: 1rem;
   }
 
   .service-btn:hover {
@@ -109,15 +167,22 @@ const services = [
 
   @media (max-width: 768px) {
     .services-bar {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: nowrap;
       gap: var(--spacing-sm);
       width: 100%;
+      justify-content: center;
     }
 
     .service-btn {
-      padding: var(--spacing-md) var(--spacing-lg);
-      font-size: 0.875rem;
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: 0.85rem;
       text-align: center;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-container {
+      padding: var(--spacing-sm) var(--spacing-md);
     }
   }
 </style>
