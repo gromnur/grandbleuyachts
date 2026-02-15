@@ -6,14 +6,14 @@ import BackButton from '../components/BackButton.astro';
 <Layout
   title="Contact Us"
   description="Get in touch with Grand Bleu Yachts for yacht delivery, management, and charter services."
-  hideFooter={true}
+  hideFooter={false}
 >
-  <div class="contact-page">
-    <div class="contact-top">
-      <BackButton />
-    </div>
+  <div class="contact-wrapper">
+    <div class="contact-card">
+      <div class="contact-top">
+        <BackButton />
+      </div>
 
-    <div class="form-container">
       <h1 class="form-title">Get in Touch</h1>
       <p class="form-subtitle">Tell us about your yacht needs and we'll get back to you shortly.</p>
 
@@ -69,30 +69,29 @@ import BackButton from '../components/BackButton.astro';
 </Layout>
 
 <style>
-  .contact-page {
-    position: relative;
-    min-height: 100dvh;
+  .contact-wrapper {
+    padding: var(--spacing-xl);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl);
-    padding-top: calc(var(--header-height) + var(--spacing-xl));
+    min-height: 100%;
   }
 
-  .contact-top {
-    position: fixed;
-    top: calc(var(--header-height) + var(--spacing-md));
-    left: var(--spacing-md);
-    z-index: 10;
-  }
-
-  .form-container {
+  .contact-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-xl);
     max-width: 640px;
     width: 100%;
     box-shadow: var(--shadow-lg);
+  }
+
+  .contact-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--spacing-sm);
   }
 
   .form-title {
@@ -213,17 +212,16 @@ import BackButton from '../components/BackButton.astro';
       grid-template-columns: 1fr;
     }
 
-    .form-container {
+    .contact-wrapper {
+      padding: var(--spacing-md);
+    }
+
+    .contact-card {
       padding: var(--spacing-lg);
     }
 
     .form-title {
       font-size: 1.5rem;
-    }
-
-    .contact-page {
-      padding: var(--spacing-md);
-      padding-top: calc(var(--header-height) + var(--spacing-lg));
     }
   }
 </style>

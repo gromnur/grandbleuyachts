@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BackButton from '../components/BackButton.astro';
-import ContactButton from '../components/ContactButton.astro';
-import { Image } from 'astro:assets';
-import managementImg1 from '../assets/images/management rotation.png';
-import managementImg2 from '../assets/images/management rotation 2.png';
-import managementImg3 from '../assets/images/management rotation 3.JPG';
+import Layout from "../layouts/Layout.astro";
+import BackButton from "../components/BackButton.astro";
+import ContactButton from "../components/ContactButton.astro";
+import { Image } from "astro:assets";
+import managementImg1 from "../assets/images/management rotation.png";
+import managementImg2 from "../assets/images/management rotation 2.png";
+import managementImg3 from "../assets/images/management rotation 3.JPG";
 ---
 
 <Layout
@@ -17,16 +17,52 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
   <!-- Side-by-side slideshow background -->
   <div class="slideshow-container" id="slideshow">
     <div class="slide active" id="slide-0">
-      <Image src={managementImg1} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
-      <Image src={managementImg2} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+      <Image
+        src={managementImg1}
+        alt="Yacht management"
+        class="slide-img"
+        loading="eager"
+        quality={80}
+      />
+      <Image
+        src={managementImg2}
+        alt="Yacht management"
+        class="slide-img"
+        loading="eager"
+        quality={80}
+      />
     </div>
     <div class="slide" id="slide-1">
-      <Image src={managementImg2} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
-      <Image src={managementImg3} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+      <Image
+        src={managementImg2}
+        alt="Yacht management"
+        class="slide-img"
+        loading="eager"
+        quality={80}
+      />
+      <Image
+        src={managementImg3}
+        alt="Yacht management"
+        class="slide-img"
+        loading="eager"
+        quality={80}
+      />
     </div>
     <div class="slide" id="slide-2">
-      <Image src={managementImg3} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
-      <Image src={managementImg1} alt="Yacht management" class="slide-img" loading="eager" quality={80} />
+      <Image
+        src={managementImg3}
+        alt="Yacht management"
+        class="slide-img"
+        loading="eager"
+        quality={80}
+      />
+      <Image
+        src={managementImg1}
+        alt="Yacht management"
+        class="slide-img"
+        loading="eager"
+        quality={80}
+      />
     </div>
   </div>
 
@@ -41,10 +77,14 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
       <div class="management-boxes">
         <div class="management-box intro-box">
           <p>
-            At Grand Bleu Yachts, we offer a personalized and comprehensive yacht management service designed to keep your vessel in immaculate condition — ready to set sail whenever you are.
+            At Grand Bleu Yachts, we offer a personalized and comprehensive
+            yacht management service designed to keep your vessel in immaculate
+            condition — ready to set sail whenever you are.
           </p>
           <p>
-            Our experienced team ensures every detail is handled with precision, care, and discretion, allowing you to simply enjoy the pleasures of yachting without the stress of maintenance or logistics.
+            Our experienced team ensures every detail is handled with precision,
+            care, and discretion, allowing you to simply enjoy the pleasures of
+            yachting without the stress of maintenance or logistics.
           </p>
         </div>
 
@@ -84,22 +124,22 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
 </Layout>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const slides = document.querySelectorAll<HTMLElement>('.slide');
+  document.addEventListener("astro:page-load", () => {
+    const slides = document.querySelectorAll<HTMLElement>(".slide");
     if (slides.length <= 1) return;
 
     let current = 0;
 
     slides.forEach((slide, i) => {
-      slide.style.transition = 'opacity 1.5s ease-in-out';
-      slide.style.opacity = i === 0 ? '1' : '0';
+      slide.style.transition = "opacity 1.5s ease-in-out";
+      slide.style.opacity = i === 0 ? "1" : "0";
     });
 
     setInterval(() => {
       const prev = current;
       current = (current + 1) % slides.length;
-      slides[prev].style.opacity = '0';
-      slides[current].style.opacity = '1';
+      slides[prev].style.opacity = "0";
+      slides[current].style.opacity = "1";
     }, 5000);
   });
 </script>
@@ -120,7 +160,6 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
     align-items: center;
     text-align: center;
     color: var(--color-text-light);
-    padding: var(--spacing-xl);
     width: 100%;
     max-width: 800px;
   }
@@ -148,9 +187,9 @@ import managementImg3 from '../assets/images/management rotation 3.JPG';
   }
 
   .management-box {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg) var(--spacing-xl);
     text-align: left;
