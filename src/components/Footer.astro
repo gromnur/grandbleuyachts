@@ -4,9 +4,26 @@ const contactInfo = {
   phone: '+1 347-813-8426',
   instagram: '@capt.olivier',
 };
+
+const credentials = [
+  "Yacht Management in South Florida",
+  "20+ Years Experience",
+  "USCG Licensed",
+  "Fully Insured",
+  "South Florida Based",
+];
 ---
 
 <footer class="footer">
+  <div class="footer-credentials">
+    {credentials.map((item, i) => (
+      <>
+        <span class="credential">{item}</span>
+        {i < credentials.length - 1 && <span class="credential-dot">·</span>}
+      </>
+    ))}
+  </div>
+
   <div class="footer-content">
     <a href={`mailto:${contactInfo.email}`} class="footer-item">
       <span class="footer-icon" data-icon="email"></span>
@@ -30,12 +47,39 @@ const contactInfo = {
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
     min-height: var(--footer-height);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  /* ── Credentials row ── */
+  .footer-credentials {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    width: 100%;
   }
 
+  .credential {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    white-space: nowrap;
+  }
+
+  .credential-dot {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  /* ── Contact row ── */
   .footer-content {
     display: flex;
     justify-content: center;
@@ -100,6 +144,10 @@ const contactInfo = {
       width: 16px;
       height: 16px;
     }
+
+    .credential {
+      font-size: 0.6rem;
+    }
   }
 
   @media (max-width: 480px) {
@@ -113,6 +161,10 @@ const contactInfo = {
 
     .footer-item span:not(.footer-icon) {
       display: none;
+    }
+
+    .credential {
+      font-size: 0.55rem;
     }
   }
 </style>

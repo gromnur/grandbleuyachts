@@ -16,7 +16,7 @@
      LAYOUT DIMENSIONS
      ======================================== */
   --header-height: 90px;
-  --footer-height: 55px;
+  --footer-height: 90px;
 
   /* ========================================
      SEMANTIC COLORS (Couleurs sémantiques)
@@ -100,14 +100,14 @@
 @media (max-width: 768px) {
   :root {
     --header-height: 75px;
-    --footer-height: 50px;
+    --footer-height: 85px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
     --header-height: 70px;
-    --footer-height: 45px;
+    --footer-height: 80px;
   }
 }
 
