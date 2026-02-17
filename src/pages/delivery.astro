@@ -4,73 +4,454 @@ import BackButton from '../components/BackButton.astro';
 import ContactButton from '../components/ContactButton.astro';
 import { Image } from 'astro:assets';
 import deliveryMap from '../assets/images/d.png';
+import cockpitImg from '../assets/images/delivery cockpit.JPG';
 ---
 
 <Layout
   title="Yacht Delivery"
-  description="Professional yacht delivery services across the East Coast and Bahamas with experienced captains."
+  description="Professional yacht delivery services across the East Coast, Bahamas, Key West, and Gulf of Mexico with experienced captains."
   hideFooter={true}
+  noBackground={true}
 >
+  <div class="delivery-bg"></div>
+
   <div class="delivery-page">
     <div class="delivery-top">
       <BackButton href="/" />
     </div>
 
-    <div class="delivery-img-scroll">
-      <Image src={deliveryMap} alt="Yacht delivery route map showing coverage area and services" class="delivery-bg-img" loading="eager" quality={90} />
+    <h1>Yacht Delivery</h1>
+
+    <div class="delivery-intro">
+      <p>
+        From South Florida to the Northeast, the Bahamas to the Gulf of Mexico
+        — I personally captain every delivery. Your yacht is in experienced hands
+        from departure to arrival.
+      </p>
     </div>
 
-    <div class="delivery-contact-fixed">
-      <ContactButton />
+    <!-- Map Section -->
+    <div class="map-section">
+      <div class="map-container">
+        <Image
+          src={deliveryMap}
+          alt="Yacht delivery route map showing coverage from East Coast to Bahamas and Gulf of Mexico"
+          class="map-img"
+          loading="eager"
+          quality={90}
+        />
+      </div>
+      <div class="map-caption">
+        <span class="caption-icon"></span>
+        Our delivery coverage area
+      </div>
     </div>
+
+    <!-- East Coast -->
+    <div class="delivery-section">
+      <div class="delivery-text">
+        <div class="section-label">East Coast</div>
+        <h2>Florida to New England</h2>
+        <p>
+          I run the full length of the Eastern Seaboard — from South Florida
+          marinas all the way up through the Carolinas, the Chesapeake Bay,
+          New York, Connecticut, and beyond. Whether you're heading north for
+          the summer season or bringing her back down to Florida for the winter,
+          I handle the entire trip personally.
+        </p>
+        <div class="route-highlights">
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>ICW & offshore routing</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>South Florida to the Carolinas</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Chesapeake Bay & Mid-Atlantic</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>New York, Connecticut & New England</span>
+          </div>
+        </div>
+      </div>
+      <div class="delivery-image">
+        <Image
+          src={cockpitImg}
+          alt="Yacht cockpit with dual chartplotters — ready for East Coast delivery"
+          quality={80}
+          class="section-img"
+        />
+      </div>
+    </div>
+
+    <!-- Bahamas -->
+    <div class="delivery-section reverse">
+      <div class="delivery-text">
+        <div class="section-label">Bahamas</div>
+        <h2>Island Crossings</h2>
+        <p>
+          The Bahamas are a world-class cruising ground, but getting there
+          requires experience with Gulf Stream crossings, shallow banks, and
+          island navigation. I've made the crossing countless times and know
+          the routes, the weather windows, and the best approaches to get your
+          yacht there safely.
+        </p>
+        <div class="route-highlights">
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Gulf Stream crossings from South Florida</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Nassau, Exumas & Abacos</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Shallow water & bank navigation</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Return deliveries to the mainland</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key West & Gulf of Mexico -->
+    <div class="delivery-section">
+      <div class="delivery-text">
+        <div class="section-label">Key West & Gulf of Mexico</div>
+        <h2>Southern Waters</h2>
+        <p>
+          From the crystal-clear waters of the Florida Keys to the expansive
+          Gulf of Mexico, I deliver yachts through some of the most rewarding
+          — and demanding — waterways in the region. Key West, the Gulf Coast,
+          and everything in between are well within my delivery range.
+        </p>
+        <div class="route-highlights">
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Florida Keys & Key West</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Gulf of Mexico crossings</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Tampa, Naples & Gulf Coast ports</span>
+          </div>
+          <div class="route-item">
+            <span class="route-dot"></span>
+            <span>Hawk Channel & offshore routes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What's Included -->
+    <div class="delivery-section centered">
+      <div class="delivery-text wide">
+        <h2>Every Delivery Includes</h2>
+        <p>
+          No surprises, no shortcuts. Every delivery I run follows the same
+          thorough process to make sure your yacht arrives safe and on time.
+        </p>
+        <div class="included-grid">
+          <div class="included-item">
+            <span class="included-icon">&#9745;</span>
+            <div>
+              <strong>Pre-Departure Inspection</strong>
+              <p>Full systems check — engines, navigation, safety gear, fuel, and fluids.</p>
+            </div>
+          </div>
+          <div class="included-item">
+            <span class="included-icon">&#9745;</span>
+            <div>
+              <strong>Weather Routing</strong>
+              <p>Careful monitoring and optimal departure windows for safe passages.</p>
+            </div>
+          </div>
+          <div class="included-item">
+            <span class="included-icon">&#9745;</span>
+            <div>
+              <strong>Regular Updates</strong>
+              <p>Position reports, photos, and status updates throughout the trip.</p>
+            </div>
+          </div>
+          <div class="included-item">
+            <span class="included-icon">&#9745;</span>
+            <div>
+              <strong>Arrival Report</strong>
+              <p>Detailed condition report upon arrival with photos and notes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ContactButton />
   </div>
 </Layout>
 
 <style>
-  .delivery-page {
-    position: relative;
-    min-height: 100dvh;
-    overflow: hidden;
-  }
-
-  .delivery-img-scroll {
+  .delivery-bg {
     position: fixed;
-    top: var(--header-height);
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100dvh - var(--header-height));
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 0;
-    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
+    z-index: -1;
   }
 
-  .delivery-bg-img {
+  .delivery-page {
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    min-height: 100dvh;
   }
 
   .delivery-top {
-    position: fixed;
-    top: calc(var(--header-height) + var(--spacing-md));
-    left: var(--spacing-md);
-    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--spacing-sm);
   }
 
-  .delivery-contact-fixed {
-    position: fixed;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    z-index: 10;
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: var(--spacing-xl);
+    color: var(--white);
+    text-align: center;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
+  .delivery-intro {
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .delivery-intro p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Map Section */
+  .map-section {
+    width: 100%;
+    margin-bottom: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(116, 185, 223, 0.2);
+  }
+
+  .map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .map-caption {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    letter-spacing: 0.03em;
+  }
+
+  .caption-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2374b9df' stroke-width='2'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  /* Content Sections */
+  .delivery-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    width: 100%;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .delivery-section.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .delivery-section.centered {
+    justify-content: center;
+  }
+
+  .delivery-text {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(116, 185, 223, 0.15);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .delivery-text.wide {
+    max-width: 700px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue-accent);
+    background: rgba(0, 180, 216, 0.1);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+  }
+
+  .delivery-text h2 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .delivery-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .delivery-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Route highlights */
+  .route-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+
+  .route-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .route-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--blue-accent);
+    box-shadow: 0 0 8px rgba(0, 180, 216, 0.4);
+  }
+
+  /* Delivery image */
+  .delivery-image {
+    flex: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(116, 185, 223, 0.15);
+  }
+
+  .section-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* What's Included Grid */
+  .included-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .included-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .included-icon {
+    font-size: 1.3rem;
+    color: var(--blue-accent);
+    line-height: 1;
+    margin-top: 2px;
+    min-width: 24px;
+  }
+
+  .included-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .included-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 0;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
-    .delivery-contact-fixed {
-      bottom: var(--spacing-md);
-      right: var(--spacing-md);
+    .delivery-page {
+      padding: var(--spacing-md);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .delivery-section,
+    .delivery-section.reverse {
+      flex-direction: column;
+    }
+
+    .delivery-image {
+      width: 100%;
+    }
+
+    .delivery-text.wide {
+      max-width: 100%;
+    }
+
+    .included-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
