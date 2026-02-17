@@ -15,20 +15,63 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
 >
   <div class="delivery-bg"></div>
 
-  <div class="delivery-page">
-    <div class="delivery-top">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-bg-wrap">
+      <Image
+        src={cockpitImg}
+        alt="Yacht cockpit at sea"
+        class="hero-bg-img"
+        loading="eager"
+        quality={85}
+      />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-top">
       <BackButton href="/" />
     </div>
 
-    <h1>Yacht Delivery</h1>
-
-    <div class="delivery-intro">
-      <p>
-        From South Florida to the Northeast, the Bahamas to the Gulf of Mexico
-        — I personally captain every delivery. Your yacht is in experienced hands
-        from departure to arrival.
-      </p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Yacht Delivery</h1>
+        <p class="hero-subtitle">
+          From South Florida to the Northeast, the Bahamas to the Gulf of Mexico
+          — I personally captain every delivery.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">East Coast</span>
+            <span class="stat-label">FL to New England</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value">Bahamas</span>
+            <span class="stat-label">Gulf Stream Crossings</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value">Gulf of Mexico</span>
+            <span class="stat-label">Keys & Gulf Coast</span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="hero-bottom">
+      <div class="hero-nav">
+        <a href="/management" class="nav-btn">Management</a>
+        <a href="/charter" class="nav-btn">Charter</a>
+      </div>
+      <button class="scroll-indicator" aria-label="Scroll down" id="scroll-down">
+        <span class="scroll-text">Discover our routes</span>
+        <span class="scroll-arrow"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCROLLABLE CONTENT -->
+  <div class="delivery-page" id="delivery-content">
 
     <!-- Map Section -->
     <div class="map-section">
@@ -77,14 +120,6 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
             <span>New York, Connecticut & New England</span>
           </div>
         </div>
-      </div>
-      <div class="delivery-image">
-        <Image
-          src={cockpitImg}
-          alt="Yacht cockpit with dual chartplotters — ready for East Coast delivery"
-          quality={80}
-          class="section-img"
-        />
       </div>
     </div>
 
@@ -199,6 +234,201 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
 </Layout>
 
 <style>
+  /* ========================================
+     HERO SECTION
+     ======================================== */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100dvh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 21, 48, 0.6) 0%,
+      rgba(2, 62, 138, 0.4) 40%,
+      rgba(0, 21, 48, 0.7) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-top {
+    position: relative;
+    z-index: 10;
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--spacing-xl);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    line-height: 1.7;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    animation: fadeInUp 1s ease-out 0.4s both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stat-value {
+    font-family: var(--font-family-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hero bottom: nav + scroll */
+  .hero-bottom {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+
+  .hero-nav {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-left: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(-45deg);
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: rotate(-45deg) translateY(0); opacity: 0.4; }
+    50% { transform: rotate(-45deg) translateY(6px); opacity: 1; }
+  }
+
+  /* ========================================
+     NAVY BACKGROUND + SCROLLABLE CONTENT
+     ======================================== */
   .delivery-bg {
     position: fixed;
     top: 0;
@@ -210,7 +440,7 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
   }
 
   .delivery-page {
-    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-2xl);
+    padding: var(--spacing-2xl) var(--spacing-xl) var(--spacing-2xl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -219,34 +449,9 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
     width: 100%;
   }
 
-  .delivery-top {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: var(--spacing-xl);
-    color: var(--white);
-    text-align: center;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .delivery-intro {
-    max-width: 700px;
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .delivery-intro p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  /* Map Section */
+  /* ========================================
+     MAP SECTION
+     ======================================== */
   .map-section {
     width: 100%;
     margin-bottom: var(--spacing-2xl);
@@ -288,7 +493,9 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
     background-repeat: no-repeat;
   }
 
-  /* Content Sections */
+  /* ========================================
+     CONTENT SECTIONS
+     ======================================== */
   .delivery-section {
     display: flex;
     align-items: center;
@@ -376,22 +583,9 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
     box-shadow: 0 0 8px rgba(0, 180, 216, 0.4);
   }
 
-  /* Delivery image */
-  .delivery-image {
-    flex: 1;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(116, 185, 223, 0.15);
-  }
-
-  .section-img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* What's Included Grid */
+  /* ========================================
+     WHAT'S INCLUDED GRID
+     ======================================== */
   .included-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -427,23 +621,50 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
     margin-bottom: 0;
   }
 
-  /* Responsive */
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
-    .delivery-page {
-      padding: var(--spacing-md);
+    .hero-top {
+      padding: var(--spacing-sm) var(--spacing-md);
     }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+    .hero-content {
+      padding: 0 var(--spacing-md);
+    }
+
+    .hero-stats {
+      gap: var(--spacing-md);
+    }
+
+    .stat-value {
+      font-size: 0.95rem;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+    }
+
+    .stat-divider {
+      height: 28px;
+    }
+
+    .hero-nav {
+      gap: var(--spacing-sm);
+    }
+
+    .nav-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      font-size: 0.8rem;
+    }
+
+    .delivery-page {
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
     }
 
     .delivery-section,
     .delivery-section.reverse {
       flex-direction: column;
-    }
-
-    .delivery-image {
-      width: 100%;
     }
 
     .delivery-text.wide {
@@ -457,8 +678,13 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
 </style>
 
 <style is:global>
-  /* Hide the layout default background image on delivery page */
   .main-bg {
     display: none !important;
   }
 </style>
+
+<script>
+  document.getElementById('scroll-down')?.addEventListener('click', () => {
+    document.getElementById('delivery-content')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
