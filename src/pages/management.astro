@@ -6,6 +6,7 @@ import { Image } from "astro:assets";
 import helmImg from "../assets/images/about-helm-inspection.png";
 import engineImg from "../assets/images/about-engine-room.png";
 import detailImg from "../assets/images/detailing-yacht.JPG";
+import ceramicImg from "../assets/images/management rotation 2.png";
 ---
 
 <Layout
@@ -135,6 +136,49 @@ import detailImg from "../assets/images/detailing-yacht.JPG";
         <Image
           src={detailImg}
           alt="Pristine yacht hull — professional detailing and ceramic coating"
+          quality={80}
+          class="collage-img"
+        />
+      </div>
+    </div>
+
+    <!-- Ceramic Coating -->
+    <div class="mgmt-section reverse">
+      <div class="mgmt-text">
+        <h2>Ceramic Coating</h2>
+        <p>
+          Protect your investment with professional-grade ceramic coating. I
+          coordinate full ceramic applications that shield your yacht's gel coat,
+          paint, and surfaces from the harsh South Florida sun, salt spray, and
+          everyday wear. It's the best long-term protection you can give your
+          boat.
+        </p>
+        <h3>Why Ceramic Coating?</h3>
+        <ul>
+          <li>UV protection against sun damage and oxidation</li>
+          <li>Hydrophobic barrier that repels water and salt</li>
+          <li>Easier cleaning — dirt and grime slide right off</li>
+          <li>Long-lasting shine without constant waxing</li>
+          <li>Preserves gel coat and paint finish for years</li>
+        </ul>
+        <h3>What's Included</h3>
+        <ul>
+          <li>Full surface prep — wash, clay bar, and polish</li>
+          <li>Multi-layer ceramic coating application</li>
+          <li>Hull, topsides, and hard surfaces</li>
+          <li>Stainless steel and metal trim protection</li>
+          <li>Post-application inspection and cure time management</li>
+        </ul>
+        <p>
+          I work with certified ceramic coating specialists and oversee the
+          entire process from prep to finish. Your yacht comes out looking
+          showroom-new — and stays that way.
+        </p>
+      </div>
+      <div class="mgmt-image">
+        <Image
+          src={ceramicImg}
+          alt="Professional ceramic coating application on yacht hull"
           quality={80}
           class="collage-img"
         />
