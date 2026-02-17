@@ -12,6 +12,7 @@ interface Props {
   hideFooter?: boolean;
   backgroundImage?: ImageMetadata;
   centerImage?: boolean;
+  noBackground?: boolean;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   hideFooter = false,
   backgroundImage = defaultBg,
   centerImage = false,
+  noBackground = false,
 } = Astro.props;
 ---
 
@@ -55,13 +57,15 @@ const {
   <body>
     <Header />
     <main>
-      <Image
-        src={backgroundImage}
-        alt="Background"
-        class={`main-bg ${centerImage ? 'centered' : ''}`}
-        loading="eager"
-        quality={80}
-      />
+      {!noBackground && (
+        <Image
+          src={backgroundImage}
+          alt="Background"
+          class={`main-bg ${centerImage ? 'centered' : ''}`}
+          loading="eager"
+          quality={80}
+        />
+      )}
       <div class="main-content">
         <slot />
       </div>
