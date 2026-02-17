@@ -1,53 +1,550 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
+import BackButton from '../../components/BackButton.astro';
+import ContactButton from '../../components/ContactButton.astro';
+import { Image } from 'astro:assets';
 import ownerImage from '../../assets/images/charter owner.JPG';
 ---
 
 <Layout
   title="List Your Yacht"
-  description="Generate income from your yacht by listing it in our charter fleet."
-  backgroundImage={ownerImage}
-  hideFooter={false}
+  description="Generate income from your yacht by listing it in our charter fleet. Full management from booking to guest care."
+  hideFooter={true}
+  noBackground={true}
 >
-  <Card
-    title="List Your Yacht"
-    showBackButton={true}
-    showContactButton={true}
-    backgroundColor="rgba(0, 0, 0, 0.3)"
-    blurAmount="1px"
-    borderRadius="var(--radius-lg)"
-    padding="var(--spacing-xl)"
-  >
-    <p>
-      Turn your yacht into a revenue-generating asset. Our charter management program
-      takes care of everything while you benefit from the returns.
-    </p>
+  <div class="list-bg"></div>
 
-    <ul>
-      <li>Professional marketing and booking management</li>
-      <li>Experienced crew placement and training</li>
-      <li>Comprehensive maintenance oversight</li>
-      <li>Guest vetting and quality assurance</li>
-      <li>Transparent financial reporting</li>
-      <li>Flexible owner usage scheduling</li>
-    </ul>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-bg-wrap">
+      <Image
+        src={ownerImage}
+        alt="Luxury yacht at dock"
+        class="hero-bg-img"
+        loading="eager"
+        quality={85}
+      />
+    </div>
+    <div class="hero-overlay"></div>
 
-    <p>
-      Join our growing fleet and let us maximize your yacht's potential
-      while maintaining the highest standards of care and service.
-    </p>
-  </Card>
+    <div class="hero-top">
+      <BackButton href="/charter" />
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>List Your Yacht</h1>
+        <p class="hero-subtitle">
+          Put your yacht to work while you're away. I handle everything —
+          from marketing to guest care — so you earn income without the hassle.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-nav">
+        <a href="/charter/rent" class="nav-btn">Rent a Yacht</a>
+        <a href="/management" class="nav-btn">Management</a>
+      </div>
+      <button class="scroll-indicator" id="scroll-down" aria-label="Scroll down">
+        <span class="scroll-text">How it works</span>
+        <span class="scroll-arrow"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCROLLABLE CONTENT -->
+  <div class="list-page" id="list-content">
+
+    <!-- Intro -->
+    <section class="list-section centered">
+      <div class="list-text wide">
+        <div class="section-label">Charter Management</div>
+        <h2>Turn Your Yacht Into a Revenue Stream</h2>
+        <p>
+          Owning a yacht doesn't have to be all cost and no return. With Grand
+          Bleu Yachts, I manage the entire charter process for you — bringing in
+          qualified guests, taking care of every detail, and making sure your
+          yacht is treated with the same respect you'd give her yourself.
+        </p>
+      </div>
+    </section>
+
+    <!-- What I Handle -->
+    <section class="list-section centered">
+      <div class="list-text wide">
+        <h2>What I Take Care Of</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <span class="service-icon">&#128227;</span>
+            <div>
+              <strong>Marketing & Booking</strong>
+              <p>Professional listing, photography coordination, and booking management to attract the right guests.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-icon">&#128101;</span>
+            <div>
+              <strong>Guest Vetting</strong>
+              <p>Every guest is screened for experience and reliability. Your yacht only goes to people I'd trust on my own boat.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-icon">&#128295;</span>
+            <div>
+              <strong>Maintenance Oversight</strong>
+              <p>Before and after every charter — full inspections, cleaning, and any needed repairs. She always comes back right.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-icon">&#128176;</span>
+            <div>
+              <strong>Financial Reporting</strong>
+              <p>Clear, transparent income and expense reports. You always know exactly where your money is going.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-icon">&#128197;</span>
+            <div>
+              <strong>Flexible Scheduling</strong>
+              <p>Use your yacht whenever you want. I work around your schedule and block out your personal dates first.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-icon">&#9875;</span>
+            <div>
+              <strong>Crew Coordination</strong>
+              <p>If your yacht needs crew, I handle placement and briefing so every charter runs smoothly from start to finish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="list-section centered">
+      <div class="list-text wide">
+        <h2>How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <div>
+              <strong>We Talk</strong>
+              <p>Tell me about your yacht, your goals, and how often you use her. I'll give you an honest assessment of her charter potential.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <div>
+              <strong>I Prepare Her</strong>
+              <p>Full inspection, any needed maintenance, professional photos, and listing setup. Your yacht goes on the market looking her best.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <div>
+              <strong>Guests Book</strong>
+              <p>I handle all inquiries, vetting, contracts, and logistics. You don't have to lift a finger.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <div>
+              <strong>You Earn</strong>
+              <p>Charter income hits your account with full transparency. Your yacht is returned in perfect condition every time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="list-section centered cta-section">
+      <div class="list-text wide cta-inner">
+        <h2>Ready to List Your Yacht?</h2>
+        <p>
+          Let's talk about your yacht and what charter management could look like
+          for you. No pressure, no commitment — just a conversation.
+        </p>
+        <ContactButton />
+      </div>
+    </section>
+
+  </div>
 </Layout>
 
-<style is:global>
-  .main-bg {
+<style>
+  /* ========================================
+     HERO SECTION
+     ======================================== */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100dvh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     object-position: center top;
   }
 
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 21, 48, 0.55) 0%,
+      rgba(2, 62, 138, 0.35) 40%,
+      rgba(0, 21, 48, 0.7) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-top {
+    position: relative;
+    z-index: 10;
+    padding: var(--spacing-md) var(--spacing-xl) 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--spacing-xl);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+
+  .hero-bottom {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+
+  .hero-nav {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-left: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(-45deg);
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: rotate(-45deg) translateY(0); opacity: 0.4; }
+    50% { transform: rotate(-45deg) translateY(6px); opacity: 1; }
+  }
+
+  /* ========================================
+     NAVY BACKGROUND + CONTENT
+     ======================================== */
+  .list-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
+    z-index: -1;
+  }
+
+  .list-page {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .list-section {
+    width: 100%;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .list-section.centered {
+    display: flex;
+    justify-content: center;
+  }
+
+  .list-text {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(116, 185, 223, 0.15);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .list-text.wide {
+    max-width: 750px;
+    width: 100%;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue-accent);
+    background: rgba(0, 180, 216, 0.1);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+  }
+
+  .list-text h2 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .list-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .list-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ========================================
+     SERVICES GRID
+     ======================================== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .service-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .service-icon {
+    font-size: 1.4rem;
+    min-width: 28px;
+    text-align: center;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .service-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .service-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 0;
+  }
+
+  /* ========================================
+     STEPS
+     ======================================== */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .step {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: rgba(0, 180, 216, 0.15);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    color: var(--blue-accent);
+    font-family: var(--font-family-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .step strong {
+    display: block;
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .step p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+  }
+
+  /* ========================================
+     CTA
+     ======================================== */
+  .cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-inner h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-inner p {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
-    .main-bg {
-      object-position: center bottom;
+    .hero-top {
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .hero-content {
+      padding: 0 var(--spacing-md);
+    }
+
+    .hero-nav {
+      gap: var(--spacing-sm);
+    }
+
+    .nav-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      font-size: 0.8rem;
+    }
+
+    .list-page {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
+
+<style is:global>
+  .main-bg {
+    display: none !important;
+  }
+</style>
+
+<script>
+  document.getElementById('scroll-down')?.addEventListener('click', () => {
+    document.getElementById('list-content')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

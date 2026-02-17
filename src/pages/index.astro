@@ -1,7 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import ContactButton from "../components/ContactButton.astro";
+import { Image } from "astro:assets";
 import frontPageImage from "../assets/images/front page.JPG";
+import helmImg from "../assets/images/about-helm-inspection.png";
+import cockpitImg from "../assets/images/delivery cockpit.JPG";
+import charterImg from "../assets/images/charter sunset.JPG";
 ---
 
 <Layout
@@ -12,4 +17,470 @@ import frontPageImage from "../assets/images/front page.JPG";
   centerImage={true}
 >
   <Hero />
+
+  <!-- SCROLL-DOWN CONTENT -->
+  <div class="home-content" id="home-content">
+
+    <!-- About Section -->
+    <section class="home-section about-section">
+      <div class="section-inner">
+        <div class="section-label">About Grand Bleu Yachts</div>
+        <h2>Personal Service, Professional Standards</h2>
+        <p class="about-lead">
+          I'm Captain Olivier — born and raised on the water in the South of
+          France, now based in South Florida. After decades behind the helm on
+          everything from classic sailboats to modern motor yachts, I built
+          Grand Bleu Yachts to offer owners the kind of personal, hands-on care
+          I'd want for my own vessel.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight">
+            <span class="highlight-number">20+</span>
+            <span class="highlight-label">Years of Experience</span>
+          </div>
+          <div class="highlight-divider"></div>
+          <div class="highlight">
+            <span class="highlight-number">South FL</span>
+            <span class="highlight-label">Based in West Palm Beach</span>
+          </div>
+          <div class="highlight-divider"></div>
+          <div class="highlight">
+            <span class="highlight-number">One Captain</span>
+            <span class="highlight-label">Personal & Hands-On</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="home-section services-section">
+      <div class="section-inner">
+        <div class="section-label">Our Services</div>
+        <h2>Everything Your Yacht Needs</h2>
+
+        <div class="service-cards">
+          <!-- Management -->
+          <a href="/management" class="service-card">
+            <div class="card-image">
+              <Image src={helmImg} alt="Yacht helm inspection" quality={80} class="card-img" />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-content">
+              <h3>Management</h3>
+              <p>
+                Regular inspections, engine monitoring, hull cleaning, detailing,
+                and full coordination of all maintenance — so your yacht is
+                always ready when you are.
+              </p>
+              <span class="card-link">Learn more <span class="card-arrow">&rarr;</span></span>
+            </div>
+          </a>
+
+          <!-- Delivery -->
+          <a href="/delivery" class="service-card">
+            <div class="card-image">
+              <Image src={cockpitImg} alt="Yacht cockpit during delivery" quality={80} class="card-img" />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-content">
+              <h3>Delivery</h3>
+              <p>
+                I personally captain every delivery — East Coast, Bahamas,
+                Key West, Gulf of Mexico. Full pre-departure inspections,
+                weather routing, and regular updates.
+              </p>
+              <span class="card-link">Learn more <span class="card-arrow">&rarr;</span></span>
+            </div>
+          </a>
+
+          <!-- Charter -->
+          <a href="/charter" class="service-card">
+            <div class="card-image">
+              <Image src={charterImg} alt="Charter yacht at sunset" quality={80} class="card-img" />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-content">
+              <h3>Charter</h3>
+              <p>
+                Whether you want to rent a yacht for the day or list yours for
+                charter income, I handle everything from booking to logistics
+                so you can enjoy the water.
+              </p>
+              <span class="card-link">Learn more <span class="card-arrow">&rarr;</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="home-section why-section">
+      <div class="section-inner narrow">
+        <div class="section-label">Why Grand Bleu</div>
+        <h2>Why Owners Trust Me</h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <span class="why-icon">&#9875;</span>
+            <div>
+              <strong>One Point of Contact</strong>
+              <p>No call centers, no middlemen. You deal directly with me — the captain who's on your boat.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-icon">&#9874;</span>
+            <div>
+              <strong>Hands-On Care</strong>
+              <p>I don't manage from a desk. I'm the one checking your systems, running your engines, and keeping things right.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-icon">&#9971;</span>
+            <div>
+              <strong>Transparent & Honest</strong>
+              <p>No hidden fees, no surprise charges. I tell you what needs doing, why, and what it'll cost — upfront.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-icon">&#127754;</span>
+            <div>
+              <strong>Mediterranean to Florida</strong>
+              <p>My background from the South of France to South Florida has given me the experience to handle any yacht, any situation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="home-section cta-section">
+      <div class="section-inner narrow cta-inner">
+        <h2>Ready to Talk?</h2>
+        <p>Whether you need management, delivery, or charter services — I'd love to hear about your yacht and how I can help.</p>
+        <ContactButton />
+      </div>
+    </section>
+
+  </div>
 </Layout>
+
+<style>
+  .home-content {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
+  }
+
+  .home-section {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+  }
+
+  .section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-inner.narrow {
+    max-width: 700px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue-accent);
+    background: rgba(0, 180, 216, 0.1);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--white);
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========================================
+     ABOUT SECTION
+     ======================================== */
+  .about-section {
+    text-align: center;
+    border-bottom: 1px solid rgba(116, 185, 223, 0.1);
+  }
+
+  .about-lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 650px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .about-highlights {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .highlight-number {
+    font-family: var(--font-family-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .highlight-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .highlight-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* ========================================
+     SERVICES CARDS
+     ======================================== */
+  .services-section {
+    border-bottom: 1px solid rgba(116, 185, 223, 0.1);
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(116, 185, 223, 0.15);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(116, 185, 223, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .service-card:hover .card-img {
+    transform: scale(1.05);
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 21, 48, 0.6) 100%);
+  }
+
+  .card-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-content h3 {
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    flex: 1;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue-accent);
+    transition: gap var(--transition-fast);
+  }
+
+  .service-card:hover .card-link {
+    gap: var(--spacing-sm);
+  }
+
+  .card-arrow {
+    transition: transform var(--transition-fast);
+  }
+
+  .service-card:hover .card-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ========================================
+     WHY SECTION
+     ======================================== */
+  .why-section {
+    border-bottom: 1px solid rgba(116, 185, 223, 0.1);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .why-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(116, 185, 223, 0.08);
+  }
+
+  .why-icon {
+    font-size: 1.5rem;
+    min-width: 32px;
+    text-align: center;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .why-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .why-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+  }
+
+  /* ========================================
+     CTA SECTION
+     ======================================== */
+  .cta-section {
+    padding-bottom: var(--spacing-2xl);
+  }
+
+  .cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-inner h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-inner p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+  @media (max-width: 768px) {
+    .home-section {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .about-highlights {
+      gap: var(--spacing-md);
+    }
+
+    .highlight-number {
+      font-size: 1.1rem;
+    }
+
+    .highlight-label {
+      font-size: 0.65rem;
+    }
+
+    .highlight-divider {
+      height: 32px;
+    }
+
+    .service-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .card-image {
+      height: 180px;
+    }
+
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  let scrolling = true;
+
+  function stopScroll() {
+    scrolling = false;
+    window.removeEventListener('wheel', stopScroll);
+    window.removeEventListener('touchstart', stopScroll);
+    window.removeEventListener('pointerdown', stopScroll);
+    window.removeEventListener('keydown', stopScroll);
+  }
+
+  window.addEventListener('wheel', stopScroll, { passive: true });
+  window.addEventListener('touchstart', stopScroll, { passive: true });
+  window.addEventListener('pointerdown', stopScroll);
+  window.addEventListener('keydown', stopScroll);
+
+  function autoScroll() {
+    if (!scrolling) return;
+    window.scrollBy(0, 1);
+    requestAnimationFrame(autoScroll);
+  }
+
+  requestAnimationFrame(autoScroll);
+</script>
