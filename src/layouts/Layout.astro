@@ -107,7 +107,7 @@ const {
     }
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
       left: 0;
       width: 100%;
@@ -115,11 +115,6 @@ const {
       display: flex;
       flex-direction: column;
       height: var(--header-height);
-      pointer-events: none;
-    }
-
-    header * {
-      pointer-events: auto;
     }
 
     main {
