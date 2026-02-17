@@ -3,168 +3,164 @@ import Layout from "../layouts/Layout.astro";
 import BackButton from "../components/BackButton.astro";
 import ContactButton from "../components/ContactButton.astro";
 import { Image } from "astro:assets";
-import managementImg1 from "../assets/images/management rotation.png";
-import managementImg2 from "../assets/images/management rotation 2.png";
-import managementImg3 from "../assets/images/management rotation 3.JPG";
+import helmImg from "../assets/images/about-helm-inspection.png";
+import engineImg from "../assets/images/about-engine-room.png";
 ---
 
 <Layout
   title="Yacht Management"
-  description="Professional yacht management services for owners seeking peace of mind and exceptional care for their vessels."
-  backgroundImage={managementImg1}
-  hideFooter={false}
+  description="Professional yacht management services by Captain Olivier — decades of experience from the South of France to South Florida."
+  noBackground={true}
 >
-  <!-- Side-by-side slideshow background -->
-  <div class="slideshow-container" id="slideshow">
-    <div class="slide active" id="slide-0">
-      <Image
-        src={managementImg1}
-        alt="Yacht management"
-        class="slide-img"
-        loading="eager"
-        quality={80}
-      />
-      <Image
-        src={managementImg2}
-        alt="Yacht management"
-        class="slide-img"
-        loading="eager"
-        quality={80}
-      />
-    </div>
-    <div class="slide" id="slide-1">
-      <Image
-        src={managementImg2}
-        alt="Yacht management"
-        class="slide-img"
-        loading="eager"
-        quality={80}
-      />
-      <Image
-        src={managementImg3}
-        alt="Yacht management"
-        class="slide-img"
-        loading="eager"
-        quality={80}
-      />
-    </div>
-    <div class="slide" id="slide-2">
-      <Image
-        src={managementImg3}
-        alt="Yacht management"
-        class="slide-img"
-        loading="eager"
-        quality={80}
-      />
-      <Image
-        src={managementImg1}
-        alt="Yacht management"
-        class="slide-img"
-        loading="eager"
-        quality={80}
-      />
-    </div>
-  </div>
+  <div class="mgmt-bg"></div>
 
-  <div class="management-wrapper">
-    <div class="management-page">
-      <div class="management-top">
-        <BackButton href="/" />
+  <div class="mgmt-page">
+    <div class="mgmt-top">
+      <BackButton href="/" />
+    </div>
+
+    <h1>Yacht Management</h1>
+
+    <div class="mgmt-intro">
+      <p>
+        With decades of experience navigating the Mediterranean waters of the
+        South of France and many years commanding vessels along the coast of
+        South Florida, Captain Olivier brings a rare combination of
+        Old-World craftsmanship and hands-on expertise to every yacht he manages.
+      </p>
+    </div>
+
+    <!-- About Captain Olivier + Helm image -->
+    <div class="mgmt-section">
+      <div class="mgmt-text">
+        <h2>Hands-On Expertise</h2>
+        <p>
+          Captain Olivier is not your typical captain who stays behind the helm.
+          He is deeply involved in every aspect of yacht care — from routine
+          engine oil checks and coolant monitoring to chartplotter updates and
+          navigation system calibration. His philosophy is simple: know your
+          vessel inside and out, and she will never let you down.
+        </p>
+        <p>
+          Every inspection is performed personally, with the same meticulous
+          attention to detail that has earned him the trust of yacht owners on
+          both sides of the Atlantic.
+        </p>
       </div>
-
-      <h1>Yacht Management</h1>
-
-      <div class="management-boxes">
-        <div class="management-box intro-box">
-          <p>
-            At Grand Bleu Yachts, we offer a personalized and comprehensive
-            yacht management service designed to keep your vessel in immaculate
-            condition — ready to set sail whenever you are.
-          </p>
-          <p>
-            Our experienced team ensures every detail is handled with precision,
-            care, and discretion, allowing you to simply enjoy the pleasures of
-            yachting without the stress of maintenance or logistics.
-          </p>
-        </div>
-
-        <div class="management-box">
-          <h3>Our Services</h3>
-          <ul>
-            <li>Regular yacht inspections</li>
-            <li>Engine and cooling system monitoring</li>
-            <li>Chartplotter and navigation updates</li>
-            <li>Professional hull cleaning</li>
-            <li>Diver scheduling and coordination</li>
-            <li>Oversight of third-party maintenance and repairs</li>
-            <li>Captain and crew for delivery or private charters</li>
-            <li>Exclusive event and party planning</li>
-            <li>Bespoke travel itineraries</li>
-          </ul>
-        </div>
-
-        <div class="management-box">
-          <h3>Dock Side Care</h3>
-          <ul>
-            <li>Routine dock line and fender inspections</li>
-            <li>Shore power and battery monitoring</li>
-            <li>Bilge pump checks and water intrusion prevention</li>
-            <li>Air conditioning and dehumidifier management</li>
-            <li>Exterior wash-downs and teak maintenance</li>
-            <li>Canvas and upholstery care</li>
-            <li>Coordination with marina staff and dock masters</li>
-            <li>Storm preparation and post-weather assessments</li>
-          </ul>
-        </div>
+      <div class="mgmt-image">
+        <Image
+          src={helmImg}
+          alt="Engine inspections and helm navigation checks"
+          quality={80}
+          class="collage-img"
+        />
       </div>
-
-      <ContactButton />
     </div>
+
+    <!-- Services + Engine image -->
+    <div class="mgmt-section reverse">
+      <div class="mgmt-text">
+        <h2>Our Services</h2>
+        <ul>
+          <li>Regular yacht inspections</li>
+          <li>Engine and cooling system monitoring</li>
+          <li>Chartplotter and navigation updates</li>
+          <li>Professional hull cleaning</li>
+          <li>Diver scheduling and coordination</li>
+          <li>Oversight of third-party maintenance and repairs</li>
+          <li>Captain and crew for delivery or private charters</li>
+          <li>Exclusive event and party planning</li>
+          <li>Bespoke travel itineraries</li>
+        </ul>
+      </div>
+      <div class="mgmt-image">
+        <Image
+          src={engineImg}
+          alt="Engine room maintenance — bilge systems, plumbing, and Volvo Penta engines"
+          quality={80}
+          class="collage-img"
+        />
+      </div>
+    </div>
+
+    <!-- Dock Side Care -->
+    <div class="mgmt-section centered">
+      <div class="mgmt-text wide">
+        <h2>Dock Side Care</h2>
+        <ul>
+          <li>Routine dock line and fender inspections</li>
+          <li>Shore power and battery monitoring</li>
+          <li>Bilge pump checks and water intrusion prevention</li>
+          <li>Air conditioning and dehumidifier management</li>
+          <li>Exterior wash-downs and teak maintenance</li>
+          <li>Canvas and upholstery care</li>
+          <li>Coordination with marina staff and dock masters</li>
+          <li>Storm preparation and post-weather assessments</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Customer Satisfaction -->
+    <div class="mgmt-section centered">
+      <div class="mgmt-text wide">
+        <h2>Customer Satisfaction First</h2>
+        <p>
+          At the heart of Grand Bleu Yachts is a commitment to customer
+          satisfaction and genuine understanding of each owner's needs. Captain
+          Olivier takes the time to listen, understand your expectations, and
+          tailor every service to match your lifestyle. Whether you use your
+          yacht every weekend or visit a few times a year, he ensures your
+          vessel is always ready to go — polished, fueled, and waiting for you.
+        </p>
+      </div>
+    </div>
+
+    <!-- From Mediterranean to Florida -->
+    <div class="mgmt-section centered">
+      <div class="mgmt-text wide">
+        <h2>From the Mediterranean to Florida</h2>
+        <p>
+          Captain Olivier began his career on the sun-drenched coasts of the
+          South of France, where he honed his skills on a wide range of motor
+          yachts and sailing vessels. After years mastering the Mediterranean,
+          he brought his expertise to South Florida — a region he now calls
+          home and where he has built a reputation for excellence in yacht
+          management, delivery, and charter services.
+        </p>
+        <p>
+          His international background gives him a unique perspective on yacht
+          care, blending European precision with the practical demands of
+          cruising the Bahamas, the Keys, and the East Coast.
+        </p>
+      </div>
+    </div>
+
+    <ContactButton />
   </div>
 </Layout>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const slides = document.querySelectorAll<HTMLElement>(".slide");
-    if (slides.length <= 1) return;
-
-    let current = 0;
-
-    slides.forEach((slide, i) => {
-      slide.style.transition = "opacity 1.5s ease-in-out";
-      slide.style.opacity = i === 0 ? "1" : "0";
-    });
-
-    setInterval(() => {
-      const prev = current;
-      current = (current + 1) % slides.length;
-      slides[prev].style.opacity = "0";
-      slides[current].style.opacity = "1";
-    }, 5000);
-  });
-</script>
-
 <style>
-  .management-wrapper {
-    padding: var(--spacing-xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-  }
-
-  .management-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: var(--color-text-light);
+  .mgmt-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 800px;
+    height: 100%;
+    background: var(--blue-sky);
+    z-index: -1;
   }
 
-  .management-top {
+  .mgmt-page {
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .mgmt-top {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -174,131 +170,126 @@ import managementImg3 from "../assets/images/management rotation 3.JPG";
   h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
     margin-bottom: var(--spacing-xl);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .management-boxes {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .management-box {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg) var(--spacing-xl);
-    text-align: left;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .intro-box {
+    color: var(--blue-dark);
     text-align: center;
   }
 
-  .intro-box p {
-    font-size: 1.1rem;
+  .mgmt-intro {
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .mgmt-intro p {
+    font-size: 1.15rem;
     line-height: 1.8;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    margin: 0;
+    color: var(--blue-dark);
   }
 
-  .management-box h3 {
-    font-size: 1.4rem;
+  .mgmt-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    width: 100%;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .mgmt-section.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .mgmt-section.centered {
+    justify-content: center;
+  }
+
+  .mgmt-text {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(2, 62, 138, 0.1);
+    box-shadow: 0 4px 20px rgba(2, 62, 138, 0.08);
+  }
+
+  .mgmt-text.wide {
+    max-width: 700px;
+  }
+
+  .mgmt-text h2 {
+    font-size: 1.5rem;
+    color: var(--blue-dark);
     margin-bottom: var(--spacing-md);
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 
-  .management-box ul {
+  .mgmt-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--blue-dark);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .mgmt-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .mgmt-text ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .management-box li {
+  .mgmt-text li {
     font-size: 1.05rem;
     padding: var(--spacing-xs) 0;
     padding-left: var(--spacing-lg);
     position: relative;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: var(--blue-dark);
     line-height: 1.6;
   }
 
-  .management-box li::before {
-    content: "→";
+  .mgmt-text li::before {
+    content: "\2192";
     position: absolute;
     left: 0;
-    color: white;
+    color: var(--blue-medium);
+  }
+
+  .mgmt-image {
+    flex: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(2, 62, 138, 0.15);
+    border: 2px solid rgba(2, 62, 138, 0.1);
+  }
+
+  .collage-img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   @media (max-width: 768px) {
-    .management-wrapper {
+    .mgmt-page {
       padding: var(--spacing-md);
-    }
-
-    .management-page {
-      padding: var(--spacing-md);
-    }
-
-    .management-boxes {
-      max-width: 100%;
     }
 
     h1 {
       font-size: clamp(2rem, 5vw, 3rem);
     }
-  }
-</style>
 
-<style is:global>
-  /* Hide the default Layout background image on management page */
-  .main-bg {
-    display: none !important;
-  }
+    .mgmt-section,
+    .mgmt-section.reverse {
+      flex-direction: column;
+    }
 
-  .slideshow-container {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
-    height: calc(100vh - var(--header-height));
-    z-index: -1;
-    overflow: hidden;
-  }
+    .mgmt-image {
+      width: 100%;
+    }
 
-  .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: 4px;
-    opacity: 0;
-  }
-
-  .slide.active {
-    opacity: 1;
-  }
-
-  .slide-img {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  @media (max-width: 768px) {
-    .slide {
-      gap: 2px;
+    .mgmt-text.wide {
+      max-width: 100%;
     }
   }
 </style>
