@@ -18,6 +18,13 @@ import charterImg from "../assets/images/charter sunset.JPG";
 >
   <Hero />
 
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#001a3a"/>
+    </svg>
+  </div>
+
   <!-- SCROLL-DOWN CONTENT -->
   <div class="home-content" id="home-content">
 
@@ -164,6 +171,19 @@ import charterImg from "../assets/images/charter sunset.JPG";
 </Layout>
 
 <style>
+  .wave-separator {
+    position: relative;
+    z-index: 2;
+    line-height: 0;
+    margin-top: -2px;
+  }
+
+  .wave-separator svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+  }
+
   .home-content {
     position: relative;
     z-index: 2;
@@ -187,15 +207,15 @@ import charterImg from "../assets/images/charter sunset.JPG";
   .section-label {
     display: inline-block;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--blue-accent);
-    background: rgba(0, 180, 216, 0.1);
+    letter-spacing: 0.18em;
+    color: #fff;
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-full);
     margin-bottom: var(--spacing-md);
-    border: 1px solid rgba(0, 180, 216, 0.2);
+    box-shadow: 0 0 16px rgba(0, 180, 216, 0.45);
   }
 
   h2 {
@@ -238,9 +258,12 @@ import charterImg from "../assets/images/charter sunset.JPG";
 
   .highlight-number {
     font-family: var(--font-family-heading);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--white);
+    background: linear-gradient(90deg, #00b4d8, #74b9df);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .highlight-label {
@@ -281,9 +304,9 @@ import charterImg from "../assets/images/charter sunset.JPG";
   }
 
   .service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(116, 185, 223, 0.3);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px) rotate(-1deg) scale(1.02);
+    border-color: rgba(0, 180, 216, 0.6);
+    box-shadow: 0 20px 50px rgba(0, 119, 182, 0.4), 0 0 30px rgba(0, 180, 216, 0.2);
   }
 
   .card-image {
@@ -369,18 +392,27 @@ import charterImg from "../assets/images/charter sunset.JPG";
     display: flex;
     gap: var(--spacing-md);
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-md);
     padding: var(--spacing-lg);
-    border: 1px solid rgba(116, 185, 223, 0.08);
+    border: 1px solid rgba(116, 185, 223, 0.12);
+    border-left: 3px solid #00b4d8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+
+  .why-item:hover {
+    transform: translateX(6px);
+    background: rgba(0, 180, 216, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 119, 182, 0.25);
   }
 
   .why-icon {
-    font-size: 1.5rem;
-    min-width: 32px;
+    font-size: 1.8rem;
+    min-width: 36px;
     text-align: center;
     line-height: 1;
     margin-top: 2px;
+    filter: drop-shadow(0 0 6px rgba(0, 180, 216, 0.5));
   }
 
   .why-item strong {
@@ -409,6 +441,13 @@ import charterImg from "../assets/images/charter sunset.JPG";
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(135deg, rgba(0, 119, 182, 0.15), rgba(0, 180, 216, 0.08));
+    border-radius: 20px;
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    border: 1px solid rgba(0, 180, 216, 0.25);
+    box-shadow: 0 0 60px rgba(0, 119, 182, 0.15), inset 0 0 40px rgba(0, 180, 216, 0.04);
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .cta-inner h2 {
