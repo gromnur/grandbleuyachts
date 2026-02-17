@@ -16,7 +16,8 @@ const menuItems = [
 <header class="header" transition:persist>
   <nav class="header-nav">
     <div class="header-service-area">
-      <span class="service-area-label">Based in West Palm</span>
+      <span class="service-area-label">Service Area</span>
+      <span class="service-area-location">Based in West Palm Beach</span>
       <span class="service-area-range">Jupiter to Fort Lauderdale</span>
     </div>
 
@@ -86,10 +87,16 @@ const menuItems = [
     color: var(--blue-medium);
   }
 
-  .service-area-range {
-    font-size: 0.85rem;
+  .service-area-location {
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--blue-dark);
+  }
+
+  .service-area-range {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--blue-medium);
   }
 
   .header-logo {
@@ -224,8 +231,12 @@ const menuItems = [
       font-size: 0.6rem;
     }
 
+    .service-area-location {
+      font-size: 0.65rem;
+    }
+
     .service-area-range {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
     }
 
     .header-logo {
