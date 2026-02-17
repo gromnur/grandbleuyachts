@@ -1,10 +1,6 @@
 ---
 import ContactButton from './ContactButton.astro';
 
-interface Props {
-  backgroundImage?: string;
-}
-
 const services = [
   { label: "Management", href: "/management" },
   { label: "Delivery", href: "/delivery" },
@@ -24,16 +20,22 @@ const services = [
       </div>
     </div>
 
-    <div class="hero-container">
-      <div class="services-bar">
-        {
-          services.map((service) => (
-            <a href={service.href} class="primary-btn">
-              {service.label}
-            </a>
-          ))
-        }
+    <div class="hero-bottom">
+      <div class="hero-container">
+        <div class="services-bar">
+          {
+            services.map((service) => (
+              <a href={service.href} class="primary-btn">
+                {service.label}
+              </a>
+            ))
+          }
+        </div>
       </div>
+      <button class="scroll-indicator" id="hero-scroll-down" aria-label="Scroll down">
+        <span class="scroll-text">Learn more</span>
+        <span class="scroll-arrow"></span>
+      </button>
     </div>
   </div>
 </section>
@@ -111,6 +113,13 @@ const services = [
     }
   }
 
+  .hero-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
   .hero-container {
     display: flex;
     flex-direction: column;
@@ -124,6 +133,38 @@ const services = [
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
+  }
+
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
+  }
+
+  .scroll-text {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(-45deg);
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: rotate(-45deg) translateY(0); opacity: 0.4; }
+    50% { transform: rotate(-45deg) translateY(5px); opacity: 1; }
   }
 
   @media (max-width: 768px) {
@@ -147,3 +188,9 @@ const services = [
     }
   }
 </style>
+
+<script>
+  document.getElementById('hero-scroll-down')?.addEventListener('click', () => {
+    document.getElementById('home-content')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
