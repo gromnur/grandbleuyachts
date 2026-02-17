@@ -15,20 +15,14 @@ const menuItems = [
 
 <header class="header" transition:persist>
   <nav class="header-nav">
-    <a
-      href="https://www.google.com/maps/dir/Jupiter,+FL/West+Palm+Beach,+FL/Fort+Lauderdale,+FL/@26.5,-80.1,9z"
-      target="_blank"
-      rel="noopener"
-      class="header-service-area"
-      aria-label="View service area on Google Maps — Jupiter to Fort Lauderdale"
-    >
+    <div class="header-service-area">
       <span class="service-area-label">
         <span class="service-area-pin"></span>
         Service Area
       </span>
       <span class="service-area-location">Based in West Palm Beach</span>
-      <span class="service-area-range">Jupiter to Fort Lauderdale <span class="service-area-arrow">&rsaquo;</span></span>
-    </a>
+      <span class="service-area-range">Jupiter to Fort Lauderdale</span>
+    </div>
 
     <a href="/" class="header-logo">
       <Image
@@ -80,6 +74,7 @@ const menuItems = [
     justify-content: space-between;
     height: 100%;
     padding: 0 var(--spacing-xl);
+    position: relative;
   }
 
   .header-service-area {
@@ -87,15 +82,7 @@ const menuItems = [
     flex-direction: column;
     align-items: flex-start;
     line-height: 1.3;
-    text-decoration: none;
     padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
-    cursor: pointer;
-  }
-
-  .header-service-area:hover {
-    background: rgba(255, 255, 255, 0.15);
   }
 
   .service-area-label {
@@ -135,17 +122,11 @@ const menuItems = [
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   }
 
-  .service-area-arrow {
-    font-size: 1rem;
-    line-height: 1;
-    transition: transform var(--transition-fast);
-  }
-
-  .header-service-area:hover .service-area-arrow {
-    transform: translateX(2px);
-  }
-
   .header-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
