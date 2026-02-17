@@ -5,6 +5,7 @@ import ContactButton from "../components/ContactButton.astro";
 import { Image } from "astro:assets";
 import helmImg from "../assets/images/about-helm-inspection.png";
 import engineImg from "../assets/images/about-engine-room.png";
+import detailImg from "../assets/images/detailing-yacht.JPG";
 ---
 
 <Layout
@@ -96,6 +97,47 @@ import engineImg from "../assets/images/about-engine-room.png";
           <li>Coordination with marina staff and dock masters</li>
           <li>Storm preparation and post-weather assessments</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Cleaning & Detailing -->
+    <div class="mgmt-section">
+      <div class="mgmt-text">
+        <h2>Cleaning & Detailing</h2>
+        <p>
+          I schedule and oversee every detail of your yacht's cleaning — inside
+          and out. From regular wash-downs to deep interior scrubs, I make sure
+          she always looks her best. No cutting corners, no missed spots.
+        </p>
+        <h3>Exterior</h3>
+        <ul>
+          <li>Full hull wash and oxidation removal</li>
+          <li>Ceramic coating and wax protection</li>
+          <li>Topside polish and gel coat restoration</li>
+          <li>Teak cleaning, brightening, and sealing</li>
+          <li>Stainless steel and chrome polishing</li>
+        </ul>
+        <h3>Interior</h3>
+        <ul>
+          <li>Cabin deep cleaning and sanitization</li>
+          <li>Upholstery and carpet shampooing</li>
+          <li>Galley and head detailing</li>
+          <li>Leather conditioning and fabric protection</li>
+          <li>Window and glass treatment</li>
+        </ul>
+        <p>
+          I work with trusted detailing professionals and coordinate everything
+          on a schedule that fits your needs — weekly, biweekly, or before
+          every trip. You just show up and enjoy.
+        </p>
+      </div>
+      <div class="mgmt-image">
+        <Image
+          src={detailImg}
+          alt="Pristine yacht hull — professional detailing and ceramic coating"
+          quality={80}
+          class="collage-img"
+        />
       </div>
     </div>
 
@@ -222,6 +264,14 @@ import engineImg from "../assets/images/about-engine-room.png";
     font-size: 1.5rem;
     color: var(--blue-dark);
     margin-bottom: var(--spacing-md);
+  }
+
+  .mgmt-text h3 {
+    font-size: 1.15rem;
+    color: var(--blue-dark);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.85;
   }
 
   .mgmt-text p {
