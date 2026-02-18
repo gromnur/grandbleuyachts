@@ -152,23 +152,39 @@ const contactInfo = {
 
   @media (max-width: 480px) {
     .footer-links {
-      gap: var(--spacing-md);
+      gap: 0;
     }
 
-    .footer-item {
-      font-size: 0.7rem;
-    }
-
+    /* Hide text labels — icon-only on small phones */
     .footer-item span:not(.footer-icon) {
       display: none;
+    }
+
+    /* 44×44px minimum touch target for each icon link */
+    .footer-item {
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      padding: 0;
+      gap: 0;
+    }
+
+    .footer-icon {
+      width: 22px;
+      height: 22px;
     }
 
     .footer-credentials {
       display: none;
     }
 
-    .footer-contact-btn span {
-      display: inline;
+    /* Make contact btn meet 44px min touch height */
+    .footer-contact-btn {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 0.7rem;
+      padding: 0 var(--spacing-xs);
     }
   }
 </style>

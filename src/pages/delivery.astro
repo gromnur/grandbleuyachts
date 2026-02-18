@@ -631,6 +631,53 @@ import cockpitImg from '../assets/images/delivery cockpit.JPG';
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 480px) {
+    /* Stack hero stats vertically on small phones */
+    .hero-stats {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+
+    .stat-divider {
+      width: 40px;
+      height: 1px;
+    }
+
+    .stat-value {
+      font-size: 1rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+    }
+
+    .delivery-page {
+      padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    }
+
+    .delivery-text {
+      padding: var(--spacing-md);
+    }
+
+    .delivery-text h2 {
+      font-size: 1.25rem;
+    }
+
+    .delivery-text p {
+      font-size: 0.95rem;
+    }
+
+    .delivery-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    /* Map can go full-width on small phones */
+    .map-container {
+      max-width: 100%;
+    }
+  }
 </style>
 
 <style is:global>

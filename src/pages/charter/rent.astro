@@ -645,8 +645,45 @@ import sunsetImg from '../../assets/images/charter sunset.JPG';
   }
 
   @media (max-width: 480px) {
+    .hero-content {
+      padding: 0 var(--spacing-md);
+      gap: var(--spacing-sm);
+    }
+
+    .hero-pills {
+      gap: var(--spacing-xs);
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 5px 12px;
+    }
+
+    .rent-page {
+      padding: var(--spacing-lg) var(--spacing-md);
+      gap: var(--spacing-lg);
+    }
+
     .destinations-grid {
       grid-template-columns: 1fr;
+    }
+
+    .dest-card {
+      padding: var(--spacing-md);
+      /* Ensure 44px min height for touch */
+      min-height: 58px;
+    }
+
+    .offer-card {
+      padding: var(--spacing-md);
+    }
+
+    .cta-box {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .vb-quote {
+      font-size: 1.2rem;
     }
   }
 </style>

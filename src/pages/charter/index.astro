@@ -462,4 +462,37 @@ import ownerImg from '../../assets/images/charter owner.JPG';
       font-size: 0.6rem;
     }
   }
+
+  @media (max-width: 480px) {
+    .top-label {
+      display: none;
+    }
+
+    .panel-content {
+      padding: var(--spacing-md) var(--spacing-md) var(--spacing-md);
+    }
+
+    /* Clamp title slightly smaller on tiny phones */
+    .panel-title {
+      font-size: clamp(1.6rem, 8vw, 2.5rem);
+    }
+
+    /* Allow desc to use full width on small screens */
+    .panel-desc {
+      max-width: 100%;
+      font-size: 0.9rem;
+    }
+
+    /* Make CTA button easier to tap */
+    .panel-cta {
+      padding: 12px 20px;
+      font-size: 0.8rem;
+    }
+
+    .divider-badge {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
+  }
 </style>

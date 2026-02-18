@@ -543,5 +543,36 @@ import charterImg from "../assets/images/rental charter.JPG";
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 480px) {
+    .home-section {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    /* Stack highlights vertically on small phones */
+    .about-highlights {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .highlight-divider {
+      width: 40px;
+      height: 1px;
+    }
+
+    .about-lead {
+      font-size: 1rem;
+    }
+
+    /* Service card images slightly shorter */
+    .card-image {
+      height: 160px;
+    }
+
+    /* Why items: tighter padding */
+    .why-item {
+      padding: var(--spacing-md);
+    }
+  }
 </style>
 

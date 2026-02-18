@@ -490,6 +490,36 @@ import ownerImage from '../../assets/images/charter owner.JPG';
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 480px) {
+    .list-page {
+      padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    }
+
+    .list-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .list-text {
+      padding: var(--spacing-md);
+    }
+
+    .list-text h2 {
+      font-size: 1.25rem;
+    }
+
+    .list-text p {
+      font-size: 0.95rem;
+    }
+
+    /* Step numbers slightly smaller */
+    .step-number {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      font-size: 1rem;
+    }
+  }
 </style>
 
 <style is:global>
