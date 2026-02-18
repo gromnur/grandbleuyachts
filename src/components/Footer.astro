@@ -132,35 +132,15 @@ const contactInfo = {
       padding: var(--spacing-xs) var(--spacing-sm);
     }
 
-    .footer-links {
-      gap: var(--spacing-md);
-    }
-
-    .footer-item {
-      font-size: 0.75rem;
-    }
-
-    .footer-icon {
-      width: 16px;
-      height: 16px;
-    }
-
-    .footer-contact-btn {
-      font-size: 0.65rem;
-    }
-  }
-
-  @media (max-width: 480px) {
+    /* Icon-only on all mobile — no text labels overlapping photos */
     .footer-links {
       gap: 0;
     }
 
-    /* Hide text labels — icon-only on small phones */
     .footer-item span:not(.footer-icon) {
       display: none;
     }
 
-    /* 44×44px minimum touch target for each icon link */
     .footer-item {
       width: 44px;
       height: 44px;
@@ -178,7 +158,6 @@ const contactInfo = {
       display: none;
     }
 
-    /* Make contact btn meet 44px min touch height */
     .footer-contact-btn {
       display: flex;
       align-items: center;
