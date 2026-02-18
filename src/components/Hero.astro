@@ -28,15 +28,13 @@ import ContactButton from './ContactButton.astro';
       <div class="hero-actions">
         <ContactButton />
       </div>
-    </div>
-  </div>
 
-  <div class="hero-bottom">
-    <button class="scroll-arrow" id="hero-scroll-down" aria-label="Scroll down">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"/>
-      </svg>
-    </button>
+      <button class="scroll-arrow" id="hero-scroll-down" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -179,17 +177,8 @@ import ContactButton from './ContactButton.astro';
   }
 
   /* ---- Scroll arrow ---- */
-  .hero-bottom {
-    position: absolute;
-    bottom: var(--spacing-lg);
-    left: 0;
-    right: 0;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-  }
-
   .scroll-arrow {
+    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -298,9 +287,6 @@ import ContactButton from './ContactButton.astro';
       width: 100%;
     }
 
-    .hero-bottom {
-      bottom: calc(var(--footer-height) + var(--spacing-xl));
-    }
   }
 </style>
 
