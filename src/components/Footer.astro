@@ -7,6 +7,9 @@ const contactInfo = {
 ---
 
 <footer class="footer">
+  <div class="footer-credentials">
+    Yacht Management in South Florida &nbsp;·&nbsp; 20+ Years Experience &nbsp;·&nbsp; USCG Licensed &nbsp;·&nbsp; Fully Insured &nbsp;·&nbsp; South Florida Based
+  </div>
   <div class="footer-content">
     <a href={`mailto:${contactInfo.email}`} class="footer-item">
       <span class="footer-icon" data-icon="email"></span>
@@ -30,10 +33,20 @@ const contactInfo = {
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
     min-height: var(--footer-height);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 4px;
+  }
+
+  .footer-credentials {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
   }
 
   .footer-content {
@@ -112,6 +125,10 @@ const contactInfo = {
     }
 
     .footer-item span:not(.footer-icon) {
+      display: none;
+    }
+
+    .footer-credentials {
       display: none;
     }
   }
