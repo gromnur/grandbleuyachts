@@ -27,31 +27,16 @@ import ContactButton from './ContactButton.astro';
 
       <div class="hero-actions">
         <ContactButton />
-        <button class="hero-explore" id="hero-scroll-down" aria-label="Explore services">
-          Explore Services
-          <span class="explore-arrow">↓</span>
-        </button>
       </div>
     </div>
   </div>
 
   <div class="hero-bottom">
-    <div class="hero-stats-bar">
-      <div class="hstat">
-        <span class="hstat-val">Management</span>
-        <span class="hstat-label">Full-service care</span>
-      </div>
-      <div class="hstat-div"></div>
-      <div class="hstat">
-        <span class="hstat-val">Delivery</span>
-        <span class="hstat-label">East Coast & Bahamas</span>
-      </div>
-      <div class="hstat-div"></div>
-      <div class="hstat">
-        <span class="hstat-val">Charter</span>
-        <span class="hstat-label">Rent or list your yacht</span>
-      </div>
-    </div>
+    <button class="scroll-arrow" id="hero-scroll-down" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
   </div>
 </section>
 
@@ -193,65 +178,36 @@ import ContactButton from './ContactButton.astro';
     touch-action: manipulation;
   }
 
-  .hero-explore:hover {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.45);
-    color: #fff;
-  }
-
-  .explore-arrow {
-    display: inline-block;
-    animation: bounceDown 2s ease-in-out infinite;
-    font-size: 1rem;
-  }
-
-  /* ---- Stats bar ---- */
+  /* ---- Scroll arrow ---- */
   .hero-bottom {
     position: relative;
     z-index: 2;
-    padding: 0 var(--spacing-xl) var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--spacing-lg);
   }
 
-  .hero-stats-bar {
+  .scroll-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-xl);
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-md) var(--spacing-2xl);
-    animation: fadeInUp 0.8s ease-out 0.45s both;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    padding: 8px;
+    animation: bounceDown 2s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
-  .hstat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
+  .scroll-arrow svg {
+    width: 28px;
+    height: 28px;
   }
 
-  .hstat-val {
-    font-family: var(--font-family-heading);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.01em;
-  }
-
-  .hstat-label {
-    font-size: 0.65rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .hstat-div {
-    width: 1px;
-    height: 32px;
-    background: rgba(255, 255, 255, 0.15);
+  .scroll-arrow:hover {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   @keyframes fadeInUp {
@@ -278,15 +234,6 @@ import ContactButton from './ContactButton.astro';
     .hero-text {
       padding: var(--spacing-lg) var(--spacing-md) 0;
       gap: var(--spacing-md);
-    }
-
-    .hero-stats-bar {
-      gap: var(--spacing-lg);
-      padding: var(--spacing-md) var(--spacing-lg);
-    }
-
-    .hero-bottom {
-      padding: 0 var(--spacing-md) var(--spacing-md);
     }
 
     .hero-br { display: none; }
@@ -318,32 +265,9 @@ import ContactButton from './ContactButton.astro';
       gap: var(--spacing-sm);
     }
 
-    .hero-stats-bar {
-      gap: var(--spacing-md);
-      padding: var(--spacing-sm) var(--spacing-md);
-    }
-
-    .hstat-val {
-      font-size: 0.8rem;
-    }
-
-    .hstat-label {
-      font-size: 0.6rem;
-    }
-
-    .hstat-div {
-      width: 1px;
-      height: 24px;
-    }
-
     .hero-actions {
       flex-direction: column;
       width: 100%;
-    }
-
-    .hero-explore {
-      width: 100%;
-      justify-content: center;
     }
   }
 </style>
