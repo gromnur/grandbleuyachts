@@ -17,16 +17,18 @@ import charterImg from "../assets/images/rental charter.JPG";
   noBackground={true}
   narrowBackground={true}
 >
-  <div class="bg-rotator" aria-hidden="true">
-    <div class="bg-slide-wrap bg-slide-1">
-      <Image src={frontPageImage} alt="" class="bg-slide" loading="eager" quality={80} />
+  <div class="hero-wrapper">
+    <div class="bg-rotator" aria-hidden="true">
+      <div class="bg-slide-wrap bg-slide-1">
+        <Image src={frontPageImage} alt="" class="bg-slide" loading="eager" quality={80} />
+      </div>
+      <div class="bg-slide-wrap bg-slide-2">
+        <Image src={managementRotationImage} alt="" class="bg-slide" loading="eager" quality={80} />
+      </div>
     </div>
-    <div class="bg-slide-wrap bg-slide-2">
-      <Image src={managementRotationImage} alt="" class="bg-slide" loading="eager" quality={80} />
-    </div>
-  </div>
 
-  <Hero />
+    <Hero />
+  </div>
 
   <!-- SCROLL-DOWN CONTENT -->
   <div class="home-content" id="home-content">
@@ -177,13 +179,17 @@ import charterImg from "../assets/images/rental charter.JPG";
   /* ========================================
      ROTATING BACKGROUND
      ======================================== */
+  .hero-wrapper {
+    position: relative;
+  }
+
   .bg-rotator {
-    position: fixed;
-    top: calc(var(--header-height) + 32px);
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - var(--header-height) - var(--footer-height) - 32px);
-    z-index: -1;
+    height: 100%;
+    z-index: 0;
     pointer-events: none;
   }
 
