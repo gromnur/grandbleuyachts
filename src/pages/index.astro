@@ -175,10 +175,10 @@ import charterImg from "../assets/images/charter sunset.JPG";
      ======================================== */
   .bg-rotator {
     position: fixed;
-    top: 0;
+    top: var(--header-height);
     left: 0;
     width: 100%;
-    height: calc(100vh - var(--footer-height));
+    height: calc(100vh - var(--header-height) - var(--footer-height));
     z-index: -1;
     pointer-events: none;
   }
