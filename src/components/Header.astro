@@ -293,6 +293,8 @@ const menuItems = [
 
     .header-service-area {
       padding: 0;
+      max-width: calc(50% - 56px);
+      overflow: hidden;
     }
 
     /* Hide "Service Area" label row and range — show city only */
@@ -304,6 +306,9 @@ const menuItems = [
       font-size: 0.72rem;
       font-weight: 600;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .service-area-range {
