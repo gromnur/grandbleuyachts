@@ -522,27 +522,3 @@ import charterImg from "../assets/images/rental charter.JPG";
   }
 </style>
 
-<script>
-  let scrolling = true;
-
-  function stopScroll() {
-    scrolling = false;
-    window.removeEventListener('wheel', stopScroll);
-    window.removeEventListener('touchstart', stopScroll);
-    window.removeEventListener('pointerdown', stopScroll);
-    window.removeEventListener('keydown', stopScroll);
-  }
-
-  window.addEventListener('wheel', stopScroll, { passive: true });
-  window.addEventListener('touchstart', stopScroll, { passive: true });
-  window.addEventListener('pointerdown', stopScroll);
-  window.addEventListener('keydown', stopScroll);
-
-  function autoScroll() {
-    if (!scrolling) return;
-    window.scrollBy(0, 1);
-    requestAnimationFrame(autoScroll);
-  }
-
-  requestAnimationFrame(autoScroll);
-</script>
