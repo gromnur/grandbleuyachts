@@ -241,9 +241,15 @@ import ContactButton from './ContactButton.astro';
       );
     }
 
+    /* Push content toward the top on tablets */
+    .hero-content {
+      justify-content: flex-start;
+      padding-top: 6vh;
+    }
+
     .hero-text {
       padding: var(--spacing-lg) var(--spacing-md) 0;
-      gap: var(--spacing-md);
+      gap: var(--spacing-lg);
     }
 
     .hero-br { display: none; }
@@ -263,20 +269,28 @@ import ContactButton from './ContactButton.astro';
       );
     }
 
+    /* Push content up on phones */
+    .hero-content {
+      justify-content: flex-start;
+      padding-top: 5vh;
+    }
+
+    .hero-text {
+      gap: var(--spacing-lg);
+      padding: var(--spacing-md) var(--spacing-md) 0;
+    }
+
     .h1-line {
       font-size: 2.2rem;
     }
 
     .hero-sub {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      line-height: 1.75;
     }
 
     .hero-badges {
-      gap: var(--spacing-sm);
-    }
-
-    .hero-text {
-      gap: var(--spacing-sm);
+      gap: var(--spacing-md);
     }
 
     .hero-actions {
