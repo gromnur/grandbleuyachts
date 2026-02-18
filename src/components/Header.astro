@@ -250,25 +250,25 @@ const menuItems = [
       padding: 0 var(--spacing-md);
     }
 
+    /* Hide label row, show only location + range compactly */
     .header-service-area {
-      padding: var(--spacing-xs) var(--spacing-xs);
+      padding: 0 var(--spacing-xs);
+      max-width: calc(50% - 60px);
     }
 
     .service-area-label {
-      font-size: 0.6rem;
-    }
-
-    .service-area-pin {
-      width: 10px;
-      height: 10px;
+      display: none;
     }
 
     .service-area-location {
       font-size: 0.65rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .service-area-range {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
+      white-space: nowrap;
     }
 
     .header-logo {
@@ -296,20 +296,15 @@ const menuItems = [
       max-width: calc(50% - 52px);
     }
 
-    .service-area-label {
-      display: none;
-    }
-
+    /* Only city name on small phones */
     .service-area-location {
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       font-weight: 600;
       white-space: nowrap;
     }
 
     .service-area-range {
-      display: flex;
-      font-size: 0.62rem;
-      white-space: nowrap;
+      display: none;
     }
 
     /* Ensure menu toggle meets 44×44px minimum touch target */
