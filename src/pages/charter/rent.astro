@@ -1,52 +1,664 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
+import BackButton from '../../components/BackButton.astro';
+import ContactButton from '../../components/ContactButton.astro';
+import { Image } from 'astro:assets';
 import rentalImage from '../../assets/images/rental charter.JPG';
+import sunsetImg from '../../assets/images/charter sunset.JPG';
 ---
 
 <Layout
   title="Rent a Yacht"
-  description="Charter a luxury yacht for your next adventure in the Bahamas or along the East Coast."
-  backgroundImage={rentalImage}
+  description="Charter a luxury yacht for your next adventure in South Florida or the Bahamas."
+  noBackground={true}
   hideFooter={false}
 >
-  <Card
-    title="Rent a Yacht"
-    showBackButton={true}
-    showContactButton={true}
-    backgroundColor="rgba(0, 0, 0, 0.3)"
-    blurAmount="1px"
-    borderRadius="var(--radius-lg)"
-    padding="var(--spacing-xl)"
-  >
-    <h3>Popular Destinations</h3>
-    <ul>
-      <li>Jupiter</li>
-      <li>Peanut Island</li>
-      <li>Downtown West Palm</li>
-      <li>Mar-a-Lago</li>
-      <li>Lake Boca</li>
-      <li>Fort Lauderdale</li>
-      <li>Bahamas</li>
-    </ul>
+  <div class="rent-bg"></div>
 
-    <h3>What We Offer</h3>
-    <ul>
-      <li>Day charters and multi-day adventures</li>
-      <li>Fully crewed luxury yachts</li>
-      <li>Special event packages</li>
-    </ul>
-  </Card>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-wrap">
+      <Image
+        src={rentalImage}
+        alt="Luxury yacht on open water"
+        class="hero-bg-img"
+        loading="eager"
+        quality={85}
+      />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-top">
+      <BackButton href="/charter" />
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Grand Bleu Charters</span>
+      <h1 class="hero-title">Where Do You<br/>Want to Go?</h1>
+      <p class="hero-subtitle">
+        Day trips, sunset cruises, Bahamas runs —
+        your captain handles every detail. You just show up.
+      </p>
+      <div class="hero-pills">
+        <span class="pill">☀️ Day Charters</span>
+        <span class="pill">🌙 Multi-Day</span>
+        <span class="pill">🥂 Special Events</span>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <button class="scroll-indicator" id="scroll-down" aria-label="Scroll down">
+        <span class="scroll-text">Explore destinations</span>
+        <span class="scroll-arrow"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PAGE CONTENT -->
+  <div class="rent-page" id="rent-content">
+
+    <!-- DESTINATIONS -->
+    <section class="rent-section">
+      <div class="section-header">
+        <span class="section-label">South Florida & Beyond</span>
+        <h2>Popular Destinations</h2>
+        <p class="section-sub">From a quick afternoon out to a full Bahamas crossing — we know these waters.</p>
+      </div>
+
+      <div class="destinations-grid">
+        <a href="/contact" class="dest-card">
+          <span class="dest-emoji">📍</span>
+          <div class="dest-info">
+            <strong>Jupiter</strong>
+            <span>Perfect day out</span>
+          </div>
+        </a>
+        <a href="/contact" class="dest-card">
+          <span class="dest-emoji">🏝️</span>
+          <div class="dest-info">
+            <strong>Peanut Island</strong>
+            <span>The local secret</span>
+          </div>
+        </a>
+        <a href="/contact" class="dest-card">
+          <span class="dest-emoji">🌆</span>
+          <div class="dest-info">
+            <strong>Downtown West Palm</strong>
+            <span>City meets water</span>
+          </div>
+        </a>
+        <a href="/contact" class="dest-card">
+          <span class="dest-emoji">⛵</span>
+          <div class="dest-info">
+            <strong>Mar-a-Lago</strong>
+            <span>Show 'em the coast</span>
+          </div>
+        </a>
+        <a href="/contact" class="dest-card">
+          <span class="dest-emoji">🌊</span>
+          <div class="dest-info">
+            <strong>Lake Boca</strong>
+            <span>Calm water, big fun</span>
+          </div>
+        </a>
+        <a href="/contact" class="dest-card">
+          <span class="dest-emoji">⚓</span>
+          <div class="dest-info">
+            <strong>Fort Lauderdale</strong>
+            <span>Venice of America</span>
+          </div>
+        </a>
+        <a href="/contact" class="dest-card dest-card--highlight">
+          <span class="dest-emoji">🌴</span>
+          <div class="dest-info">
+            <strong>Bahamas</strong>
+            <span>Go further</span>
+          </div>
+          <span class="dest-badge">Adventure</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- WHAT WE OFFER -->
+    <section class="rent-section">
+      <div class="section-header">
+        <span class="section-label">Trip Types</span>
+        <h2>What We Offer</h2>
+      </div>
+
+      <div class="offers-grid">
+        <div class="offer-card">
+          <div class="offer-icon">☀️</div>
+          <h3>Day Charters</h3>
+          <p>Sunrise to sunset or just a few hours — pick your window and we'll make it count.</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">🌙</div>
+          <h3>Multi-Day Adventures</h3>
+          <p>Sleep on the water, wake up somewhere new. Bahamas runs and overnight trips fully arranged.</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">🥂</div>
+          <h3>Special Events</h3>
+          <p>Birthdays, proposals, corporate outings — we set the scene, you enjoy the moment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUNSET VISUAL BREAK -->
+    <section class="visual-break">
+      <div class="vb-img-wrap">
+        <Image src={sunsetImg} alt="Yacht at sunset" class="vb-img" quality={80} />
+        <div class="vb-overlay"></div>
+      </div>
+      <div class="vb-content">
+        <p class="vb-quote">"Your only job is to enjoy the ride."</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="rent-section cta-section">
+      <div class="cta-box">
+        <h2>Ready to Cast Off?</h2>
+        <p>
+          Tell me where you want to go, how many guests, and what kind of day you're after.
+          I'll take care of everything else.
+        </p>
+        <ContactButton />
+      </div>
+    </section>
+
+  </div>
 </Layout>
 
-<style is:global>
-  .main-bg {
+<style>
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+  .rent-bg {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
+    z-index: -1;
+  }
+
+  /* ========================================
+     HERO
+     ======================================== */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100dvh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero-bg-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     object-position: center center;
   }
 
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 15, 40, 0.55) 0%,
+      rgba(2, 62, 138, 0.25) 40%,
+      rgba(0, 15, 40, 0.75) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-top {
+    position: relative;
+    z-index: 10;
+    padding: var(--spacing-md) var(--spacing-xl) 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--spacing-xl);
+    gap: var(--spacing-md);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(202, 240, 248, 0.8);
+    animation: fadeInUp 0.8s ease-out both;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 520px;
+    line-height: 1.7;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  .hero-pills {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out 0.32s both;
+  }
+
+  .pill {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-bottom {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+  }
+
+  .scroll-text {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .scroll-arrow {
+    width: 22px;
+    height: 22px;
+    border-left: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    transform: rotate(-45deg);
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: rotate(-45deg) translateY(0);    opacity: 0.4; }
+    50%       { transform: rotate(-45deg) translateY(6px);  opacity: 1; }
+  }
+
+  /* ========================================
+     PAGE CONTENT
+     ======================================== */
+  .rent-page {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    max-width: 980px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .rent-section {
+    width: 100%;
+  }
+
+  /* ========================================
+     SECTION HEADER
+     ======================================== */
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--blue-accent);
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.01em;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ========================================
+     DESTINATIONS GRID
+     ======================================== */
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .dest-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(116, 185, 223, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dest-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(2, 62, 138, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .dest-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(116, 185, 223, 0.35);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .dest-card:hover::before {
+    opacity: 1;
+  }
+
+  .dest-card--highlight {
+    border-color: rgba(0, 180, 216, 0.25);
+    background: rgba(0, 180, 216, 0.07);
+  }
+
+  .dest-emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dest-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dest-info strong {
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .dest-info span {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+  }
+
+  .dest-badge {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue-accent);
+    background: rgba(0, 180, 216, 0.15);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  /* ========================================
+     OFFERS GRID
+     ======================================== */
+  .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .offer-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(116, 185, 223, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .offer-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(116, 185, 223, 0.3);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+  }
+
+  .offer-icon {
+    font-size: 2.4rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1;
+  }
+
+  .offer-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .offer-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* ========================================
+     VISUAL BREAK
+     ======================================== */
+  .visual-break {
+    width: 100%;
+    position: relative;
+    height: 260px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .vb-img-wrap {
+    position: absolute;
+    inset: 0;
+  }
+
+  .vb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+  }
+
+  .vb-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 10, 30, 0.78) 0%,
+      rgba(2, 62, 138, 0.4) 50%,
+      rgba(0, 10, 30, 0.5) 100%
+    );
+  }
+
+  .vb-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--spacing-xl);
+  }
+
+  .vb-quote {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 800;
+    font-style: italic;
+    color: var(--white);
+    text-align: center;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: -0.01em;
+    max-width: 600px;
+  }
+
+  /* ========================================
+     CTA
+     ======================================== */
+  .cta-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(116, 185, 223, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .cta-box h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0;
+  }
+
+  .cta-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 440px;
+    margin: 0;
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
-    .main-bg {
-      object-position: center bottom;
+    .hero-top {
+      padding: var(--spacing-sm) var(--spacing-md) 0;
+    }
+
+    .hero-content {
+      padding: 0 var(--spacing-md);
+    }
+
+    .rent-page {
+      padding: var(--spacing-xl) var(--spacing-md);
+      gap: var(--spacing-xl);
+    }
+
+    .destinations-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .offers-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .visual-break {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .destinations-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
+
+<style is:global>
+  .main-bg {
+    display: none !important;
+  }
+</style>
+
+<script>
+  document.getElementById('scroll-down')?.addEventListener('click', () => {
+    document.getElementById('rent-content')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
