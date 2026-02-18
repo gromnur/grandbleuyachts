@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import ContactButton from "../components/ContactButton.astro";
 import { Image } from "astro:assets";
 import frontPageImage from "../assets/images/front page.JPG";
+import managementRotationImage from "../assets/images/management rotation.png";
 import helmImg from "../assets/images/about-helm-inspection.png";
 import cockpitImg from "../assets/images/delivery cockpit.JPG";
 import charterImg from "../assets/images/charter sunset.JPG";
@@ -13,10 +14,14 @@ import charterImg from "../assets/images/charter sunset.JPG";
   title="Home"
   description="Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast."
   hideFooter={false}
-  backgroundImage={frontPageImage}
-  centerImage={true}
+  noBackground={true}
   narrowBackground={true}
 >
+  <div class="bg-rotator" aria-hidden="true">
+    <Image src={frontPageImage} alt="" class="bg-slide bg-slide-1" loading="eager" quality={80} />
+    <Image src={managementRotationImage} alt="" class="bg-slide bg-slide-2" loading="eager" quality={80} />
+  </div>
+
   <Hero />
 
   <!-- SCROLL-DOWN CONTENT -->
@@ -145,7 +150,7 @@ import charterImg from "../assets/images/charter sunset.JPG";
             <span class="why-icon">&#127754;</span>
             <div>
               <strong>Mediterranean to Florida</strong>
-              <p>My background from the South of France to South Florida has given me the experience to handle any yacht, any situation.</p>
+              <p>My background from the South of France to South Florida has given me the various experience to handle any yacht, any situation.</p>
             </div>
           </div>
         </div>
@@ -165,6 +170,62 @@ import charterImg from "../assets/images/charter sunset.JPG";
 </Layout>
 
 <style>
+  /* ========================================
+     ROTATING BACKGROUND
+     ======================================== */
+  .bg-rotator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--footer-height));
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .bg-slide {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .bg-slide-1 {
+    animation: showFirst 14s ease-in-out infinite;
+  }
+
+  .bg-slide-2 {
+    animation: showSecond 14s ease-in-out infinite;
+    opacity: 0;
+  }
+
+  @keyframes showFirst {
+    0%, 40%  { opacity: 1; }
+    50%, 90% { opacity: 0; }
+    100%     { opacity: 1; }
+  }
+
+  @keyframes showSecond {
+    0%, 40%  { opacity: 0; }
+    50%, 90% { opacity: 1; }
+    100%     { opacity: 0; }
+  }
+
+  @media (max-width: 768px) {
+    .bg-slide { width: 85%; }
+  }
+
+  @media (max-width: 480px) {
+    .bg-slide { width: 100%; }
+  }
+
+  /* ========================================
+     PAGE CONTENT
+     ======================================== */
   .home-content {
     position: relative;
     z-index: 2;

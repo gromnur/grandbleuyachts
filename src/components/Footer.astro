@@ -11,20 +11,24 @@ const contactInfo = {
     Yacht Management in South Florida &nbsp;·&nbsp; 20+ Years Experience &nbsp;·&nbsp; USCG Licensed &nbsp;·&nbsp; Fully Insured &nbsp;·&nbsp; South Florida Based
   </div>
   <div class="footer-content">
-    <a href={`mailto:${contactInfo.email}`} class="footer-item">
-      <span class="footer-icon" data-icon="email"></span>
-      <span>{contactInfo.email}</span>
-    </a>
+    <a href="/contact" class="footer-contact-btn">Contact Us</a>
 
-    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} class="footer-item">
-      <span class="footer-icon" data-icon="phone"></span>
-      <span>{contactInfo.phone}</span>
-    </a>
+    <div class="footer-links">
+      <a href="https://instagram.com/capt.olivier" target="_blank" rel="noopener" class="footer-item">
+        <span class="footer-icon" data-icon="instagram"></span>
+        <span>{contactInfo.instagram}</span>
+      </a>
 
-    <a href="https://instagram.com/capt.olivier" target="_blank" rel="noopener" class="footer-item">
-      <span class="footer-icon" data-icon="instagram"></span>
-      <span>{contactInfo.instagram}</span>
-    </a>
+      <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} class="footer-item">
+        <span class="footer-icon" data-icon="phone"></span>
+        <span>{contactInfo.phone}</span>
+      </a>
+
+      <a href={`mailto:${contactInfo.email}`} class="footer-item">
+        <span class="footer-icon" data-icon="email"></span>
+        <span>{contactInfo.email}</span>
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -51,12 +55,39 @@ const contactInfo = {
 
   .footer-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-2xl);
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 var(--spacing-sm);
+  }
+
+  .footer-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px var(--spacing-md);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .footer-contact-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
   }
 
   .footer-item {
@@ -101,8 +132,8 @@ const contactInfo = {
       padding: var(--spacing-xs) var(--spacing-sm);
     }
 
-    .footer-content {
-      gap: var(--spacing-lg);
+    .footer-links {
+      gap: var(--spacing-md);
     }
 
     .footer-item {
@@ -113,11 +144,16 @@ const contactInfo = {
       width: 16px;
       height: 16px;
     }
+
+    .footer-contact-btn {
+      font-size: 0.7rem;
+      padding: 3px var(--spacing-sm);
+    }
   }
 
   @media (max-width: 480px) {
-    .footer-content {
-      gap: var(--spacing-xl);
+    .footer-links {
+      gap: var(--spacing-md);
     }
 
     .footer-item {
@@ -130,6 +166,10 @@ const contactInfo = {
 
     .footer-credentials {
       display: none;
+    }
+
+    .footer-contact-btn span {
+      display: inline;
     }
   }
 </style>
