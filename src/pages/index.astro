@@ -18,8 +18,12 @@ import charterImg from "../assets/images/rental charter.JPG";
   narrowBackground={true}
 >
   <div class="bg-rotator" aria-hidden="true">
-    <Image src={frontPageImage} alt="" class="bg-slide bg-slide-1" loading="eager" quality={80} />
-    <Image src={managementRotationImage} alt="" class="bg-slide bg-slide-2" loading="eager" quality={80} />
+    <div class="bg-slide-wrap bg-slide-1">
+      <Image src={frontPageImage} alt="" class="bg-slide" loading="eager" quality={80} />
+    </div>
+    <div class="bg-slide-wrap bg-slide-2">
+      <Image src={managementRotationImage} alt="" class="bg-slide" loading="eager" quality={80} />
+    </div>
   </div>
 
   <Hero />
@@ -183,15 +187,14 @@ import charterImg from "../assets/images/rental charter.JPG";
     pointer-events: none;
   }
 
-  .bg-slide {
+  .bg-slide-wrap {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 65%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    overflow: hidden;
   }
 
   .bg-slide-1 {
@@ -201,6 +204,20 @@ import charterImg from "../assets/images/rental charter.JPG";
   .bg-slide-2 {
     animation: showSecond 14s ease-in-out infinite;
     opacity: 0;
+  }
+
+  .bg-slide {
+    width: 100%;
+    height: calc(100% + 40px);
+    margin-top: -20px;
+    object-fit: cover;
+    object-position: center;
+    animation: floatVertical 8s ease-in-out infinite;
+  }
+
+  @keyframes floatVertical {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
   }
 
   @keyframes showFirst {
@@ -216,11 +233,11 @@ import charterImg from "../assets/images/rental charter.JPG";
   }
 
   @media (max-width: 768px) {
-    .bg-slide { width: 85%; }
+    .bg-slide-wrap { width: 85%; }
   }
 
   @media (max-width: 480px) {
-    .bg-slide { width: 100%; }
+    .bg-slide-wrap { width: 100%; }
   }
 
   /* ========================================
