@@ -29,12 +29,14 @@ const contactInfo = {
         <span>{contactInfo.email}</span>
       </a>
     </div>
+
+    <span class="footer-spacer"></span>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: var(--color-footer-bg);
+    background-color: #000000;
     color: var(--color-footer-text);
     min-height: var(--footer-height);
     padding: var(--spacing-xs) var(--spacing-md);
@@ -54,13 +56,17 @@ const contactInfo = {
   }
 
   .footer-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     padding: 0 var(--spacing-sm);
+  }
+
+  .footer-spacer {
+    display: block;
   }
 
   .footer-contact-btn {
@@ -87,6 +93,7 @@ const contactInfo = {
   .footer-links {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-xl);
   }
 
