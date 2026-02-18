@@ -291,37 +291,29 @@ const menuItems = [
       padding: 0 var(--spacing-sm);
     }
 
-    /* Constrain the service area block so it doesn't crowd the logo */
     .header-service-area {
-      max-width: 138px;
       padding: 0;
     }
 
-    /* Keep all three lines — just make them compact */
-    .service-area-label {
-      font-size: 0.58rem;
+    /* Hide label and range — just show pin + city */
+    .service-area-label span:not(.service-area-pin) {
+      display: none;
     }
 
     .service-area-pin {
-      width: 9px;
-      height: 9px;
+      width: 14px;
+      height: 14px;
     }
 
     .service-area-location {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 600;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 130px;
     }
 
+    /* Hide the range line entirely */
     .service-area-range {
-      font-size: 0.6rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 130px;
+      display: none;
     }
 
     /* Ensure menu toggle meets 44×44px minimum touch target */
