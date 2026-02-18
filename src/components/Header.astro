@@ -291,14 +291,37 @@ const menuItems = [
       padding: 0 var(--spacing-sm);
     }
 
-    /* Hide location details — only keep the label + pin on tiny phones */
-    .service-area-location,
-    .service-area-range {
-      display: none;
+    /* Constrain the service area block so it doesn't crowd the logo */
+    .header-service-area {
+      max-width: 138px;
+      padding: 0;
     }
 
+    /* Keep all three lines — just make them compact */
     .service-area-label {
-      font-size: 0.65rem;
+      font-size: 0.58rem;
+    }
+
+    .service-area-pin {
+      width: 9px;
+      height: 9px;
+    }
+
+    .service-area-location {
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 130px;
+    }
+
+    .service-area-range {
+      font-size: 0.6rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 130px;
     }
 
     /* Ensure menu toggle meets 44×44px minimum touch target */
@@ -307,7 +330,7 @@ const menuItems = [
       height: 44px;
     }
 
-    /* Dropdown is full-width-ish on small phones */
+    /* Dropdown on small phones */
     .menu-dropdown {
       min-width: 160px;
     }
