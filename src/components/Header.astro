@@ -295,23 +295,17 @@ const menuItems = [
       padding: 0;
     }
 
-    /* Hide label and range — just show pin + city */
-    .service-area-label span:not(.service-area-pin) {
+    /* Hide "Service Area" label row and range — show city only */
+    .service-area-label {
       display: none;
     }
 
-    .service-area-pin {
-      width: 14px;
-      height: 14px;
-    }
-
     .service-area-location {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
       white-space: nowrap;
     }
 
-    /* Hide the range line entirely */
     .service-area-range {
       display: none;
     }
