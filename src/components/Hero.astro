@@ -293,9 +293,17 @@ import ContactButton from './ContactButton.astro';
 
   @media (max-width: 480px) {
     .hero {
-      height: calc(68dvh - var(--header-height));
+      height: calc(50dvh - var(--header-height));
       min-height: unset;
       overflow: hidden;
+    }
+
+    .h1-line {
+      font-size: 3.1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
     }
 
     .hero-badges {
