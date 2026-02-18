@@ -2,91 +2,88 @@
 import Layout from '../../layouts/Layout.astro';
 import BackButton from '../../components/BackButton.astro';
 import { Image } from 'astro:assets';
-import charterImage from '../../assets/images/charter middle page.JPG';
 import sunsetImg from '../../assets/images/charter sunset.JPG';
 import ownerImg from '../../assets/images/charter owner.JPG';
 ---
 
 <Layout
   title="Charter"
-  description="Charter services - rent a yacht for your next adventure or list your yacht for charter."
+  description="Charter services — rent a yacht for your next adventure or list your yacht for charter."
   noBackground={true}
 >
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg-wrap">
-      <Image
-        src={charterImage}
-        alt="Charter yacht on the water"
-        class="hero-bg-img"
-        loading="eager"
-        quality={85}
-      />
-    </div>
-    <div class="hero-overlay"></div>
+  <div class="split-page">
 
-    <div class="hero-top">
+    <!-- TOP BAR -->
+    <div class="top-bar">
       <BackButton href="/" />
+      <span class="top-label">Choose your adventure</span>
+      <span class="top-spacer"></span>
     </div>
 
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Charter</h1>
-        <p class="hero-subtitle">
-          Your time on the water starts here. Whether you're looking for
-          the perfect day out or want your yacht earning while you're away —
-          we've got you covered.
-        </p>
-      </div>
-    </div>
+    <!-- SPLIT PANELS -->
+    <div class="split-screen">
 
-    <div class="hero-bottom">
-      <button class="scroll-indicator" id="scroll-down" aria-label="Scroll down">
-        <span class="scroll-text">Choose your adventure</span>
-        <span class="scroll-arrow"></span>
-      </button>
-    </div>
-  </section>
-
-  <!-- OPTIONS -->
-  <div class="charter-page" id="charter-content">
-    <div class="options-grid">
-
-      <!-- Rent a Yacht -->
-      <a href="/charter/rent" class="option-card">
-        <div class="option-image">
-          <Image src={sunsetImg} alt="Yacht at sunset" quality={80} class="option-img" />
-          <div class="option-img-overlay"></div>
+      <!-- LEFT: Rent a Yacht -->
+      <a href="/charter/rent" class="panel panel-rent">
+        <div class="panel-bg">
+          <Image
+            src={sunsetImg}
+            alt="Yacht at sunset on the water"
+            class="panel-img"
+            loading="eager"
+            quality={85}
+          />
         </div>
-        <div class="option-body">
-          <span class="option-tag">Experience</span>
-          <h2>Rent a Yacht</h2>
-          <p>
-            Pick the perfect yacht for a day trip, sunset cruise, or weekend
-            getaway. I'll handle every detail so you just show up and enjoy.
+        <div class="panel-overlay"></div>
+
+        <div class="panel-side-label">Rent a Yacht</div>
+
+        <div class="panel-content">
+          <span class="panel-eyebrow">Just Show Up</span>
+          <h2 class="panel-title">Sun. Salt.<br/>All Yours.</h2>
+          <p class="panel-desc">
+            Day trips, sunset cruises, weekend escapes —
+            pick a yacht and we handle every detail.
           </p>
-          <span class="option-cta">
-            Browse yachts <span class="option-arrow">&rarr;</span>
+          <span class="panel-cta">
+            Browse Yachts
+            <span class="cta-arrow">→</span>
           </span>
         </div>
       </a>
 
-      <!-- List Your Yacht -->
-      <a href="/charter/list" class="option-card">
-        <div class="option-image">
-          <Image src={ownerImg} alt="Yacht owner on dock" quality={80} class="option-img" />
-          <div class="option-img-overlay"></div>
+      <!-- DIVIDER -->
+      <div class="divider" aria-hidden="true">
+        <div class="divider-line"></div>
+        <div class="divider-badge">⚓</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- RIGHT: List Your Yacht -->
+      <a href="/charter/list" class="panel panel-list">
+        <div class="panel-bg">
+          <Image
+            src={ownerImg}
+            alt="Yacht owner on dock"
+            class="panel-img"
+            loading="eager"
+            quality={85}
+          />
         </div>
-        <div class="option-body">
-          <span class="option-tag">Earn</span>
-          <h2>List Your Yacht</h2>
-          <p>
-            Put your yacht to work while you're away. I manage everything —
-            marketing, bookings, guest vetting, and maintenance — so you
-            earn hassle-free income.
+        <div class="panel-overlay panel-overlay-right"></div>
+
+        <div class="panel-side-label">List Your Yacht</div>
+
+        <div class="panel-content">
+          <span class="panel-eyebrow">Earn While Away</span>
+          <h2 class="panel-title">Your Yacht<br/>Pays You.</h2>
+          <p class="panel-desc">
+            Bookings, guests, maintenance — fully managed.
+            You just collect the income.
           </p>
-          <span class="option-cta">
-            Learn how <span class="option-arrow">&rarr;</span>
+          <span class="panel-cta">
+            Start Earning
+            <span class="cta-arrow">→</span>
           </span>
         </div>
       </a>
@@ -97,276 +94,372 @@ import ownerImg from '../../assets/images/charter owner.JPG';
 
 <style>
   /* ========================================
-     HERO
+     PAGE SHELL
      ======================================== */
-  .hero {
+  .split-page {
     position: relative;
-    width: 100%;
-    min-height: calc(100dvh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
 
-  .hero-bg-wrap {
+  /* ========================================
+     TOP BAR
+     ======================================== */
+  .top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(to bottom, rgba(0,15,35,0.6) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .top-bar > * {
+    pointer-events: auto;
+  }
+
+  .top-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .top-spacer {
+    width: 80px;
+  }
+
+  /* ========================================
+     SPLIT SCREEN
+     ======================================== */
+  .split-screen {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+
+  /* ========================================
+     PANELS
+     ======================================== */
+  .panel {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    text-decoration: none;
+    transition: flex 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  /* Expand hovered panel, shrink the other */
+  .split-screen:has(.panel-rent:hover) .panel-rent { flex: 1.55; }
+  .split-screen:has(.panel-rent:hover) .panel-list  { flex: 0.65; }
+  .split-screen:has(.panel-list:hover) .panel-list  { flex: 1.55; }
+  .split-screen:has(.panel-list:hover) .panel-rent  { flex: 0.65; }
+
+  /* ---- Background image ---- */
+  .panel-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
   }
 
-  .hero-bg-img {
+  .panel-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center bottom;
+    object-position: center;
+    transition: transform 0.8s ease;
   }
 
-  .hero-overlay {
+  .panel:hover .panel-img {
+    transform: scale(1.06);
+  }
+
+  /* ---- Overlay ---- */
+  .panel-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 21, 48, 0.5) 0%,
-      rgba(2, 62, 138, 0.3) 40%,
-      rgba(0, 21, 48, 0.7) 100%
-    );
     z-index: 1;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 10, 30, 0.72) 0%,
+      rgba(2, 62, 138, 0.35) 50%,
+      rgba(0, 10, 30, 0.55) 100%
+    );
+    transition: opacity 0.5s ease;
   }
 
-  .hero-top {
-    position: relative;
-    z-index: 10;
-    padding: var(--spacing-md) var(--spacing-xl) 0;
+  .panel-overlay-right {
+    background: linear-gradient(
+      225deg,
+      rgba(0, 10, 30, 0.72) 0%,
+      rgba(2, 62, 138, 0.35) 50%,
+      rgba(0, 10, 30, 0.55) 100%
+    );
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 10;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 var(--spacing-xl);
+  .panel:hover .panel-overlay {
+    opacity: 0.8;
   }
 
-  .hero-text h1 {
-    font-size: clamp(3rem, 8vw, 5rem);
-    color: var(--white);
-    margin-bottom: var(--spacing-md);
-    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
-    animation: fadeInUp 1s ease-out;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 550px;
-    margin: 0 auto;
-    line-height: 1.7;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease-out 0.2s both;
-  }
-
-  .hero-bottom {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: var(--spacing-lg);
-  }
-
-  .scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-sm);
-  }
-
-  .scroll-text {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .scroll-arrow {
-    width: 24px;
-    height: 24px;
-    border-left: 2px solid rgba(255, 255, 255, 0.4);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-    transform: rotate(-45deg);
-    animation: bounceDown 2s ease-in-out infinite;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes bounceDown {
-    0%, 100% { transform: rotate(-45deg) translateY(0); opacity: 0.4; }
-    50% { transform: rotate(-45deg) translateY(6px); opacity: 1; }
-  }
-
-  /* ========================================
-     CHARTER PAGE CONTENT
-     ======================================== */
-  .charter-page {
-    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
-    padding: var(--spacing-xl) var(--spacing-xl);
-    display: flex;
-    justify-content: center;
-  }
-
-  .options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
-    max-width: 700px;
-    width: 100%;
-  }
-
-  /* ========================================
-     OPTION CARDS
-     ======================================== */
-  .option-card {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid rgba(116, 185, 223, 0.15);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-  }
-
-  .option-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(116, 185, 223, 0.35);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-  }
-
-  .option-image {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-  }
-
-  .option-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-
-  .option-card:hover .option-img {
-    transform: scale(1.08);
-  }
-
-  .option-img-overlay {
+  /* ---- Side label (visible when panel is narrow) ---- */
+  .panel-side-label {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, rgba(0, 21, 48, 0.7) 100%);
-  }
-
-  .option-body {
-    padding: var(--spacing-md) var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .option-tag {
-    display: inline-block;
-    width: fit-content;
-    font-size: 0.7rem;
-    font-weight: 600;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--blue-accent);
-    background: rgba(0, 180, 216, 0.1);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(0, 180, 216, 0.2);
-    margin-bottom: var(--spacing-md);
+    white-space: nowrap;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
 
-  .option-body h2 {
-    font-size: 1.3rem;
+  /* Hide side label when panel is active/hovered */
+  .split-screen:has(.panel-rent:hover) .panel-rent .panel-side-label { opacity: 0; }
+  .split-screen:has(.panel-list:hover) .panel-list .panel-side-label  { opacity: 0; }
+
+  /* ---- Main content ---- */
+  .panel-content {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-xl) var(--spacing-xl) clamp(2rem, 5vh, 4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .panel-list .panel-content {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  /* Eyebrow */
+  .panel-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(202, 240, 248, 0.9);
+    margin-bottom: var(--spacing-sm);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
+  }
+
+  .panel:hover .panel-eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Title */
+  .panel-title {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.05;
     color: var(--white);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease 0.1s, transform 0.45s ease 0.1s;
   }
 
-  .option-body p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-    flex: 1;
+  .panel:hover .panel-title {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .option-cta {
+  /* Description */
+  .panel-desc {
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 280px;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.4s ease 0.18s, transform 0.4s ease 0.18s;
+  }
+
+  .panel:hover .panel-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* CTA */
+  .panel-cta {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-md);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    color: var(--white);
     font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--blue-accent);
-    transition: gap var(--transition-fast);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.4s ease 0.25s,
+      transform 0.4s ease 0.25s,
+      background 0.25s ease,
+      border-color 0.25s ease;
   }
 
-  .option-card:hover .option-cta {
-    gap: var(--spacing-sm);
+  .panel:hover .panel-cta {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .option-arrow {
-    transition: transform var(--transition-fast);
+  .panel-cta:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.55);
   }
 
-  .option-card:hover .option-arrow {
-    transform: translateX(4px);
+  .cta-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .panel:hover .panel-cta:hover .cta-arrow {
+    transform: translateX(5px);
+  }
+
+  /* ========================================
+     DIVIDER
+     ======================================== */
+  .divider {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 2px;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+
+  .divider-line {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255,255,255,0.25) 30%,
+      rgba(255,255,255,0.25) 70%,
+      transparent 100%
+    );
+  }
+
+  .divider-badge {
+    width: 42px;
+    height: 42px;
+    background: rgba(2, 62, 138, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    backdrop-filter: blur(8px);
+    animation: anchorPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes anchorPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.15); }
+    50%       { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
   }
 
   /* ========================================
      RESPONSIVE
      ======================================== */
   @media (max-width: 768px) {
-    .hero-top {
-      padding: var(--spacing-sm) var(--spacing-md) 0;
+    .split-screen {
+      flex-direction: column;
     }
 
-    .hero-content {
-      padding: 0 var(--spacing-md);
+    .panel {
+      transition: flex 0.5s ease;
     }
 
-    .charter-page {
-      padding: var(--spacing-lg) var(--spacing-md);
+    /* On mobile: vertical stack, expand on tap */
+    .split-screen:has(.panel-rent:hover) .panel-rent { flex: 1.4; }
+    .split-screen:has(.panel-rent:hover) .panel-list  { flex: 0.7; }
+    .split-screen:has(.panel-list:hover) .panel-list  { flex: 1.4; }
+    .split-screen:has(.panel-list:hover) .panel-rent  { flex: 0.7; }
+
+    /* Always show content on mobile */
+    .panel-eyebrow,
+    .panel-title,
+    .panel-desc,
+    .panel-cta {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .options-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md);
+    .panel-side-label {
+      display: none;
     }
 
-    .option-image {
-      height: 160px;
+    .panel-content {
+      padding: var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
     }
 
-    .option-body {
+    .panel-list .panel-content {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .divider {
+      width: 100%;
+      height: 2px;
+      flex-direction: row;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      width: auto;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255,255,255,0.25) 30%,
+        rgba(255,255,255,0.25) 70%,
+        transparent 100%
+      );
+    }
+
+    .top-bar {
       padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .top-label {
+      font-size: 0.6rem;
     }
   }
 </style>
-
-<script>
-  document.getElementById('scroll-down')?.addEventListener('click', () => {
-    document.getElementById('charter-content')?.scrollIntoView({ behavior: 'smooth' });
-  });
-</script>
