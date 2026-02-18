@@ -180,11 +180,13 @@ import ContactButton from './ContactButton.astro';
 
   /* ---- Scroll arrow ---- */
   .hero-bottom {
-    position: relative;
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 0;
+    right: 0;
     z-index: 2;
     display: flex;
     justify-content: center;
-    padding-bottom: var(--spacing-lg);
   }
 
   .scroll-arrow {
