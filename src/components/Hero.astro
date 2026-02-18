@@ -222,6 +222,14 @@ import ContactButton from './ContactButton.astro';
     50%       { transform: translateY(4px); opacity: 1; }
   }
 
+  /* ---- Laptop / desktop: push content up ---- */
+  @media (min-width: 769px) {
+    .hero-content {
+      justify-content: flex-start;
+      padding-top: 8vh;
+    }
+  }
+
   /* ---- Responsive ---- */
   @media (max-width: 768px) {
     .hero-overlay {
