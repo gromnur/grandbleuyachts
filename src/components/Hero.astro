@@ -7,18 +7,50 @@ import ContactButton from './ContactButton.astro';
 
   <div class="hero-content">
     <div class="hero-text">
-      <h1>Yacht Ownership Made Easy</h1>
-      <p>Premium yacht management, delivery & charter services</p>
-      <div class="hero-contact">
+      <div class="hero-badges">
+        <span class="badge">⚓ USCG Licensed</span>
+        <span class="badge-dot"></span>
+        <span class="badge">20+ Years</span>
+        <span class="badge-dot"></span>
+        <span class="badge">South Florida</span>
+      </div>
+
+      <h1>
+        <span class="h1-line">One Captain.</span>
+        <span class="h1-line h1-accent">Every Detail.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Premium yacht management, delivery &amp; charter — <br class="hero-br"/>
+        handled personally from start to finish.
+      </p>
+
+      <div class="hero-actions">
         <ContactButton />
+        <button class="hero-explore" id="hero-scroll-down" aria-label="Explore services">
+          Explore Services
+          <span class="explore-arrow">↓</span>
+        </button>
       </div>
     </div>
+  </div>
 
-    <div class="hero-bottom">
-      <button class="scroll-indicator" id="hero-scroll-down" aria-label="Scroll down">
-        <span class="scroll-text">Learn more</span>
-        <span class="scroll-arrow"></span>
-      </button>
+  <div class="hero-bottom">
+    <div class="hero-stats-bar">
+      <div class="hstat">
+        <span class="hstat-val">Management</span>
+        <span class="hstat-label">Full-service care</span>
+      </div>
+      <div class="hstat-div"></div>
+      <div class="hstat">
+        <span class="hstat-val">Delivery</span>
+        <span class="hstat-label">East Coast & Bahamas</span>
+      </div>
+      <div class="hstat-div"></div>
+      <div class="hstat">
+        <span class="hstat-val">Charter</span>
+        <span class="hstat-label">Rent or list your yacht</span>
+      </div>
     </div>
   </div>
 </section>
@@ -27,7 +59,7 @@ import ContactButton from './ContactButton.astro';
   .hero {
     position: relative;
     width: 100%;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    min-height: calc(100dvh - var(--header-height));
     display: flex;
     flex-direction: column;
   }
@@ -36,106 +68,245 @@ import ContactButton from './ContactButton.astro';
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.1) 50%,
-      rgba(0, 0, 0, 0.4) 100%
+      160deg,
+      rgba(0, 10, 30, 0.65) 0%,
+      rgba(2, 30, 80, 0.3) 45%,
+      rgba(0, 10, 30, 0.7) 100%
     );
     pointer-events: none;
+    z-index: 1;
   }
 
   .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex: 1;
+    text-align: center;
   }
 
   .hero-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    color: white;
-    flex: 1;
-    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-xl) 0;
+    max-width: 720px;
   }
 
-  .hero-text h1 {
-    font-size: clamp(1.6rem, 4.5vw, 3rem);
-    font-family: var(--font-heading);
-    margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease-out;
+  /* ---- Credential badges ---- */
+  .hero-badges {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.7s ease-out both;
   }
 
-  .hero-text p {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    opacity: 0.9;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1s ease-out 0.3s both;
+  .badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(202, 240, 248, 0.9);
   }
 
-  .hero-contact {
-    margin-top: var(--spacing-xl);
-    animation: fadeInUp 1s ease-out 0.6s both;
+  .badge-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* ---- Headline ---- */
+  h1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    animation: fadeInUp 0.7s ease-out 0.1s both;
+  }
+
+  .h1-line {
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.025em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .h1-accent {
+    /* Gradient text accent */
+    background: linear-gradient(90deg, #74d7f7 0%, #a8eeff 50%, #74b9df 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+  }
+
+  /* ---- Subtitle ---- */
+  .hero-sub {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    animation: fadeInUp 0.7s ease-out 0.2s both;
+  }
+
+  .hero-br { display: block; }
+
+  /* ---- Actions ---- */
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.7s ease-out 0.32s both;
+  }
+
+  .hero-explore {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 12px 22px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .hero-explore:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #fff;
+  }
+
+  .explore-arrow {
+    display: inline-block;
+    animation: bounceDown 2s ease-in-out infinite;
+    font-size: 1rem;
+  }
+
+  /* ---- Stats bar ---- */
+  .hero-bottom {
+    position: relative;
+    z-index: 2;
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .hero-stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    animation: fadeInUp 0.8s ease-out 0.45s both;
+  }
+
+  .hstat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .hstat-val {
+    font-family: var(--font-family-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .hstat-label {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hstat-div {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.15);
   }
 
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .hero-bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
-  }
-
-  .scroll-text {
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .scroll-arrow {
-    width: 20px;
-    height: 20px;
-    border-left: 2px solid rgba(255, 255, 255, 0.4);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-    transform: rotate(-45deg);
-    animation: bounceDown 2s ease-in-out infinite;
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes bounceDown {
-    0%, 100% { transform: rotate(-45deg) translateY(0); opacity: 0.4; }
-    50% { transform: rotate(-45deg) translateY(5px); opacity: 1; }
+    0%, 100% { transform: translateY(0);   opacity: 0.6; }
+    50%       { transform: translateY(4px); opacity: 1; }
   }
 
+  /* ---- Responsive ---- */
   @media (max-width: 768px) {
+    .hero-text {
+      padding: var(--spacing-lg) var(--spacing-md) 0;
+      gap: var(--spacing-md);
+    }
+
+    .hero-stats-bar {
+      gap: var(--spacing-lg);
+      padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero-bottom {
+      padding: 0 var(--spacing-md) var(--spacing-md);
+    }
+
+    .hero-br { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-badges {
+      gap: var(--spacing-sm);
+    }
+
+    .hero-stats-bar {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md);
+    }
+
+    .hstat-div {
+      width: 32px;
+      height: 1px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-explore {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
 
