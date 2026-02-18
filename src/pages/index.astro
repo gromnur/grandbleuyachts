@@ -285,8 +285,7 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
     100%     { opacity: 0; }
   }
 
-  @media (max-width: 768px) { .bg-slide-wrap { width: 85%; } }
-  @media (max-width: 480px) { .bg-slide-wrap { width: 100%; } }
+  @media (max-width: 768px) { .bg-slide-wrap { width: 100%; } }
 
   /* ========================================
      CONTENT WRAPPER
@@ -794,11 +793,11 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
     }
 
     .about-photo {
-      order: -1; /* photo above text on mobile */
+      order: -1;
     }
 
     .captain-img {
-      height: 320px;
+      height: 300px;
       object-position: center 15%;
     }
 
@@ -806,13 +805,39 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
       gap: var(--spacing-md);
     }
 
-    /* Service cards: single column */
+    /* Service cards: horizontal layout (image left, text right) */
     .service-cards {
       grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .service-card {
+      flex-direction: row;
+    }
+
+    .card-num {
+      font-size: 3.5rem;
+      top: -8px;
     }
 
     .card-image {
-      height: 200px;
+      width: 130px;
+      min-width: 130px;
+      height: auto;
+      min-height: 150px;
+      flex-shrink: 0;
+    }
+
+    .card-content {
+      padding: var(--spacing-md);
+    }
+
+    .card-content h3 {
+      font-size: 1rem;
+    }
+
+    .card-content p {
+      font-size: 0.82rem;
     }
 
     /* Why grid: single column */
@@ -822,12 +847,12 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
 
     /* Image break shorter */
     .img-break {
-      height: 220px;
+      height: 200px;
     }
 
     /* CTA */
     .cta-section {
-      min-height: 360px;
+      min-height: 340px;
     }
   }
 
@@ -837,7 +862,7 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
     }
 
     .captain-img {
-      height: 260px;
+      height: 240px;
     }
 
     /* Stack stats vertically */
@@ -853,7 +878,9 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
     }
 
     .card-image {
-      height: 180px;
+      width: 110px;
+      min-width: 110px;
+      min-height: 130px;
     }
 
     .why-item {
@@ -861,7 +888,7 @@ import detailingImg from "../assets/images/detailing-yacht.JPG";
     }
 
     .img-break {
-      height: 180px;
+      height: 160px;
     }
 
     .cta-content {

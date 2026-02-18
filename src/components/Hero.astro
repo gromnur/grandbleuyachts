@@ -265,6 +265,15 @@ import ContactButton from './ContactButton.astro';
 
   /* ---- Responsive ---- */
   @media (max-width: 768px) {
+    .hero-overlay {
+      background: linear-gradient(
+        160deg,
+        rgba(0, 10, 30, 0.80) 0%,
+        rgba(2, 30, 80, 0.52) 45%,
+        rgba(0, 10, 30, 0.82) 100%
+      );
+    }
+
     .hero-text {
       padding: var(--spacing-lg) var(--spacing-md) 0;
       gap: var(--spacing-md);
@@ -299,11 +308,11 @@ import ContactButton from './ContactButton.astro';
     }
 
     .hstat-val {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
 
     .hstat-label {
-      font-size: 0.55rem;
+      font-size: 0.6rem;
     }
 
     .hstat-div {
