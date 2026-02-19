@@ -167,8 +167,8 @@ const contactInfo = {
 
   @media (max-width: 768px) {
     .footer {
-      padding: var(--spacing-md) var(--spacing-md);
-      gap: 12px;
+      padding: var(--spacing-sm) var(--spacing-lg);
+      gap: 8px;
       min-height: unset;
       height: auto;
     }
@@ -176,11 +176,11 @@ const contactInfo = {
     /* Credentials bar: visible, wraps naturally */
     .footer-credentials {
       position: static;
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       white-space: normal;
       text-align: center;
-      line-height: 1.6;
-      padding: 0 var(--spacing-sm);
+      line-height: 1.5;
+      padding: 0 var(--spacing-md);
     }
 
     /* Two-column: links left, CTA right */
@@ -189,8 +189,10 @@ const contactInfo = {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
     }
 
     .footer-contact-btn {
@@ -202,7 +204,7 @@ const contactInfo = {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
+      gap: 10px;
     }
 
     .footer-item span:not(.footer-icon) {
@@ -210,32 +212,66 @@ const contactInfo = {
     }
 
     .footer-item {
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       justify-content: center;
       padding: 0;
       gap: 0;
     }
 
     .footer-icon {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
 
-    /* CTA on the right */
+    /* CTA on the right — horizontal layout */
     .footer-cta {
       display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
       justify-self: unset;
       flex-shrink: 0;
-      padding: 10px 22px;
+      padding: 7px 12px;
+      border-radius: 16px;
     }
 
     .footer-cta-title {
-      font-size: 0.75rem;
+      font-size: 0.62rem;
     }
 
     .footer-cta-sub {
-      font-size: 0.55rem;
+      font-size: 0.52rem;
+      border-left: 1px solid rgba(255, 255, 255, 0.3);
+      padding-left: 6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      padding: var(--spacing-xs) var(--spacing-md);
+      gap: 6px;
+    }
+
+    .footer-content {
+      max-width: 340px;
+      gap: 8px;
+    }
+
+    .footer-credentials {
+      font-size: 0.54rem;
+    }
+
+    .footer-cta {
+      padding: 6px 10px;
+    }
+
+    .footer-cta-title {
+      font-size: 0.57rem;
+    }
+
+    .footer-cta-sub {
+      font-size: 0.47rem;
     }
   }
 </style>
