@@ -61,6 +61,11 @@ const menuItems = [
       </div>
     </div>
   </nav>
+  <div class="service-bar">
+    <a href="/management" class="service-bar-btn">Management</a>
+    <a href="/delivery" class="service-bar-btn">Delivery</a>
+    <a href="/charter" class="service-bar-btn">Charter</a>
+  </div>
 </header>
 
 <style>
@@ -70,16 +75,50 @@ const menuItems = [
     background: var(--white);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
-    height: var(--header-height);
   }
 
   .header-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    height: var(--nav-height);
     padding: 0 var(--spacing-xl);
     position: relative;
+  }
+
+  .service-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    height: 24px;
+    background: #012a4a;
+    width: 100%;
+  }
+
+  .service-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 2rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .service-bar-btn:last-child {
+    border-right: none;
+  }
+
+  .service-bar-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
   }
 
   .header-service-area {

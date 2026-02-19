@@ -15,7 +15,8 @@
   /* ========================================
      LAYOUT DIMENSIONS
      ======================================== */
-  --header-height: 90px;
+  --nav-height: 90px;
+  --header-height: 114px;
   --footer-height: 80px;
 
   /* ========================================
@@ -99,14 +100,16 @@
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 82px;
+    --nav-height: 82px;
+    --header-height: 106px;
     --footer-height: 70px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --header-height: 76px;
+    --nav-height: 76px;
+    --header-height: 100px;
     --footer-height: 60px;
   }
 }
