@@ -30,7 +30,7 @@ const contactInfo = {
       </a>
     </div>
 
-    <a href="/contact" class="footer-cta">Get in Touch</a>
+    <a href="/contact" class="footer-cta">Request a Private Consultation</a>
   </div>
 </footer>
 
@@ -44,10 +44,14 @@ const contactInfo = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    position: relative;
   }
 
   .footer-credentials {
+    position: absolute;
+    top: var(--spacing-xs);
+    left: 0;
+    right: 0;
     font-size: 0.65rem;
     color: rgba(255, 255, 255, 0.55);
     text-align: center;
@@ -76,10 +80,10 @@ const contactInfo = {
     padding: 9px 16px;
     justify-self: end;
     align-self: center;
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.07em;
     color: rgba(255, 255, 255, 0.9);
   }
 
