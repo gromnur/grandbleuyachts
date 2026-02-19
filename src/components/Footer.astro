@@ -170,7 +170,18 @@ const contactInfo = {
       padding: var(--spacing-xs) var(--spacing-sm);
     }
 
-    /* Icon-only on all mobile — no text labels overlapping photos */
+    /* Centered single-row on mobile */
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-contact-btn {
+      display: none;
+    }
+
+    /* Icon-only on mobile — no text labels */
     .footer-links {
       gap: 0;
     }
@@ -198,14 +209,6 @@ const contactInfo = {
 
     .footer-cta {
       display: none;
-    }
-
-    .footer-contact-btn {
-      display: flex;
-      align-items: center;
-      min-height: 44px;
-      font-size: 0.7rem;
-      padding: 0 var(--spacing-xs);
     }
   }
 </style>
