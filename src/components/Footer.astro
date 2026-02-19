@@ -30,7 +30,10 @@ const contactInfo = {
       </a>
     </div>
 
-    <a href="/contact" class="footer-cta">Request a Private Consultation</a>
+    <a href="/contact" class="footer-cta">
+      <span class="footer-cta-title">Get in Touch</span>
+      <span class="footer-cta-sub">Request a Private Consultation</span>
+    </a>
   </div>
 </footer>
 
@@ -71,20 +74,33 @@ const contactInfo = {
 
   .footer-cta {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
+    gap: 2px;
     text-decoration: none;
     transition: opacity var(--transition-fast);
     white-space: nowrap;
     border: 2px solid rgba(255, 255, 255, 0.25);
     border-radius: 20px;
-    padding: 9px 16px;
+    padding: 8px 16px;
     justify-self: end;
     align-self: center;
-    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer-cta-title {
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-cta-sub {
+    font-size: 0.58rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.65);
   }
 
   .footer-cta:hover {
