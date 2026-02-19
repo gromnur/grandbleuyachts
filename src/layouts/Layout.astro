@@ -3,7 +3,6 @@ import { ViewTransitions } from "astro:transitions";
 import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import CtaBanner from "../components/CtaBanner.astro";
 import "../styles/global.css";
 import defaultBg from "../assets/images/front page.JPG";
 
@@ -11,7 +10,6 @@ interface Props {
   title: string;
   description?: string;
   hideFooter?: boolean;
-  hideCtaBanner?: boolean;
   backgroundImage?: ImageMetadata;
   centerImage?: boolean;
   noBackground?: boolean;
@@ -22,7 +20,6 @@ const {
   title,
   description = "Grand Bleu Yachts - Custom yacht management, delivery, and charter services in the Bahamas and East Coast.",
   hideFooter = false,
-  hideCtaBanner = false,
   backgroundImage = defaultBg,
   centerImage = false,
   noBackground = false,
@@ -73,7 +70,6 @@ const {
       )}
       <div class="main-content">
         <slot />
-        {!hideCtaBanner && <CtaBanner />}
       </div>
     </main>
     {!hideFooter && <Footer />}
