@@ -30,7 +30,10 @@ const contactInfo = {
       </a>
     </div>
 
-    <span class="footer-spacer"></span>
+    <a href="/contact" class="footer-cta">
+      <span class="footer-cta-top">Get in Touch</span>
+      <span class="footer-cta-main">Request a Private Consultation</span>
+    </a>
   </div>
 </footer>
 
@@ -65,8 +68,34 @@ const contactInfo = {
     padding: 0 var(--spacing-sm);
   }
 
-  .footer-spacer {
-    display: block;
+  .footer-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1px;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .footer-cta:hover {
+    opacity: 0.8;
+  }
+
+  .footer-cta-top {
+    font-size: 0.58rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-cta-main {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .footer-contact-btn {
@@ -155,6 +184,10 @@ const contactInfo = {
     }
 
     .footer-credentials {
+      display: none;
+    }
+
+    .footer-cta {
       display: none;
     }
 
