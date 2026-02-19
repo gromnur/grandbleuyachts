@@ -182,23 +182,25 @@ const contactInfo = {
       padding: 0 var(--spacing-sm);
     }
 
-    /* Stack all content vertically, centered */
+    /* Two-column: links left, CTA right */
     .footer-content {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
+      width: 100%;
     }
 
     .footer-contact-btn {
       display: none;
     }
 
-    /* Show text labels alongside icons */
+    /* Links stacked on the left */
     .footer-links {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
     }
 
@@ -209,7 +211,7 @@ const contactInfo = {
     .footer-item {
       width: auto;
       height: auto;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0;
       gap: var(--spacing-sm);
       font-size: 0.85rem;
@@ -220,10 +222,11 @@ const contactInfo = {
       height: 18px;
     }
 
-    /* CTA */
+    /* CTA on the right */
     .footer-cta {
       display: inline-flex;
       justify-self: unset;
+      flex-shrink: 0;
       padding: 10px 22px;
     }
 
