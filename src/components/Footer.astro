@@ -167,8 +167,8 @@ const contactInfo = {
 
   @media (max-width: 768px) {
     .footer {
-      padding: var(--spacing-sm) var(--spacing-md);
-      gap: 8px;
+      padding: var(--spacing-xs) var(--spacing-md);
+      gap: 6px;
       min-height: unset;
       height: auto;
     }
@@ -199,12 +199,12 @@ const contactInfo = {
       display: none;
     }
 
-    /* Icons stacked vertically on the left */
+    /* Icons in a row */
     .footer-links {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
     }
 
     .footer-item span:not(.footer-icon) {
