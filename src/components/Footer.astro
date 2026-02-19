@@ -167,7 +167,7 @@ const contactInfo = {
 
   @media (max-width: 768px) {
     .footer {
-      padding: var(--spacing-sm) var(--spacing-lg);
+      padding: var(--spacing-sm) var(--spacing-md);
       gap: 8px;
       min-height: unset;
       height: auto;
@@ -180,10 +180,10 @@ const contactInfo = {
       white-space: normal;
       text-align: center;
       line-height: 1.5;
-      padding: 0 var(--spacing-md);
+      padding: 0 var(--spacing-sm);
     }
 
-    /* Two-column: links left, CTA right */
+    /* Icons left, CTA right */
     .footer-content {
       display: flex;
       flex-direction: row;
@@ -199,7 +199,7 @@ const contactInfo = {
       display: none;
     }
 
-    /* Links stacked on the left */
+    /* Icons stacked vertically on the left */
     .footer-links {
       display: flex;
       flex-direction: column;
@@ -212,8 +212,8 @@ const contactInfo = {
     }
 
     .footer-item {
-      width: 38px;
-      height: 38px;
+      width: 32px;
+      height: 32px;
       justify-content: center;
       padding: 0;
       gap: 0;
@@ -224,32 +224,32 @@ const contactInfo = {
       height: 16px;
     }
 
-    /* CTA on the right — horizontal layout */
+    /* CTA on the right — vertical layout (title above subtitle) */
     .footer-cta {
       display: inline-flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 3px;
       justify-self: unset;
       flex-shrink: 0;
-      padding: 7px 12px;
+      padding: 8px 14px;
       border-radius: 16px;
     }
 
     .footer-cta-title {
-      font-size: 0.62rem;
+      font-size: 0.65rem;
     }
 
     .footer-cta-sub {
       font-size: 0.52rem;
-      border-left: 1px solid rgba(255, 255, 255, 0.3);
-      padding-left: 6px;
+      border-left: none;
+      padding-left: 0;
     }
   }
 
   @media (max-width: 480px) {
     .footer {
-      padding: var(--spacing-xs) var(--spacing-md);
+      padding: var(--spacing-xs) var(--spacing-sm);
       gap: 6px;
     }
 
@@ -267,7 +267,7 @@ const contactInfo = {
     }
 
     .footer-cta-title {
-      font-size: 0.57rem;
+      font-size: 0.6rem;
     }
 
     .footer-cta-sub {
