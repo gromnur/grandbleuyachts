@@ -30,7 +30,10 @@ import ContactButton from './ContactButton.astro';
       </div>
 
       <button class="scroll-arrow" id="hero-scroll-down" aria-label="Scroll down">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="arrow-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+        <svg class="arrow-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 12 15 18 9"/>
         </svg>
       </button>
@@ -187,14 +190,30 @@ import ContactButton from './ContactButton.astro';
     color: rgba(255, 255, 255, 0.55);
     cursor: pointer;
     padding: 8px;
-    animation: bounceDown 2s ease-in-out infinite;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+  }
+
+  .scroll-arrow {
+    flex-direction: column;
+    gap: 0;
   }
 
   .scroll-arrow svg {
     width: 28px;
     height: 28px;
+    display: block;
+  }
+
+  .arrow-1 {
+    animation: bounceDown 1.6s ease-in-out infinite;
+    opacity: 0.5;
+  }
+
+  .arrow-2 {
+    margin-top: -10px;
+    animation: bounceDown 1.6s ease-in-out 0.2s infinite;
+    opacity: 0.85;
   }
 
   .scroll-arrow:hover {
