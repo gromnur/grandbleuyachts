@@ -298,10 +298,9 @@ const menuItems = [
       padding: 0 var(--spacing-md);
     }
 
-    /* Hide label row, show only location + range compactly */
     .header-service-area {
       padding: 0 var(--spacing-xs);
-      max-width: calc(50% - 70px);
+      max-width: calc(50% - 60px);
     }
 
     .service-area-label {
@@ -309,13 +308,13 @@ const menuItems = [
     }
 
     .service-area-location {
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       font-weight: 600;
       white-space: nowrap;
     }
 
     .service-area-range {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       white-space: nowrap;
     }
 
@@ -328,17 +327,16 @@ const menuItems = [
       transform: scale(1.1);
     }
 
-    /* Row layout so toggle + phone sit side-by-side, not stacked */
+    /* Column layout: 3-dot toggle on top, phone number below */
     .header-menu {
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 2px;
     }
 
     .menu-dropdown {
       right: 0;
       min-width: 170px;
-      /* anchor to the toggle button, not the full row */
       top: calc(100% + 4px);
     }
   }
@@ -350,17 +348,17 @@ const menuItems = [
 
     .header-service-area {
       padding: 0;
-      max-width: calc(50% - 80px);
+      max-width: calc(50% - 56px);
     }
 
     .service-area-location {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       white-space: nowrap;
     }
 
-    /* Hide second line on very small screens to prevent overlap */
     .service-area-range {
-      display: none;
+      font-size: 0.44rem;
+      white-space: nowrap;
     }
 
     .header-logo {
@@ -372,7 +370,6 @@ const menuItems = [
       transform: scale(1.05);
     }
 
-    /* Menu toggle touch target */
     .menu-toggle {
       width: 36px;
       height: 36px;
@@ -383,7 +380,7 @@ const menuItems = [
     }
 
     .phone-number {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
     }
 
     .phone-icon {

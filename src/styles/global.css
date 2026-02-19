@@ -99,14 +99,14 @@
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 75px;
+    --header-height: 82px;
     --footer-height: 70px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --header-height: 70px;
+    --header-height: 76px;
     --footer-height: 60px;
   }
 }
