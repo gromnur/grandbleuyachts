@@ -155,6 +155,13 @@ import sunsetImg from "../assets/images/sunset_on_see.jpg";
           Whether you need management, delivery, or charter services —
           tell me about your yacht and I'll take it from there.
         </p>
+        <a href="/contact" class="cta-consult-btn">
+          <span class="cta-btn-shimmer"></span>
+          Request a Private Consultation
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 10h12M10 4l6 6-6 6"/>
+          </svg>
+        </a>
       </div>
     </section>
 
@@ -704,6 +711,64 @@ import sunsetImg from "../assets/images/sunset_on_see.jpg";
     color: rgba(255, 255, 255, 0.72);
     max-width: 480px;
     margin: 0;
+  }
+
+  .cta-consult-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #012a5e 0%, #023e8a 60%, #01204a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-top: var(--spacing-sm);
+  }
+
+  .cta-consult-btn svg {
+    width: 18px;
+    height: 18px;
+    color: rgba(212, 175, 55, 0.85);
+    flex-shrink: 0;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .cta-btn-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(212, 175, 55, 0.13) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0s;
+  }
+
+  .cta-consult-btn:hover .cta-btn-shimmer {
+    transform: translateX(100%);
+    transition: transform 0.55s ease;
+  }
+
+  .cta-consult-btn:hover {
+    border-color: rgba(212, 175, 55, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212,175,55,0.22);
+  }
+
+  .cta-consult-btn:hover svg {
+    transform: translateX(4px);
+    color: rgba(212, 175, 55, 1);
   }
 
   /* ========================================
