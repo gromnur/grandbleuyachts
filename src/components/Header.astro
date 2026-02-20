@@ -169,7 +169,6 @@ const menuItems = [
     grid-template-rows: 0fr;
     background: #011d33;
     transition: grid-template-rows 0.4s ease;
-    overflow: hidden;
   }
 
   .about-panel[aria-hidden="false"] {
@@ -178,6 +177,7 @@ const menuItems = [
 
   .about-panel-inner {
     overflow: hidden;
+    min-height: 0;
     position: relative;
     padding: 2rem var(--spacing-xl) 2.5rem;
     max-width: 900px;
