@@ -1,0 +1,296 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BackButton from "../components/BackButton.astro";
+import ContactButton from "../components/ContactButton.astro";
+import { Image } from "astro:assets";
+import olivierImg from "../assets/images/olivier_with_dog.png";
+import heroImg from "../assets/images/managemnt rotation 4.JPG";
+---
+
+<Layout
+  title="About — Olivier Verdier"
+  description="Owner of Grand Bleu Yachts. USCG Licensed Master. Born on the Mediterranean, based in South Florida."
+  noBackground={true}
+>
+  <div class="about-bg"></div>
+
+  <div class="about-page">
+    <div class="about-top">
+      <BackButton href="/" />
+    </div>
+
+    <!-- Hero -->
+    <div class="about-hero">
+      <Image src={heroImg} alt="Captain Olivier at the helm" class="about-hero-img" quality={80} loading="eager" />
+      <div class="about-hero-overlay"></div>
+      <div class="about-hero-text">
+        <h1>Olivier Verdier</h1>
+        <p class="about-hero-sub">Owner | Yacht Management, Delivery &amp; Charter</p>
+      </div>
+    </div>
+
+    <!-- Intro with photo -->
+    <div class="about-intro-wrap">
+      <div class="about-intro-photo">
+        <Image src={olivierImg} alt="Olivier Verdier" class="about-portrait" quality={88} />
+      </div>
+      <div class="about-intro-text">
+        <p>I was born and raised in the south of France, along the Mediterranean Sea, where the ocean has always been part of my identity. I obtained my first boat license at the age of 18, but long before that, life on the water was second nature. Surfing, windsurfing, wakeboarding, diving, fishing, sailing catamarans, and cruising have been a constant presence throughout my life and continue to shape how I operate today.</p>
+        <p>I later moved to New York City, where my professional journey in the United States began. Over the past 20 years, I have built my life and career between the water and the coast, gaining experience in a wide range of boating environments. In 2019, I relocated to South Florida—both professionally and personally—to raise my daughter in a coastal lifestyle aligned with my values and to operate full-time in one of the world's premier yachting regions.</p>
+        <p>I am the owner of Grand Bleu Yachts, specializing in luxury motor yacht management, delivery, and charter operations. My focus is on providing owners with complete peace of mind—ensuring their yacht is maintained, crewed, and fully prepared whenever they are ready to step onboard.</p>
+      </div>
+    </div>
+
+    <!-- Operations section -->
+    <div class="about-section">
+      <h2>How I Operate</h2>
+      <p>I manage and operate motor yachts in the 50 to 80 foot range, working hands-on with inboard, outboard, and I/O engines, pod drives, straight shafts, and bow thrusters, with additional experience on jet drives. I am comfortable with both CZone systems and traditional electrical panels, and I maintain navigation electronics and chartplotters to current standards at all times. My management philosophy is proactive, discreet, and detail-oriented—anticipating issues before they arise and maintaining vessels to the highest standard.</p>
+      <p>Based in South Florida, I have extensive local knowledge and strong relationships with marinas, shipyards, technicians, and suppliers. When something needs to be handled efficiently—or quickly—I know the right people to call. I also work closely with a trusted network of professional crew, divers, cleaners, and delivery specialists, allowing me to support owners with crew placement, relief crew, and operational staffing as needed.</p>
+      <p>In addition to yacht management, I have significant yacht delivery experience throughout the Bahamas, the Gulf of Mexico, the U.S. East Coast (north and south), and the Florida Keys. I regularly run routes between Jupiter, Fort Lauderdale, and the Bahamas, with a strong emphasis on safety, preparation, and vessel care.</p>
+      <p>I am fluent in French and English, with working knowledge of Spanish, and I am comfortable operating in international, multicultural environments.</p>
+    </div>
+
+    <!-- Licenses -->
+    <div class="about-licenses">
+      <h2>Licenses &amp; Certifications</h2>
+      <ul class="licenses-list">
+        <li>100 GRT Near Coastal USCG Master License</li>
+        <li>Towing Endorsement</li>
+        <li>STCW</li>
+        <li>MROP</li>
+        <li>Open Water Certification</li>
+        <li>Enrolled in a USCG-approved drug consortium</li>
+        <li>Fully insured with professional liability coverage</li>
+      </ul>
+    </div>
+
+    <!-- Philosophy -->
+    <div class="about-section about-philosophy">
+      <h2>My Approach</h2>
+      <p>I prefer to manage on a small scale, where quality, clarity, and trust come first. My clients have direct, first-hand contact with me and full visibility into what's happening with their yacht at all times. Communication is clear and immediate — not filtered through layers of management or second-hand conversations. This hands-on approach ensures decisions are made efficiently, expectations are aligned, and nothing gets lost in translation.</p>
+      <p>At Grand Bleu Yachts, my role goes beyond operating vessels. I protect your investment, support your crew, and ensure your yacht is always ready—so your time on the water is effortless, safe, and exactly as it should be.</p>
+    </div>
+
+    <div class="about-cta">
+      <ContactButton />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-bg {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
+    z-index: -1;
+  }
+
+  .about-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl) 6rem;
+  }
+
+  .about-top {
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+  }
+
+  /* Hero */
+  .about-hero {
+    position: relative;
+    height: 320px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+
+  .about-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%;
+  }
+
+  .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(1, 26, 51, 0.75) 0%, rgba(1, 26, 51, 0.2) 60%, transparent 100%);
+  }
+
+  .about-hero-text {
+    position: absolute;
+    bottom: 2rem;
+    left: 2.5rem;
+    color: #fff;
+  }
+
+  .about-hero-text h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+  }
+
+  .about-hero-sub {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Intro with portrait */
+  .about-intro-wrap {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+
+  .about-portrait {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    box-shadow: var(--shadow-md);
+  }
+
+  .about-intro-text p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.97rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .about-intro-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Content sections */
+  .about-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-section p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.97rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .about-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Licenses */
+  .about-licenses {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-licenses h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .licenses-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 2rem;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .licenses-list li {
+    font-size: 0.93rem;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .licenses-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 700;
+  }
+
+  /* Philosophy callout */
+  .about-philosophy {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .about-philosophy h2 {
+    color: #fff;
+  }
+
+  .about-philosophy p {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .about-cta {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-page {
+      padding: 0 var(--spacing-md) 4rem;
+    }
+
+    .about-hero {
+      height: 240px;
+    }
+
+    .about-hero-text h1 {
+      font-size: 1.6rem;
+    }
+
+    .about-hero-text {
+      left: 1.25rem;
+      bottom: 1.25rem;
+    }
+
+    .about-intro-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .about-portrait {
+      max-width: 220px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+    }
+
+    .licenses-list {
+      grid-template-columns: 1fr;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .about-philosophy {
+      padding: 1.5rem;
+    }
+  }
+</style>

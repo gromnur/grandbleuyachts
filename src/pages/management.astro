@@ -9,6 +9,7 @@ import detailImg from "../assets/images/detailing-yacht.JPG";
 import ceramicImg from "../assets/images/management rotation 2.png";
 import deliveryImg from "../assets/images/delivery cockpit.JPG";
 import dockImg from "../assets/images/charter owner.JPG";
+import boatDockImg from "../assets/images/boat_left_dock_right.jpg";
 ---
 
 <Layout
@@ -23,13 +24,17 @@ import dockImg from "../assets/images/charter owner.JPG";
       <BackButton href="/" />
     </div>
 
-    <h1>Yacht Management</h1>
+    <div class="mgmt-hero">
+      <Image src={dockImg} alt="Yacht management" class="mgmt-hero-img" quality={80} loading="eager" />
+      <div class="mgmt-hero-overlay"></div>
+      <h1>Yacht Management</h1>
+    </div>
 
     <div class="mgmt-intro">
       <p>
         I'm Captain Olivier — born and raised on the water in the South of
         France, now based in South Florida. After decades behind the helm on
-        everything from classic sailboats to modern motor yachts, I built
+        everything from classic small fishing boat to modern motor yachts, I built
         Grand Bleu Yachts to offer owners the kind of personal, hands-on care
         I'd want for my own vessel.
       </p>
@@ -43,12 +48,11 @@ import dockImg from "../assets/images/charter owner.JPG";
           I don't just manage yachts from behind a desk. I'm the one checking
           your oil, monitoring your coolant levels, updating your chartplotters,
           and making sure every system is running right. When something needs
-          attention, I catch it early — before it becomes a problem and before
-          it costs you money.
+          attention, I catch it early — before it becomes a problem.
         </p>
         <p>
           Whether you're aboard every weekend or visit once a season, your boat
-          will always be ready to go. That's a promise.
+          will always be ready to go.
         </p>
       </div>
       <div class="mgmt-image">
@@ -102,7 +106,7 @@ import dockImg from "../assets/images/charter owner.JPG";
       </div>
       <div class="mgmt-image">
         <Image
-          src={dockImg}
+          src={boatDockImg}
           alt="Yacht docked at marina — professional dock side care"
           quality={80}
           class="collage-img"
@@ -239,7 +243,7 @@ import dockImg from "../assets/images/charter owner.JPG";
       </div>
     </div>
 
-    <ContactButton />
+    <ContactButton label="Request a Private Consultation" />
   </div>
 </Layout>
 
@@ -250,7 +254,7 @@ import dockImg from "../assets/images/charter owner.JPG";
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--blue-sky);
+    background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
     z-index: -1;
   }
 
@@ -271,11 +275,47 @@ import dockImg from "../assets/images/charter owner.JPG";
     margin-bottom: var(--spacing-sm);
   }
 
-  h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+  .mgmt-hero {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: var(--spacing-xl);
-    color: var(--blue-dark);
+  }
+
+  .mgmt-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .mgmt-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(2, 62, 138, 0.45) 0%, rgba(0, 0, 0, 0.55) 100%);
+  }
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 0;
+    color: var(--white);
     text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .mgmt-hero {
+      height: 200px;
+    }
   }
 
   .mgmt-intro {
@@ -287,7 +327,7 @@ import dockImg from "../assets/images/charter owner.JPG";
   .mgmt-intro p {
     font-size: 1.15rem;
     line-height: 1.8;
-    color: var(--blue-dark);
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .mgmt-section {
@@ -402,6 +442,37 @@ import dockImg from "../assets/images/charter owner.JPG";
 
     .mgmt-text.wide {
       max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mgmt-page {
+      padding: var(--spacing-sm) var(--spacing-md) var(--spacing-xl);
+    }
+
+    .mgmt-hero {
+      height: 160px;
+    }
+
+    .mgmt-intro p {
+      font-size: 1rem;
+    }
+
+    .mgmt-text {
+      padding: var(--spacing-md);
+    }
+
+    .mgmt-text h2 {
+      font-size: 1.25rem;
+    }
+
+    .mgmt-text p,
+    .mgmt-text li {
+      font-size: 0.95rem;
+    }
+
+    .mgmt-section {
+      margin-bottom: var(--spacing-xl);
     }
   }
 </style>

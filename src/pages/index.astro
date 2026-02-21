@@ -1,69 +1,93 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import ContactButton from "../components/ContactButton.astro";
 import { Image } from "astro:assets";
 import frontPageImage from "../assets/images/front page.JPG";
+import managementRotationImage from "../assets/images/management rotation 3.JPG";
 import helmImg from "../assets/images/about-helm-inspection.png";
-import cockpitImg from "../assets/images/delivery cockpit.JPG";
-import charterImg from "../assets/images/charter sunset.JPG";
+import cockpitImg from "../assets/images/clean_delevery.png";
+import charterImg from "../assets/images/rental charter.JPG";
+import captainImg from "../assets/images/olivier_with_dog.png";
+import sunsetImg from "../assets/images/sunset_on_see.jpg";
 ---
 
 <Layout
   title="Home"
-  description="Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast."
+  description="Grand Bleu Yachts - Custom yacht management, delivery, and charter services in the Bahamas and East Coast."
   hideFooter={false}
-  backgroundImage={frontPageImage}
-  centerImage={true}
+  noBackground={true}
+  narrowBackground={true}
 >
-  <Hero />
+  <!-- HERO -->
+  <div class="hero-wrapper">
+    <div class="bg-rotator" aria-hidden="true">
+      <div class="bg-slide-wrap bg-slide-1">
+        <Image src={frontPageImage} alt="" class="bg-slide" loading="eager" quality={80} />
+      </div>
+      <div class="bg-slide-wrap bg-slide-2">
+        <Image src={managementRotationImage} alt="" class="bg-slide" loading="eager" quality={80} />
+      </div>
+    </div>
+    <Hero />
+  </div>
 
-  <!-- SCROLL-DOWN CONTENT -->
+  <!-- SCROLLABLE CONTENT -->
   <div class="home-content" id="home-content">
 
-    <!-- About Section -->
+    <!-- =====================
+         ABOUT / CAPTAIN
+         ===================== -->
     <section class="home-section about-section">
-      <div class="section-inner">
-        <div class="section-label">About Grand Bleu Yachts</div>
-        <h2>Personal Service, Professional Standards</h2>
-        <p class="about-lead">
-          I'm Captain Olivier — born and raised on the water in the South of
-          France, now based in South Florida. After decades behind the helm on
-          everything from classic sailboats to modern motor yachts, I built
-          Grand Bleu Yachts to offer owners the kind of personal, hands-on care
-          I'd want for my own vessel.
-        </p>
-        <div class="about-highlights">
-          <div class="highlight">
-            <span class="highlight-number">20+</span>
-            <span class="highlight-label">Years of Experience</span>
-          </div>
-          <div class="highlight-divider"></div>
-          <div class="highlight">
-            <span class="highlight-number">South FL</span>
-            <span class="highlight-label">Based in West Palm Beach</span>
-          </div>
-          <div class="highlight-divider"></div>
-          <div class="highlight">
-            <span class="highlight-number">One Captain</span>
-            <span class="highlight-label">Personal & Hands-On</span>
+      <div class="about-inner">
+        <!-- Left: text -->
+        <div class="about-text">
+          <span class="section-chip">About Grand Bleu</span>
+          <h2>Personal Service,<br/>Professional Standards</h2>
+          <blockquote class="captain-quote">
+            "I treat every boat like it's my own — because that's the only way I know how to work."
+          </blockquote>
+          <p class="about-lead">
+            I'm Captain Olivier — born and raised on the water in the South of France,
+            now based in South Florida. I built Grand Bleu Yachts to offer owners the
+            personal, hands-on care I'd want for my own vessel.
+          </p>
+        </div>
+
+        <!-- Right: captain photo -->
+        <div class="about-photo">
+          <Image
+            src={captainImg}
+            alt="Captain Olivier"
+            class="captain-img"
+            quality={88}
+          />
+          <div class="photo-badge">
+            <span class="photo-badge-icon">⚓</span>
+            <div>
+              <strong>Capt. Olivier</strong>
+              <span>USCG Licensed Master</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Overview -->
+    <!-- =====================
+         SERVICES
+         ===================== -->
     <section class="home-section services-section">
       <div class="section-inner">
-        <div class="section-label">Our Services</div>
-        <h2>Everything Your Yacht Needs</h2>
+        <span class="section-chip centered">Our Services</span>
+        <h2 class="centered">Everything Your Yacht Needs</h2>
 
         <div class="service-cards">
           <!-- Management -->
           <a href="/management" class="service-card">
+            <div class="card-num">01</div>
             <div class="card-image">
               <Image src={helmImg} alt="Yacht helm inspection" quality={80} class="card-img" />
               <div class="card-overlay"></div>
+              <div class="card-label">Management</div>
             </div>
             <div class="card-content">
               <h3>Management</h3>
@@ -72,15 +96,17 @@ import charterImg from "../assets/images/charter sunset.JPG";
                 and full coordination of all maintenance — so your yacht is
                 always ready when you are.
               </p>
-              <span class="card-link">Learn more <span class="card-arrow">&rarr;</span></span>
+              <span class="card-link">Learn more <span class="card-arrow">→</span></span>
             </div>
           </a>
 
           <!-- Delivery -->
           <a href="/delivery" class="service-card">
+            <div class="card-num">02</div>
             <div class="card-image">
               <Image src={cockpitImg} alt="Yacht cockpit during delivery" quality={80} class="card-img" />
               <div class="card-overlay"></div>
+              <div class="card-label">Delivery</div>
             </div>
             <div class="card-content">
               <h3>Delivery</h3>
@@ -89,74 +115,53 @@ import charterImg from "../assets/images/charter sunset.JPG";
                 Key West, Gulf of Mexico. Full pre-departure inspections,
                 weather routing, and regular updates.
               </p>
-              <span class="card-link">Learn more <span class="card-arrow">&rarr;</span></span>
+              <span class="card-link">Learn more <span class="card-arrow">→</span></span>
             </div>
           </a>
 
           <!-- Charter -->
           <a href="/charter" class="service-card">
+            <div class="card-num">03</div>
             <div class="card-image">
               <Image src={charterImg} alt="Charter yacht at sunset" quality={80} class="card-img" />
               <div class="card-overlay"></div>
+              <div class="card-label">Charter</div>
             </div>
             <div class="card-content">
               <h3>Charter</h3>
               <p>
-                Whether you want to rent a yacht for the day or list yours for
-                charter income, I handle everything from booking to logistics
-                so you can enjoy the water.
+                Rent a yacht for the day or list yours for charter income.
+                I handle bookings, guests, and logistics so you just enjoy the water.
               </p>
-              <span class="card-link">Learn more <span class="card-arrow">&rarr;</span></span>
+              <span class="card-link">Learn more <span class="card-arrow">→</span></span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="home-section why-section">
-      <div class="section-inner narrow">
-        <div class="section-label">Why Grand Bleu</div>
-        <h2>Why Owners Trust Me</h2>
-        <div class="why-grid">
-          <div class="why-item">
-            <span class="why-icon">&#9875;</span>
-            <div>
-              <strong>One Point of Contact</strong>
-              <p>No call centers, no middlemen. You deal directly with me — the captain who's on your boat.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <span class="why-icon">&#9874;</span>
-            <div>
-              <strong>Hands-On Care</strong>
-              <p>I don't manage from a desk. I'm the one checking your systems, running your engines, and keeping things right.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <span class="why-icon">&#9971;</span>
-            <div>
-              <strong>Transparent & Honest</strong>
-              <p>No hidden fees, no surprise charges. I tell you what needs doing, why, and what it'll cost — upfront.</p>
-            </div>
-          </div>
-          <div class="why-item">
-            <span class="why-icon">&#127754;</span>
-            <div>
-              <strong>Mediterranean to Florida</strong>
-              <p>My background from the South of France to South Florida has given me the experience to handle any yacht, any situation.</p>
-            </div>
-          </div>
-        </div>
+    <!-- =====================
+         CTA — SUNSET BG
+         ===================== -->
+    <section class="cta-section">
+      <div class="cta-bg-wrap">
+        <Image src={sunsetImg} alt="Sunset on the sea" class="cta-bg-img" quality={80} />
+        <div class="cta-bg-overlay"></div>
       </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="home-section cta-section">
-      <div class="section-inner narrow cta-inner">
-        <h2>Ready to Talk?</h2>
-        <p>Whether you need management, delivery, or charter services — I'd love to hear about your yacht and how I can help.</p>
-        <ContactButton />
+      <div class="cta-content">
+        <span class="section-chip">Ready to Get Started?</span>
+        <h2 class="cta-title">Let's Talk About<br/>Your Yacht</h2>
+        <p class="cta-sub">
+          Whether you need management, delivery, or charter services —
+          tell me about your yacht and I'll take it from there.
+        </p>
+        <a href="/contact" class="cta-consult-btn">
+          <span class="cta-btn-shimmer"></span>
+          Request a Private Consultation
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 10h12M10 4l6 6-6 6"/>
+          </svg>
+        </a>
       </div>
     </section>
 
@@ -164,6 +169,62 @@ import charterImg from "../assets/images/charter sunset.JPG";
 </Layout>
 
 <style>
+  /* ========================================
+     ROTATING BACKGROUND (HERO)
+     ======================================== */
+  .hero-wrapper {
+    position: relative;
+  }
+
+  .bg-rotator {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .bg-slide-wrap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .bg-slide-1 { animation: showFirst 14s ease-in-out infinite; }
+  .bg-slide-2 { animation: showSecond 14s ease-in-out infinite; opacity: 0; }
+
+  .bg-slide {
+    width: 100%;
+    height: calc(100% + 40px);
+    margin-top: -20px;
+    object-fit: cover;
+    object-position: center;
+    animation: floatVertical 8s ease-in-out infinite;
+  }
+
+  @keyframes floatVertical {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
+  }
+  @keyframes showFirst {
+    0%, 40%  { opacity: 1; }
+    50%, 90% { opacity: 0; }
+    100%     { opacity: 1; }
+  }
+  @keyframes showSecond {
+    0%, 40%  { opacity: 0; }
+    50%, 90% { opacity: 1; }
+    100%     { opacity: 0; }
+  }
+
+  @media (max-width: 768px) { .bg-slide-wrap { width: 100%; } }
+
+  /* ========================================
+     CONTENT WRAPPER
+     ======================================== */
   .home-content {
     position: relative;
     z-index: 2;
@@ -175,89 +236,179 @@ import charterImg from "../assets/images/charter sunset.JPG";
   }
 
   .section-inner {
-    max-width: 1000px;
+    max-width: 1040px;
     margin: 0 auto;
     width: 100%;
   }
 
   .section-inner.narrow {
-    max-width: 700px;
+    max-width: 740px;
   }
 
-  .section-label {
+  .section-chip {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.68rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     color: var(--blue-accent);
     background: rgba(0, 180, 216, 0.1);
-    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1px solid rgba(0, 180, 216, 0.22);
+    padding: 4px 14px;
     border-radius: var(--radius-full);
     margin-bottom: var(--spacing-md);
-    border: 1px solid rgba(0, 180, 216, 0.2);
+  }
+
+  .section-chip.centered {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   h2 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
     color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
     margin-bottom: var(--spacing-xl);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
   }
+
+  h2.centered { text-align: center; }
 
   /* ========================================
      ABOUT SECTION
      ======================================== */
   .about-section {
-    text-align: center;
     border-bottom: 1px solid rgba(116, 185, 223, 0.1);
   }
 
-  .about-lead {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 650px;
-    margin: 0 auto var(--spacing-xl);
-  }
-
-  .about-highlights {
-    display: flex;
+  .about-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--spacing-2xl);
     align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-lg);
   }
 
-  .highlight {
+  .about-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    gap: var(--spacing-md);
   }
 
-  .highlight-number {
+  .about-text h2 {
+    margin-bottom: 0;
+  }
+
+  .captain-quote {
     font-family: var(--font-family-heading);
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-style: italic;
+    color: rgba(202, 240, 248, 0.9);
+    border-left: 3px solid var(--blue-accent);
+    padding-left: var(--spacing-md);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .about-lead {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+  }
+
+  .about-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(116, 185, 223, 0.12);
+  }
+
+  .astat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .astat-num {
+    font-family: var(--font-family-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--white);
+    letter-spacing: -0.02em;
   }
 
-  .highlight-label {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.55);
+  .astat-label {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.48);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
   }
 
-  .highlight-divider {
+  .astat-line {
     width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.15);
+    height: 36px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Captain photo */
+  .about-photo {
+    position: relative;
+  }
+
+  .captain-img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: var(--radius-lg);
+    display: block;
+    filter: brightness(0.92) saturate(1.05);
+  }
+
+  .photo-badge {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: rgba(2, 62, 138, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .photo-badge-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .photo-badge strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .photo-badge span {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
   }
 
   /* ========================================
-     SERVICES CARDS
+     SERVICES
      ======================================== */
   .services-section {
     border-bottom: 1px solid rgba(116, 185, 223, 0.1);
@@ -272,23 +423,43 @@ import charterImg from "../assets/images/charter sunset.JPG";
   .service-card {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid rgba(116, 185, 223, 0.15);
+    border: 1px solid rgba(116, 185, 223, 0.13);
     text-decoration: none;
-    transition: all var(--transition-normal);
+    transition: all 0.35s ease;
+    position: relative;
   }
 
   .service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(116, 185, 223, 0.3);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    border-color: rgba(116, 185, 223, 0.32);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.38);
+  }
+
+  /* Ghost number behind card */
+  .card-num {
+    position: absolute;
+    top: -12px;
+    left: var(--spacing-md);
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(116, 185, 223, 0.07);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 2;
+    letter-spacing: -0.04em;
+    transition: color 0.35s ease;
+  }
+
+  .service-card:hover .card-num {
+    color: rgba(116, 185, 223, 0.13);
   }
 
   .card-image {
     position: relative;
-    height: 200px;
+    height: 230px;
     overflow: hidden;
   }
 
@@ -296,17 +467,32 @@ import charterImg from "../assets/images/charter sunset.JPG";
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow);
+    transition: transform 0.6s ease;
   }
 
   .service-card:hover .card-img {
-    transform: scale(1.05);
+    transform: scale(1.07);
   }
 
   .card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0, 21, 48, 0.6) 100%);
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(0, 15, 48, 0.75) 100%
+    );
+  }
+
+  .card-label {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: var(--spacing-md);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(202, 240, 248, 0.9);
   }
 
   .card-content {
@@ -317,39 +503,96 @@ import charterImg from "../assets/images/charter sunset.JPG";
   }
 
   .card-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--white);
     margin-bottom: var(--spacing-sm);
   }
 
   .card-content p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.65);
     flex: 1;
   }
 
   .card-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 6px;
     margin-top: var(--spacing-md);
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
     color: var(--blue-accent);
-    transition: gap var(--transition-fast);
-  }
-
-  .service-card:hover .card-link {
-    gap: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    transition: gap 0.2s ease;
   }
 
   .card-arrow {
-    transition: transform var(--transition-fast);
+    transition: transform 0.2s ease;
   }
 
-  .service-card:hover .card-arrow {
-    transform: translateX(3px);
+  .service-card:hover .card-link { gap: 10px; }
+  .service-card:hover .card-arrow { transform: translateX(3px); }
+
+  /* ========================================
+     IMAGE BREAK
+     ======================================== */
+  .img-break {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+  }
+
+  .img-break-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .img-break-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 10, 30, 0.85) 0%,
+      rgba(2, 62, 138, 0.45) 50%,
+      rgba(0, 10, 30, 0.65) 100%
+    );
+  }
+
+  .img-break-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-xl);
+  }
+
+  .img-break-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--blue-accent);
+  }
+
+  .img-break-quote {
+    font-family: var(--font-family-heading);
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-style: italic;
+    font-weight: 700;
+    color: var(--white);
+    max-width: 580px;
+    line-height: 1.4;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+    margin: 0;
   }
 
   /* ========================================
@@ -362,7 +605,7 @@ import charterImg from "../assets/images/charter sunset.JPG";
   .why-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 
   .why-item {
@@ -370,56 +613,162 @@ import charterImg from "../assets/images/charter sunset.JPG";
     gap: var(--spacing-md);
     align-items: flex-start;
     background: rgba(255, 255, 255, 0.04);
-    border-radius: var(--radius-md);
+    border: 1px solid rgba(116, 185, 223, 0.09);
+    border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    border: 1px solid rgba(116, 185, 223, 0.08);
+    transition: border-color 0.3s ease, background 0.3s ease;
   }
 
-  .why-icon {
-    font-size: 1.5rem;
-    min-width: 32px;
-    text-align: center;
+  .why-item:hover {
+    border-color: rgba(116, 185, 223, 0.22);
+    background: rgba(255, 255, 255, 0.065);
+  }
+
+  .why-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: rgba(116, 185, 223, 0.18);
     line-height: 1;
-    margin-top: 2px;
+    letter-spacing: -0.04em;
+    min-width: 48px;
+    flex-shrink: 0;
   }
 
-  .why-item strong {
+  .why-body strong {
     display: block;
-    color: var(--white);
     font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
     margin-bottom: var(--spacing-xs);
   }
 
-  .why-item p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.65);
+  .why-body p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0;
   }
 
   /* ========================================
-     CTA SECTION
+     CTA — SUNSET
      ======================================== */
   .cta-section {
-    padding-bottom: var(--spacing-2xl);
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .cta-inner {
-    text-align: center;
+  .cta-bg-wrap {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cta-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+  }
+
+  .cta-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 10, 30, 0.88) 0%,
+      rgba(2, 62, 138, 0.6) 50%,
+      rgba(0, 10, 30, 0.82) 100%
+    );
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    max-width: 620px;
   }
 
-  .cta-inner h2 {
-    margin-bottom: var(--spacing-md);
+  .cta-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: -0.025em;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
   }
 
-  .cta-inner p {
-    font-size: 1.05rem;
+  .cta-sub {
+    font-size: 1rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: var(--spacing-xl);
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .cta-consult-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #012a5e 0%, #023e8a 60%, #01204a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-top: var(--spacing-sm);
+  }
+
+  .cta-consult-btn svg {
+    width: 18px;
+    height: 18px;
+    color: rgba(212, 175, 55, 0.85);
+    flex-shrink: 0;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .cta-btn-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(212, 175, 55, 0.13) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0s;
+  }
+
+  .cta-consult-btn:hover .cta-btn-shimmer {
+    transform: translateX(100%);
+    transition: transform 0.55s ease;
+  }
+
+  .cta-consult-btn:hover {
+    border-color: rgba(212, 175, 55, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212,175,55,0.22);
+  }
+
+  .cta-consult-btn:hover svg {
+    transform: translateX(4px);
+    color: rgba(212, 175, 55, 1);
   }
 
   /* ========================================
@@ -427,60 +776,143 @@ import charterImg from "../assets/images/charter sunset.JPG";
      ======================================== */
   @media (max-width: 768px) {
     .home-section {
-      padding: var(--spacing-xl) var(--spacing-md);
+      padding: var(--spacing-lg) var(--spacing-md);
     }
 
-    .about-highlights {
+    /* About: stack vertically */
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .about-photo {
+      order: -1;
+    }
+
+    .captain-img {
+      height: 220px;
+      object-position: center 15%;
+    }
+
+    .photo-badge {
+      top: var(--spacing-sm);
+      bottom: auto;
+      gap: 4px;
+      padding: 4px 8px;
+    }
+
+    .photo-badge-icon {
+      font-size: 0.7rem;
+    }
+
+    .photo-badge strong {
+      font-size: 0.42rem;
+    }
+
+    .photo-badge span {
+      font-size: 0.34rem;
+    }
+
+    .about-stats {
       gap: var(--spacing-md);
     }
 
-    .highlight-number {
-      font-size: 1.1rem;
-    }
-
-    .highlight-label {
-      font-size: 0.65rem;
-    }
-
-    .highlight-divider {
-      height: 32px;
-    }
-
+    /* Service cards: horizontal layout (image left, text right) */
     .service-cards {
       grid-template-columns: 1fr;
+      gap: var(--spacing-sm);
+    }
+
+    .service-card {
+      flex-direction: row;
+    }
+
+    .card-num {
+      font-size: 3.5rem;
+      top: -8px;
     }
 
     .card-image {
-      height: 180px;
+      width: 120px;
+      min-width: 120px;
+      height: auto;
+      min-height: 120px;
+      flex-shrink: 0;
     }
 
+    .card-content {
+      padding: var(--spacing-md);
+    }
+
+    .card-content h3 {
+      font-size: 1rem;
+    }
+
+    .card-content p {
+      font-size: 0.82rem;
+    }
+
+    /* Why grid: single column */
     .why-grid {
       grid-template-columns: 1fr;
     }
+
+    /* Image break shorter */
+    .img-break {
+      height: 140px;
+    }
+
+    /* CTA */
+    .cta-section {
+      min-height: 260px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home-section {
+      padding: var(--spacing-md) var(--spacing-md);
+    }
+
+    .about-section {
+      padding-top: var(--spacing-2xl);
+    }
+
+    .captain-img {
+      height: 180px;
+    }
+
+    /* Stack stats vertically */
+    .about-stats {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+
+    .astat-line {
+      width: 36px;
+      height: 1px;
+    }
+
+    .card-image {
+      width: 100px;
+      min-width: 100px;
+      min-height: 110px;
+    }
+
+    .why-item {
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .img-break {
+      height: 110px;
+    }
+
+    .cta-content {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .cta-title {
+      font-size: 1.8rem;
+    }
   }
 </style>
-
-<script>
-  let scrolling = true;
-
-  function stopScroll() {
-    scrolling = false;
-    window.removeEventListener('wheel', stopScroll);
-    window.removeEventListener('touchstart', stopScroll);
-    window.removeEventListener('pointerdown', stopScroll);
-    window.removeEventListener('keydown', stopScroll);
-  }
-
-  window.addEventListener('wheel', stopScroll, { passive: true });
-  window.addEventListener('touchstart', stopScroll, { passive: true });
-  window.addEventListener('pointerdown', stopScroll);
-  window.addEventListener('keydown', stopScroll);
-
-  function autoScroll() {
-    if (!scrolling) return;
-    window.scrollBy(0, 1);
-    requestAnimationFrame(autoScroll);
-  }
-
-  requestAnimationFrame(autoScroll);
-</script>

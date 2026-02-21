@@ -13,15 +13,17 @@ interface Props {
   backgroundImage?: ImageMetadata;
   centerImage?: boolean;
   noBackground?: boolean;
+  narrowBackground?: boolean;
 }
 
 const {
   title,
-  description = "Grand Bleu Yachts - Premium yacht management, delivery, and charter services in the Bahamas and East Coast.",
+  description = "Grand Bleu Yachts - Custom yacht management, delivery, and charter services in the Bahamas and East Coast.",
   hideFooter = false,
   backgroundImage = defaultBg,
   centerImage = false,
   noBackground = false,
+  narrowBackground = false,
 } = Astro.props;
 ---
 
@@ -56,12 +58,12 @@ const {
   </head>
   <body>
     <Header />
-    <main>
+    <main class={narrowBackground ? 'narrow-bg' : ''}>
       {!noBackground && (
         <Image
           src={backgroundImage}
           alt="Background"
-          class={`main-bg ${centerImage ? 'centered' : ''}`}
+          class={`main-bg ${centerImage ? 'centered' : ''} ${narrowBackground ? 'compact' : ''}`}
           loading="eager"
           quality={80}
         />
@@ -130,7 +132,7 @@ const {
       top: 0;
       left: 0;
       width: 100%;
-      height: calc(100vh - var(--footer-height));
+      height: 100dvh;
       object-fit: cover;
       object-position: center bottom;
       z-index: -1;
@@ -150,9 +152,45 @@ const {
       object-position: center center;
     }
 
+    .main-bg.compact {
+      width: 65%;
+      left: 50%;
+      right: auto;
+      animation: float-vertical-compact 12s ease-in-out infinite;
+    }
+
+    @keyframes float-vertical-compact {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(var(--footer-height));
+      }
+    }
+
+    main.narrow-bg {
+      background: linear-gradient(165deg, #001a3a 0%, #023e8a 40%, #012a5e 70%, #001530 100%);
+    }
+
     @media (max-width: 768px) {
       .main-bg.centered {
         object-position: calc(50% - 150px) center;
+      }
+
+      .main-bg.compact {
+        width: 85%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-bg.compact {
+        width: 100%;
+      }
+
+      .main-bg {
+        object-position: center center;
+        animation: none;
+        transform: none;
       }
     }
 

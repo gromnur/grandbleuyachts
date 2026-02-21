@@ -9,7 +9,7 @@ import ownerImage from '../../assets/images/charter owner.JPG';
 <Layout
   title="List Your Yacht"
   description="Generate income from your yacht by listing it in our charter fleet. Full management from booking to guest care."
-  hideFooter={true}
+  hideFooter={false}
   noBackground={true}
 >
   <div class="list-bg"></div>
@@ -28,7 +28,7 @@ import ownerImage from '../../assets/images/charter owner.JPG';
     <div class="hero-overlay"></div>
 
     <div class="hero-top">
-      <BackButton href="/charter" />
+      <BackButton href="/" />
     </div>
 
     <div class="hero-content">
@@ -42,10 +42,6 @@ import ownerImage from '../../assets/images/charter owner.JPG';
     </div>
 
     <div class="hero-bottom">
-      <div class="hero-nav">
-        <a href="/charter/rent" class="nav-btn">Rent a Yacht</a>
-        <a href="/management" class="nav-btn">Management</a>
-      </div>
       <button class="scroll-indicator" id="scroll-down" aria-label="Scroll down">
         <span class="scroll-text">How it works</span>
         <span class="scroll-arrow"></span>
@@ -76,42 +72,42 @@ import ownerImage from '../../assets/images/charter owner.JPG';
         <h2>What I Take Care Of</h2>
         <div class="services-grid">
           <div class="service-item">
-            <span class="service-icon">&#128227;</span>
+            <span class="service-icon">◆</span>
             <div>
               <strong>Marketing & Booking</strong>
               <p>Professional listing, photography coordination, and booking management to attract the right guests.</p>
             </div>
           </div>
           <div class="service-item">
-            <span class="service-icon">&#128101;</span>
+            <span class="service-icon">◆</span>
             <div>
               <strong>Guest Vetting</strong>
               <p>Every guest is screened for experience and reliability. Your yacht only goes to people I'd trust on my own boat.</p>
             </div>
           </div>
           <div class="service-item">
-            <span class="service-icon">&#128295;</span>
+            <span class="service-icon">◆</span>
             <div>
               <strong>Maintenance Oversight</strong>
               <p>Before and after every charter — full inspections, cleaning, and any needed repairs. She always comes back right.</p>
             </div>
           </div>
           <div class="service-item">
-            <span class="service-icon">&#128176;</span>
+            <span class="service-icon">◆</span>
             <div>
               <strong>Financial Reporting</strong>
               <p>Clear, transparent income and expense reports. You always know exactly where your money is going.</p>
             </div>
           </div>
           <div class="service-item">
-            <span class="service-icon">&#128197;</span>
+            <span class="service-icon">◆</span>
             <div>
               <strong>Flexible Scheduling</strong>
               <p>Use your yacht whenever you want. I work around your schedule and block out your personal dates first.</p>
             </div>
           </div>
           <div class="service-item">
-            <span class="service-icon">&#9875;</span>
+            <span class="service-icon">◆</span>
             <div>
               <strong>Crew Coordination</strong>
               <p>If your yacht needs crew, I handle placement and briefing so every charter runs smoothly from start to finish.</p>
@@ -254,38 +250,6 @@ import ownerImage from '../../assets/images/charter owner.JPG';
     flex-direction: column;
     align-items: center;
     padding-bottom: var(--spacing-lg);
-    gap: var(--spacing-lg);
-  }
-
-  .hero-nav {
-    display: flex;
-    gap: var(--spacing-md);
-  }
-
-  .nav-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-xl);
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--white);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-  }
-
-  .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.22);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
   .scroll-indicator {
@@ -421,11 +385,12 @@ import ownerImage from '../../assets/images/charter owner.JPG';
   }
 
   .service-icon {
-    font-size: 1.4rem;
+    font-size: 0.7rem;
     min-width: 28px;
     text-align: center;
     line-height: 1;
-    margin-top: 2px;
+    margin-top: 4px;
+    opacity: 0.5;
   }
 
   .service-item strong {
@@ -518,21 +483,42 @@ import ownerImage from '../../assets/images/charter owner.JPG';
       padding: 0 var(--spacing-md);
     }
 
-    .hero-nav {
-      gap: var(--spacing-sm);
-    }
-
-    .nav-btn {
-      padding: var(--spacing-sm) var(--spacing-lg);
-      font-size: 0.8rem;
-    }
-
     .list-page {
       padding: var(--spacing-xl) var(--spacing-md);
     }
 
     .services-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .list-page {
+      padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+    }
+
+    .list-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .list-text {
+      padding: var(--spacing-md);
+    }
+
+    .list-text h2 {
+      font-size: 1.25rem;
+    }
+
+    .list-text p {
+      font-size: 0.95rem;
+    }
+
+    /* Step numbers slightly smaller */
+    .step-number {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      font-size: 1rem;
     }
   }
 </style>
